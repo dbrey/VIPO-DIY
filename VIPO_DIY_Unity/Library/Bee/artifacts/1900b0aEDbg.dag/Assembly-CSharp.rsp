@@ -408,6 +408,7 @@
 "Assets/Scripts/Managers/ChatManager.cs"
 "Assets/Scripts/Managers/FollowManager.cs"
 "Assets/Scripts/Managers/SuscriptionManager.cs"
+"Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/StreamerBotEventManager.cs"
 "Assets/Scripts/TwitchUtils.cs"
 "Assets/Scripts/UDP/StreamerBotUDPReceiver.cs"

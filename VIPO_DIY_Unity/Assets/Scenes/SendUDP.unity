@@ -188,6 +188,8 @@ MonoBehaviour:
   actions:
   - name: TestConnection
     id: 5171e4e7-8268-4d0f-9a97-07aaa5c4d65f
+  - name: CreateClip
+    id: 9aab766c-115e-4ad7-b9e4-ce657892dca2
   port: 4242
 --- !u!1 &218594440
 GameObject:

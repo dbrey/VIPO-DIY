@@ -73,20 +73,6 @@ public class UDPSend : MonoBehaviour
                 Debug.Log("You may have a duplicated action with the same name. Make sure that all actions have different names");
             }
         }
-
-        // Este funciona pero solo manda un mensaje
-        //jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": ""e2458bd3-cd75-451a-a57a-64ebe184100a"" }, ""args"":{""key"": ""Este mensaje es el argumento""}  }";
-
-        // Este funciona y manda lo que hay dentro del argumento
-        //jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": ""5171e4e7-8268-4d0f-9a97-07aaa5c4d65f"" }, ""args"":{""argument"": ""Este mensaje es el argumento""}  }";
-
-        // Este funciona y manda el argumento que se le pasa, en este caso cambia el coste de la recompensa a 148
-        // Streamerbot no acepta argumentos sobre como cambiar el estado activo de una recompensa
-        // Para modificar cualquier recompensa, esta debe haber sido creada desde Streamerbot
-        //jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": ""5171e4e7-8268-4d0f-9a97-07aaa5c4d65f"" }, ""args"":{""argument"": ""148""}  }";
-
-        //jsonString = @"{ ""request"": ""getActions"" }";
-
     }
 
     private void Update()
