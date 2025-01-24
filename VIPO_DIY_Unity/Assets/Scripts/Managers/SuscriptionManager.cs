@@ -1,10 +1,9 @@
 using UnityEngine;
+using Twitch_data;
 
 public class SuscriptionManager : MonoBehaviour
 {
     public static SuscriptionManager instance;
-
-
 
     private void Awake()
     {
@@ -35,18 +34,33 @@ public class SuscriptionManager : MonoBehaviour
 
     #region Methods called by StreamerBotEvent Manager
 
-    public void SuscriptionEvent(string subscriberName, string subscriberProfilePicture, int monthsSuscribed, string tier)
-    { 
-        // We receive the name, profile picture, months suscribed and tier of the subscriber
-
-        Debug.Log(subscriberName + " decided to suscribe to me for " + monthsSuscribed + " months with tier " + tier);
-    }
-
-    public void SuscriptionGiftEvent(string gifterName, string gifterProfilePicture, string receiverName, string receiverProfilePicture, int monthsSuscribed, string tier)
+    public void SuscriptionEvent(TwitchUtils.User user, TwitchUtils.Subscription subscription)
     {
         // We receive the name, profile picture, months suscribed and tier of the subscriber
 
-        Debug.Log(gifterName + " decided to gift a suscription to " + receiverName + " for " + monthsSuscribed + " months with tier " + tier);
+        assignSuscriptionToUser(user, subscription);
+
+        Debug.Log(user.UserName + " decided to suscribe to me for " + subscription.SubscribedMonthCount + " months with tier " + subscription.Tier);
+    }
+
+    public void SuscriptionGiftEvent(TwitchUtils.User user, TwitchUtils.Subscription subscription)
+    {
+        // We receive the name, profile picture, months suscribed and tier of the subscriber
+        assignSuscriptionToUser(user, subscription);
+
+        // We have to take into account if the gifter is anonymous. If it is, then we don't have a user to access
+        //Debug.Log(subscription.Gifter + " decided to gift a suscription to " + receiverName + " for " + monthsSuscribed + " months with tier " + tier);
+    }
+
+    #endregion
+
+    #region You don't need to touch this
+
+    // Aqui asignamos la suscripcion al usuario para proximas referencias 
+    // Here we assign the suscription to the user for future references
+    void assignSuscriptionToUser(TwitchUtils.User user, TwitchUtils.Subscription subscription)
+    { 
+        user.subscription = subscription;
     }
 
     #endregion

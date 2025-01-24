@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Twitch_data;
 
 public class ChatManager : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class ChatManager : MonoBehaviour
         public string name; // The name of the command
         public bool enabled; // Is the command enabled?
         public float timer; // Cooldown timer
-        public int permissions; // 0 = everyone, 1 = subscriber, 2 = VIP, 3 = moderator, 4 = broadcaster
+        public TwitchUtils.Permissions permissions; // 0 = everyone, 1 = subscriber, 2 = VIP, 3 = moderator, 4 = broadcaster
         // We add an empty method to the struct so we can override it later
-        public virtual void ExecuteCommand(string username, string userProfilePicture, List<string> commandArguments)
+        public virtual void ExecuteCommand(TwitchUtils.User user, List<string> commandArguments)
         {
             // We will override this method later
         }
@@ -103,14 +104,23 @@ public class ChatManager : MonoBehaviour
     #region Methods called by StreamerBotEvent Manager
     
 
-    private void CallCommand(string username, string userProfilePicture, List<string> commandArguments)
+    private void CallCommand(TwitchUtils.User user, List<string> commandArguments)
     {
         // We check the first element of the command, which is the command itself
-        commands[commandArguments[0]].ExecuteCommand(username, userProfilePicture,commandArguments);
+        if (commands.ContainsKey(commandArguments[0]) && commands[commandArguments[0]].enabled)
+        {
+            // We check if the user has the same or above permissions than the command
+            if (user.permissions >= commands[commandArguments[0]].permissions)
+            {
+                // We call the command
+                commands[commandArguments[0]].ExecuteCommand(user, commandArguments);
+            }
+        }
+        
     }
 
 
-    public void ReceiveChatMessage(string username, string userProfilePicture, string message)
+    public void ReceiveChatMessage(TwitchUtils.User user, string message)
     {
         // Comprobamos si el mensaje es un comando, mirando si su primer caracter es un !
         // We check if the message is a command, looking if its first character is a !
@@ -140,7 +150,7 @@ public class ChatManager : MonoBehaviour
         {
             string[] messageParts = message.Split(' ');
             messageParts[0] = messageParts[0].Substring(1);
-            CallCommand(username, userProfilePicture, new List<string>(messageParts));
+            CallCommand(user, new List<string>(messageParts));
         }
         else
         {

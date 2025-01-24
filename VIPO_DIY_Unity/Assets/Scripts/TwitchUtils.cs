@@ -8,32 +8,78 @@ namespace Twitch_data
     {
         public enum Permissions
         {
+            /// The higher the number, the more permissions the user has
+            /// Maybe the suscribers have another tier of permissions depending on the tier of the suscription
+
+
+            Broadcaster = 5,
+
+            // Have to be assigned by the broadcaster in Twitch. Should have access to Moderation tools
+            Mods = 4,
+
+            // Have to be assigned by the broadcaster in Twitch
+            VIPs = 3,
+
+            // This can only be accessed if a viewer has a subscription
+            Subscribers = 2,
             
-            /// Only the broadcaster is permitted to use the command. This is implied by all other permissions so never needs to be passed in with them
-            Broadcaster = 0,
+            // This can only be accessed if a viewer is following the channel
+            Follower = 1,
 
-            /// Channel Moderators are permitted to use the command
-            Mods = 1,
+            Everyone = 0
+        }
+        public enum SubscriptionTier
+        {
+            /// I suppose this is the order of the tiers simply because in order to be tier 3 
+            /// you have to pay like 25$ meanwhile in order to be tier1 you just need 5$
 
-            /// Channel VIPs are permitted to use the command
-            VIPs = 2,
+            // The user have to pay 25$ to be tier 3, so it's the highest tier
+            Tier3 = 4,
 
-            /// Channel Subscribers are permitted to use the command
-            Subscribers = 4,
+            // The user have to pay 10$ to be tier 2
+            Tier2 = 3,
 
-            /// Anyone viewing the stream is permitted to use the command. This obviously overrides all other permissions
-            Everyone = 8
+            // The user have to pay 5$ to be tier 1
+            Tier1 = 2,
+
+            // The user have to have Amazon Prime to be Prime (Amazon Prime gives the user a free subscription to a channel)
+            Prime = 1,
+
+            // The user is not subscribed or there is an error and the tier is not set
+            NotSet = 0
+
+        }
+
+        public struct User
+        {
+            /// The user's username, used to log in to Twitch
+            public string UserName;
+
+            public string profilePictureURL;
+
+            public Permissions permissions; // We know what kind of user it is by the permissions
+
+            /// Whether or not the user is lurking in chat
+            //public bool IsLurking;
+
+            /// Details of the user's subscription. Will be null if the user isn't subscribed. May also be null even if the user *is* subscribed.
+            public Subscription subscription;
+
+            public void newUser(string userName, string profileURL, Permissions permissions, Subscription sub)
+            {
+                UserName = userName;
+                profilePictureURL = profileURL;
+                this.permissions = permissions;
+                subscription = sub;
+                // Suscription is null by default
+            }
         }
 
         public class Subscription
         {
-            /// <summary>
+            
             /// The total number of months the user has been subscribed to the channel
-            /// </summary>
-            /// <remarks>
-            /// Set if the user subscribed/re-subscribed or chatted since the overlay was opened
-            /// </remarks>
-            public int SubscribedMonthCount { get; internal set; }
+            public int SubscribedMonthCount;
 
             /// <summary>
             /// The number of concurrent months in the user has been subscribed in their current streak
@@ -41,156 +87,50 @@ namespace Twitch_data
             /// <remarks>
             /// This is only set if the user subscribed/re-subscribed since the overlay was opened
             /// </remarks>
-            public int StreakMonths { get; internal set; }
+            //public int StreakMonths { get; internal set; }
 
-            /// <summary>
+            
             /// The tier the user subscribed at.
-            /// </summary>
-            /// <remarks>
             /// This should always be set if the user is subscribed and the data is available
-            /// </remarks>
-            public SubscriptionTier Tier { get; internal set; }
+            public SubscriptionTier Tier;
 
-            /// <summary>
-            /// The name of the subscription plan (usually something like "Channel Subscription (channelname)")
-            /// </summary>
-            /// <remarks>
-            /// This should always be set if the user is subscribed
-            /// </remarks>
-            public string PlanName { get; internal set; }
-
-            /// <summary>
             /// Whether the subscription is a gift sub
-            /// </summary>
-            /// <remarks>
             /// This should always be set if the user is subscribed
-            /// </remarks>
-            public bool IsGift { get; internal set; }
+            public bool IsGift;
 
-            /// <summary>
             /// A user with details of the gifter
-            /// </summary>
-            /// <remarks>
             /// This will be null if this is not a gift subscription or the gift was anonymous
-            /// </remarks>
-            public User Gifter { get; internal set; }
+            public User Gifter;
 
-            static internal SubscriptionTier TierForString(string tierString)
-            {
-                if (tierString == "1000")
-                {
-                    return SubscriptionTier.Tier1;
-                }
-                else if (tierString == "2000")
-                {
-                    return SubscriptionTier.Tier2;
-                }
-                else if (tierString == "3000")
-                {
-                    return SubscriptionTier.Tier3;
-                }
-                else if (tierString == "Prime")
-                {
-                    return SubscriptionTier.Prime;
-                }
-                return SubscriptionTier.NotSet;
-            }
 
-            static internal string StringForTier(SubscriptionTier tier)
+            public void selectTier(string tier)
             {
                 switch (tier)
                 {
-                    case SubscriptionTier.Prime:
-                        return "Prime";
-                    case SubscriptionTier.Tier1:
-                        return "1000";
-                    case SubscriptionTier.Tier2:
-                        return "2000";
-                    case SubscriptionTier.Tier3:
-                        return "3000";
-                    default:
-                        return null;
+                    case "prime":
+                        Tier = SubscriptionTier.Prime;
+                        break;
+                    case "tier 1":
+                        Tier = SubscriptionTier.Tier1;
+                        break;
+                    case "tier 2":
+                        Tier = SubscriptionTier.Tier2;
+                        break;
+                    case "tier 3":
+                        Tier = SubscriptionTier.Tier3;
+                        break;
                 }
             }
-        }
 
-
-        /// A list of subscription tiers
-        public enum SubscriptionTier
-        {
-
-            /// If the tier is not available, or if Twitch returns an unknown tier string the tier will be NotSet
-            NotSet,
-            Prime,
-            Tier1,
-            Tier2,
-            Tier3
-        }
-
-        public class User
-        {
-
-            /// The ID of the user, usually a series of numbers
-            public string UserId { get; }
-
-
-            /// The user's username, used to log in to Twitch
-            public string UserName { get; }
-
-
-            /// The user's display name, shown in Twitch's UI
-            public string DisplayName { get; }
-
-            internal User(string userID, string userName, string displayName)
+            public void newSubscription(int subscribedMonthCount, string tier, bool isGift, User gifter)
             {
-                this.UserId = userID;
-                this.UserName = userName;
-                this.DisplayName = displayName;
+                SubscribedMonthCount = subscribedMonthCount;
+                selectTier(tier);
+                IsGift = isGift;
+                Gifter = gifter;
             }
-
-            /// Whether or not the user is the broadcaster
-            public bool IsBroadcaster { get; internal set; } = false;
-
-            /// Whether or not the user is a moderator
-            public bool IsModerator { get; internal set; } = false;
-
-            /// Whether or not the user is a VIP
-            public bool IsVIP { get; internal set; } = false;
-
-            /// Whether or not the user is Subscribed
-            public bool IsSubscriber { get; internal set; } = false;
-
-            /// Whether or not the user is lurking in chat
-            public bool IsLurking { get; internal set; } = false;
-
-            /// Details of the user's subscription. Will be null if the user isn't subscribed. May also be null even if the user *is* subscribed.
-            public Subscription? Subscription { get; internal set; } = null;
-
-            public Color? ChatColor { get; internal set; } = null;
-
-
-            #region Permissions
-             internal bool IsPermitted(Permissions permissions)
-             {
-                 if ((permissions & Permissions.Everyone) == Permissions.Everyone)
-                     return true;
-                 
-                 if (this.IsBroadcaster)
-                     return true;
-                 
-                 if ((permissions & Permissions.Mods) == Permissions.Mods && this.IsModerator)
-                    return true;
-
-                 if ((permissions & Permissions.VIPs) == Permissions.VIPs && this.IsVIP)
-                     return true;
-                 
-                 if ((permissions & Permissions.Subscribers) == Permissions.Subscribers && this.IsSubscriber)
-                     return true;
-                 
-                 return false;
-             }
-             #endregion
         }
+       
     }
 }
 

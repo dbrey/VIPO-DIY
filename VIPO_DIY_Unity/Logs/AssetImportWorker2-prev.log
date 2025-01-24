@@ -15,7 +15,7 @@ C:/Users/Usuario/Desktop/Proyectos/VIPO-DIY/VIPO_DIY_Unity
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-55211
+64248
 -job-worker-count
 11
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/Usuario/Desktop/Proyectos/VIPO-DIY/VIPO_DIY_Unity
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [37192]  Target information:
+Player connection [30544]  Target information:
 
-Player connection [37192]  * "[IP] 192.168.1.131 [Port] 0 [Flags] 2 [Guid] 3261851177 [EditorId] 3261851177 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-771TREB) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [30544]  * "[IP] 192.168.1.131 [Port] 0 [Flags] 2 [Guid] 432423042 [EditorId] 432423042 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-771TREB) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [37192] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [37192] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [30544] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [30544] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 11
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.39 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.62 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.34f1 (5ab2d9ed9190)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Resources/UnitySubsystems
@@ -92,46 +92,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56484
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56436
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.005980 seconds.
-- Loaded All Assemblies, in  0.518 seconds
+Registered in 0.005269 seconds.
+- Loaded All Assemblies, in  0.444 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 337 ms
+Android Extension - Scanning For ADB Devices 421 ms
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.749 seconds
-Domain Reload Profiling: 1264ms
-	BeginReloadAssembly (187ms)
+- Finished resetting the current domain, in  0.831 seconds
+Domain Reload Profiling: 1272ms
+	BeginReloadAssembly (162ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (54ms)
-	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (63ms)
-	LoadAllAssembliesAndSetupDomain (191ms)
-		LoadAssemblies (182ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (170ms)
+		LoadAssemblies (156ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (187ms)
-			TypeCache.Refresh (186ms)
-				TypeCache.ScanAssembly (172ms)
+		AnalyzeDomain (167ms)
+			TypeCache.Refresh (165ms)
+				TypeCache.ScanAssembly (152ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (749ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (832ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (706ms)
+		SetupLoadedEditorAssemblies (789ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (445ms)
+			InitializePlatformSupportModulesInManaged (531ms)
 			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (64ms)
-			ProcessInitializeOnLoadAttributes (120ms)
-			ProcessInitializeOnLoadMethodAttributes (71ms)
+			BeforeProcessingInitializeOnLoad (59ms)
+			ProcessInitializeOnLoadAttributes (126ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -140,51 +140,171 @@ Domain Reload Profiling: 1264ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.807 seconds
-Refreshing native plugins compatible for Editor in 1.63 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.838 seconds
+Refreshing native plugins compatible for Editor in 2.17 ms, found 3 plugins.
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.742 seconds
-Domain Reload Profiling: 1544ms
-	BeginReloadAssembly (190ms)
+- Finished resetting the current domain, in  0.780 seconds
+Domain Reload Profiling: 1612ms
+	BeginReloadAssembly (191ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (31ms)
-	RebuildCommonClasses (41ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (40ms)
 	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (38ms)
-	LoadAllAssembliesAndSetupDomain (520ms)
-		LoadAssemblies (418ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (546ms)
+		LoadAssemblies (427ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (217ms)
-			TypeCache.Refresh (168ms)
-				TypeCache.ScanAssembly (153ms)
-			BuildScriptInfoCaches (41ms)
+		AnalyzeDomain (231ms)
+			TypeCache.Refresh (182ms)
+				TypeCache.ScanAssembly (164ms)
+			BuildScriptInfoCaches (42ms)
 			ResolveRequiredComponents (5ms)
-	FinalizeReload (742ms)
+	FinalizeReload (781ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (614ms)
+		SetupLoadedEditorAssemblies (654ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (11ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (158ms)
-			ProcessInitializeOnLoadAttributes (407ms)
-			ProcessInitializeOnLoadMethodAttributes (24ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (163ms)
+			ProcessInitializeOnLoadAttributes (439ms)
+			ProcessInitializeOnLoadMethodAttributes (28ms)
 			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (6ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 1.89 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 1.88 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 3402 unused Assets / (0.8 MB). Loaded Objects now: 3900.
-Memory consumption went from 86.2 MB to 85.4 MB.
-Total: 6.671200 ms (FindLiveObjects: 0.558900 ms CreateObjectMapping: 0.267900 ms MarkObjects: 4.661800 ms  DeleteObjects: 1.180700 ms)
+Unloading 3402 unused Assets / (1.1 MB). Loaded Objects now: 3900.
+Memory consumption went from 86.4 MB to 85.3 MB.
+Total: 9.780800 ms (FindLiveObjects: 0.644800 ms CreateObjectMapping: 0.217100 ms MarkObjects: 7.081400 ms  DeleteObjects: 1.835900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 522583.199155 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/arrow_bundle.fbx
+  artifactKey: Guid(baf9476bb5e76ff4a837ccf9a9e7ee29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/arrow_bundle.fbx using Guid(baf9476bb5e76ff4a837ccf9a9e7ee29) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1ba2cdb1ae2f1ae9bb32a4bda52c69b8') in 0.1813868 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/barbarian_texture.png
+  artifactKey: Guid(c7ac8c10d41bec94e809882bd17ddb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/barbarian_texture.png using Guid(c7ac8c10d41bec94e809882bd17ddb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e9980baf3dd6c966ae1644f13bc97060') in 0.0165164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/shield_round_barbarian.fbx
+  artifactKey: Guid(9e14ba79dbf4b9c4cb730f12f13c3cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/shield_round_barbarian.fbx using Guid(9e14ba79dbf4b9c4cb730f12f13c3cdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2be812507cbce38b143beab5e843ea2f') in 0.02053 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/crossbow_1handed.fbx
+  artifactKey: Guid(eef2c578631837e4694a2cfff83c5297) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/crossbow_1handed.fbx using Guid(eef2c578631837e4694a2cfff83c5297) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b42aff81a95265e7ee4e3780a82c1e55') in 0.0200459 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/staff.fbx
+  artifactKey: Guid(7d2c1c3a27b8a6f4f95b6451090ffdc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/staff.fbx using Guid(7d2c1c3a27b8a6f4f95b6451090ffdc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '171bfba48a9907676152607efac823cc') in 0.016391 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/sword_2handed_color.fbx
+  artifactKey: Guid(41959ef8d6bffea438e27597770cea35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/sword_2handed_color.fbx using Guid(41959ef8d6bffea438e27597770cea35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5057206d0f162ff9cb4866936d864db2') in 0.0163395 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/crossbow_2handed.fbx
+  artifactKey: Guid(468d3566a4d5cd140878add6144f7463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/crossbow_2handed.fbx using Guid(468d3566a4d5cd140878add6144f7463) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b10cc4db35eb8a1112a90d8f2724f152') in 0.0162493 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/mage_texture.png
+  artifactKey: Guid(b7172dc7db2898f47b2ee7e94941b68e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/mage_texture.png using Guid(b7172dc7db2898f47b2ee7e94941b68e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1905e4d83f9816f3b53c8f8834a92667') in 0.0062617 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000094 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/quiver.fbx
+  artifactKey: Guid(c22b589eaa1bf554aa5d337cacfabda4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/quiver.fbx using Guid(c22b589eaa1bf554aa5d337cacfabda4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5c25e99a349d939954c84ceafe748d95') in 0.0187706 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/spellbook_open.fbx
+  artifactKey: Guid(7db7622b14a15fa4abfdbf56007e76f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/spellbook_open.fbx using Guid(7db7622b14a15fa4abfdbf56007e76f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d054417275c3e9f65887547807b2443') in 0.0154979 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/mug_full.fbx
+  artifactKey: Guid(28d60a7e60521cf4ea20a4962a493511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/mug_full.fbx using Guid(28d60a7e60521cf4ea20a4962a493511) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '508d67ba085900899b4b063d01feef92') in 0.0156319 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/shield_badge_color.fbx
+  artifactKey: Guid(3dacae5899fd9cb488a2b869e443f255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/shield_badge_color.fbx using Guid(3dacae5899fd9cb488a2b869e443f255) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5c47b4867064fd7dcbc6cd5bdebd42f7') in 0.0164898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/shield_badge.fbx
+  artifactKey: Guid(9792a8c47473b9f4e83722d3a93f33fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/shield_badge.fbx using Guid(9792a8c47473b9f4e83722d3a93f33fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bc96c805667122a2a91cbe47c83b1e36') in 0.0203529 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/axe_2handed.fbx
+  artifactKey: Guid(1756546eea6a1fa4787bd6314b4daca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/axe_2handed.fbx using Guid(1756546eea6a1fa4787bd6314b4daca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '029d3709a98753b9591a661b412e8bb2') in 0.0206071 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported/KayKit_Adventurers/Models/fbx/shield_square_color.fbx
+  artifactKey: Guid(58e3a2ae7aa741f4db8a952cb2174868) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/KayKit_Adventurers/Models/fbx/shield_square_color.fbx using Guid(58e3a2ae7aa741f4db8a952cb2174868) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6f68c45a3ac5bbd13098e687bdcc325e') in 0.031551 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server

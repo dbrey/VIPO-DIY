@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Twitch_data;
 
 #region Como usar
 ///
@@ -76,14 +77,16 @@ public class FollowManager : MonoBehaviour
     /// ADVISE : If you want to access to the profile picture of the user, you can use the URL to download the picture and have it as a Texture2D
     ///
     #endregion
-    public void FollowEvent(string username, string profilePictureURL)
+    public void FollowEvent(TwitchUtils.User user)
     {
-        printFollowNotification(username, profilePictureURL);
+        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this line and it's completely safe! It simply disconnects the action from the event
+        ExampleManager.instance.FollowExample(user);
 
         // [OPTIONAL]
         // Guardamos el ultimo seguidor para que el usuario pueda acceder a ello mas tarde
         // We store the latest follower so the user can access it later
-        if(storeLatestFollowers)
+        if (storeLatestFollowers)
         {
             // If the list is full, we remove the oldest follower
             if(latestFollowers.Count >= nLatestFollowers)
@@ -97,9 +100,11 @@ public class FollowManager : MonoBehaviour
     // Program the effects of your Follow notifications here!
     #region 
 
-    void printFollowNotification(string username, string profilePictureURL)
+    // Esto es un ejemplo de lo que puedes hacer cuando alguien te sigue
+    // This is an example of what you can do when someone follows you
+    void printFollowNotification(TwitchUtils.User user)
     {
-        Debug.Log(username + " decided to follow me for some reason");
+        Debug.Log(user.UserName + " decided to follow me for some reason");
     }
 
     #endregion

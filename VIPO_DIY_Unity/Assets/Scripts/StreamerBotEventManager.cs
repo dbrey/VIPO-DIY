@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StreamerBotUDP;
+using Twitch_data;
 
 public class StreamerBotEventManager : StreamerBotUDPReceiver
 {
@@ -52,8 +53,17 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void FollowEvent(StreamerBotEventData eventData)
     {
-        FollowManager.instance.FollowEvent(eventData.UserName, eventData.UserProfileImage);
+        TwitchUtils.User user = new TwitchUtils.User();
+        //user.newUser(eventData.UserName, eventData.UserProfileImage, TwitchUtils.Permissions.Follower, null);
+        user.UserName = eventData.UserName;
+        user.profilePictureURL = eventData.UserProfileImage;
 
+        // There might be a case where a suscriber has not followed the channel, so we have to check if the user is a suscriber to keep the permissions
+        // This also applies to subscription
+        //user.permissions = TwitchUtils.Permissions.Follower;
+        //user.subscription = TwitchUtils.SubscriptionTier.NotSet;
+
+        FollowManager.instance.FollowEvent(user);
     }
 
     private void BitsEvent(StreamerBotEventData eventData)
@@ -64,7 +74,13 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
     private void ChatMessageEvent(StreamerBotEventData eventData)
     {
         // We send the message to the chat manager
-        ChatManager.instance.ReceiveChatMessage(eventData.UserName, eventData.UserProfileImage, eventData.UserProfileImage);
+        TwitchUtils.User user = new TwitchUtils.User();
+        user.UserName = eventData.UserName;
+        
+        // User profile picture is not being sent by StreamerBot yet
+        //user.profilePictureURL = eventData.UserProfileImage;
+
+        ChatManager.instance.ReceiveChatMessage(user, eventData.Message);
     }
 
     private void AdsRunningEvent(StreamerBotEventData eventData)
@@ -79,7 +95,20 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void SuscriptionEvent(StreamerBotEventData eventData)
     {
-        SuscriptionManager.instance.SuscriptionEvent(eventData.UserName, eventData.UserProfileImage, eventData.Amount, eventData.Message);
+        TwitchUtils.User user = new TwitchUtils.User();
+        user.UserName = eventData.UserName;
+        user.profilePictureURL = eventData.UserProfileImage;
+
+        TwitchUtils.Subscription subscription = new TwitchUtils.Subscription();
+        subscription.SubscribedMonthCount = eventData.Amount; // Amount of months subscribed
+
+        // We need to send the tier of the subscription from StreamerBot
+        subscription.Tier = TwitchUtils.SubscriptionTier.NotSet; // Tier of the subscription
+
+        // We should use this but is not working yet
+        //subscription.newSubscription(eventData.Amount, TwitchUtils.SubscriptionTier.NotSet, false, null);
+
+        SuscriptionManager.instance.SuscriptionEvent(user, subscription);
     }
 
     private void SuscriptionGiftEvent(StreamerBotEventData eventData)

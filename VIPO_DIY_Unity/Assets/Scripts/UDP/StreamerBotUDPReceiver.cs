@@ -103,6 +103,7 @@ namespace StreamerBotUDP
             }
 
             _eventHandlers = new Dictionary<string, StreamerBotEvent>();
+            InitialiseStreamerBotEvents();
 
         }
 
@@ -286,6 +287,7 @@ namespace StreamerBotUDP
         {
             Event = string.Empty;
             UserName = string.Empty;
+            UserProfileImage = string.Empty;
             Message = string.Empty;
             Amount = 0;
         }

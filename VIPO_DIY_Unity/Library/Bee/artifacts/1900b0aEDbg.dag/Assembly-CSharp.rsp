@@ -404,6 +404,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/Scripts/ExampleCode/AssignFollower.cs"
+"Assets/Scripts/ExampleCode/ExampleManager.cs"
 "Assets/Scripts/Managers/ChannelRewardManager.cs"
 "Assets/Scripts/Managers/ChatManager.cs"
 "Assets/Scripts/Managers/FollowManager.cs"
