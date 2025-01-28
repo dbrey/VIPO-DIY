@@ -156,7 +156,7 @@ public class ChatManager : MonoBehaviour
         {
             // Aqui puedes programar los efectos de un mensaje normal
             // Here you can program the effects of a normal message
-            printMessage(message);
+            printMessage(user, message);
         }
         
     }
@@ -167,8 +167,12 @@ public class ChatManager : MonoBehaviour
     // Program the effects of your commands and normal messages here!
     #region 
 
-    void printMessage(string message)
+    void printMessage(TwitchUtils.User user, string message)
     {
+        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this line and it's completely safe! It simply disconnects the action from the event
+        ExampleManager.instance.AddChatMessage(user,message);
+        
         Debug.Log(message);
     }
 

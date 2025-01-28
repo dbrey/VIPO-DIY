@@ -68,6 +68,13 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void BitsEvent(StreamerBotEventData eventData)
     {
+        TwitchUtils.User user = new TwitchUtils.User();
+        //user.newUser(eventData.UserName, eventData.UserProfileImage, TwitchUtils.Permissions.Follower, null);
+        user.UserName = eventData.UserName;
+        user.profilePictureURL = eventData.UserProfileImage;
+
+        DonationManager.instance.ReceiveBitsEvent(user,eventData.Amount);
+
         Debug.Log(eventData.UserName + " sent " + eventData.Amount + " bits! Thank so much");
     }
     

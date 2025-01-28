@@ -1,5 +1,6 @@
 using UnityEngine;
 using Twitch_data;
+using System.Collections.Generic;
 
 public class SuscriptionManager : MonoBehaviour
 {
@@ -20,16 +21,16 @@ public class SuscriptionManager : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    // Solo queremos almacenar los ultimos n seguidores.
+    // We only want to store the latest n followers.
+    [SerializeField] bool storeLatestSubscribers = true;
+    [SerializeField] int nLatestSubscribers= 5;
+    private List<string> latestSubscribers = new List<string>();
+
+    private void Start()
     {
-        
+        latestSubscribers = new List<string>();
     }
 
     #region Methods called by StreamerBotEvent Manager
@@ -40,6 +41,15 @@ public class SuscriptionManager : MonoBehaviour
 
         assignSuscriptionToUser(user, subscription);
 
+        if (storeLatestSubscribers)
+        {
+            // If the list is full, we remove the oldest follower
+            if (latestSubscribers.Count >= nLatestSubscribers)
+            {
+                latestSubscribers.RemoveAt(0);
+            }
+        }
+
         Debug.Log(user.UserName + " decided to suscribe to me for " + subscription.SubscribedMonthCount + " months with tier " + subscription.Tier);
     }
 
@@ -47,6 +57,19 @@ public class SuscriptionManager : MonoBehaviour
     {
         // We receive the name, profile picture, months suscribed and tier of the subscriber
         assignSuscriptionToUser(user, subscription);
+
+        // [OPTIONAL]
+        // Guardamos el ultimo suscriptor para que el usuario pueda acceder a ello mas tarde
+        // We store the latest subscriber so the user can access it later
+        if (storeLatestSubscribers)
+        {
+            // Si la lista esta llena, eliminamos el suscriptor mas antiguo
+            // If the list is full, we remove the oldest subscriber
+            if (latestSubscribers.Count >= nLatestSubscribers)
+            {
+                latestSubscribers.RemoveAt(0);
+            }
+        }
 
         // We have to take into account if the gifter is anonymous. If it is, then we don't have a user to access
         //Debug.Log(subscription.Gifter + " decided to gift a suscription to " + receiverName + " for " + monthsSuscribed + " months with tier " + tier);

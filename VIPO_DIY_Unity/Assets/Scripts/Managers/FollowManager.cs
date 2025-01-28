@@ -88,6 +88,7 @@ public class FollowManager : MonoBehaviour
         // We store the latest follower so the user can access it later
         if (storeLatestFollowers)
         {
+            // Si la lista es llena, eliminamos el seguidor mas antiguo
             // If the list is full, we remove the oldest follower
             if(latestFollowers.Count >= nLatestFollowers)
             {
