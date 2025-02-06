@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using StreamerBotUDP;
 using Twitch_data;
+using static Twitch_data.TwitchUtils;
+
 
 public class StreamerBotEventManager : StreamerBotUDPReceiver
 {
@@ -37,7 +39,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         RegisterEvent("Suscription", SuscriptionEvent);
         RegisterEvent("SuscriptionGift", SuscriptionGiftEvent);
         RegisterEvent("ChannelReward", ChannelRewardEvent);
-        RegisterEvent("Raid", RaidEvent);
+        RegisterEvent("ReceiveRaid", ReceiveRaidEvent);
         RegisterEvent("AdsRunning", AdsRunningEvent);
         RegisterEvent("AdsIncoming", AdsIncomingEvent);
 
@@ -53,25 +55,41 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void FollowEvent(StreamerBotEventData eventData)
     {
-        TwitchUtils.User user = new TwitchUtils.User();
-        //user.newUser(eventData.UserName, eventData.UserProfileImage, TwitchUtils.Permissions.Follower, null);
-        user.UserName = eventData.UserName;
-        user.profilePictureURL = eventData.UserProfileImage;
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // There might be a case where a suscriber has not followed the channel, so we have to check if the user is a suscriber to keep the permissions
-        // This also applies to subscription
-        //user.permissions = TwitchUtils.Permissions.Follower;
-        //user.subscription = TwitchUtils.SubscriptionTier.NotSet;
+        // The user already exists in the list
+        if (user.active)
+        {
+            // Con esto evitamos que los suscriptores pierdan sus permisos al seguir el canal
+            if(user.permissions < Permissions.Follower)
+            {
+                user.permissions = Permissions.Follower;
+            }
+            TwitchManager.instance.updateUser(user);
+        }
+        else
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
 
         FollowManager.instance.FollowEvent(user);
     }
 
     private void BitsEvent(StreamerBotEventData eventData)
     {
-        TwitchUtils.User user = new TwitchUtils.User();
-        //user.newUser(eventData.UserName, eventData.UserProfileImage, TwitchUtils.Permissions.Follower, null);
-        user.UserName = eventData.UserName;
-        user.profilePictureURL = eventData.UserProfileImage;
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+        // The user does not exists in the list
+        if (!user.active)
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
 
         DonationManager.instance.ReceiveBitsEvent(user,eventData.Amount);
 
@@ -80,12 +98,16 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
     
     private void ChatMessageEvent(StreamerBotEventData eventData)
     {
-        // We send the message to the chat manager
-        TwitchUtils.User user = new TwitchUtils.User();
-        user.UserName = eventData.UserName;
-        
-        // User profile picture is not being sent by StreamerBot yet
-        //user.profilePictureURL = eventData.UserProfileImage;
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+        // If the user does not exists in the list
+        if (!user.active)
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
 
         ChatManager.instance.ReceiveChatMessage(user, eventData.Message);
     }
@@ -102,20 +124,24 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void SuscriptionEvent(StreamerBotEventData eventData)
     {
-        TwitchUtils.User user = new TwitchUtils.User();
-        user.UserName = eventData.UserName;
-        user.profilePictureURL = eventData.UserProfileImage;
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        TwitchUtils.Subscription subscription = new TwitchUtils.Subscription();
-        subscription.SubscribedMonthCount = eventData.Amount; // Amount of months subscribed
+        if (!user.active)
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
+        else
+        {
+            // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
+            user.permissions = Permissions.Subscribers;
+            user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
+            user.subscription.selectTierINT(eventData.tier);
+        }
 
-        // We need to send the tier of the subscription from StreamerBot
-        subscription.Tier = TwitchUtils.SubscriptionTier.NotSet; // Tier of the subscription
-
-        // We should use this but is not working yet
-        //subscription.newSubscription(eventData.Amount, TwitchUtils.SubscriptionTier.NotSet, false, null);
-
-        SuscriptionManager.instance.SuscriptionEvent(user, subscription);
+        SuscriptionManager.instance.SuscriptionEvent(user);
     }
 
     private void SuscriptionGiftEvent(StreamerBotEventData eventData)
@@ -127,16 +153,36 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
     private void ChannelRewardEvent(StreamerBotEventData eventData)
     {
 
-        Debug.Log("Channel Reward: " + eventData.Message);
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+        if (!user.active)
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
 
         // Be aware that the last argument must me the list of arguments of the reward (That right we do not have it yet)
-        ChannelRewardManager.instance.RewardEvent(eventData.Message, eventData.UserName, eventData.UserProfileImage, new List<string>());
+        //ChannelRewardManager.instance.RewardEvent(eventData.Message, user, eventData.UserProfileImage, new List<string>());
 
     }
 
-    private void RaidEvent(StreamerBotEventData eventData)
+    private void ReceiveRaidEvent(StreamerBotEventData eventData)
     {
-        Debug.Log("Channel Reward: " + eventData.Message);
+        // We check if the user is already in the list
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+        if (!user.active)
+        {
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
+
+        RaidManager.instance.ReceiveRaidEvent(user, eventData.Amount);
+
     }
 
 

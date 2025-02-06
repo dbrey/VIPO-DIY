@@ -4,6 +4,45 @@ using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Twitch_data;
+using static Twitch_data.TwitchUtils;
+using Unity.VisualScripting;
+
+#region Como usar
+///
+/// Para recibir cualquier mensaje del chat, ReceiveChatMessage se encarga de filtrar si es un mensaje normal o un comando y recibe la informacion del usuario que lo ha enviado.
+/// En el caso de ser un mensaje normal, se llama a printMessage cuya funcionalidad se puede cambiar a gusto del usuario. Ahora solo imprime el mensaje en consola.
+/// 
+/// En el caso de ser un comando, se llama a CallCommand que se encarga de llamar al comando correspondiente. Si el comando no existe o no esta activo, no se ejecuta.
+/// Para añadir un comando nuevo hay que seguir los siguientes pasos:
+/// 1º : Añadir el nombre del comando a la lista commandsToAdd en el editor de Unity
+/// 2º : Crear una clase que herede de ManagedCommand y sobreescribir el metodo ExecuteCommand con la funcionalidad deseada. Se muestra ejemplos de como hacerlo con y sin argumentos
+/// 3º : Añadir el comando y su clase correspondiente en el metodo AddCommand. Se muestra ejemplos de como hacerlos
+/// 
+/// ADVERTENCIA 1: No se pueden añadir comandos con el mismo nombre
+/// ADVERTENCIA 2: Los comandos con cooldown mayor que 0 no se pueden ejecutar hasta que el cooldown haya terminado
+/// ADVERTENCIA 3: Los comandos solo se pueden ejecutar si el usuario tiene el mismo o mayor permiso que el comando
+/// ADVERTENCIA 4: Los comandos se pueden desactivar y activar en cualquier momento cambiando el valor de enabled
+/// 
+#endregion
+
+#region How to use
+/// 
+/// ReceiveChatMessage is in charge of filtering if a message is a normal message or a command and receives the information of the user that has sent it.
+/// In the case of a normal message, it calls printMessage whose functionality can be changed at the user's discretion. Now it only prints the message in the console.
+/// 
+/// In the case of a command, it calls CallCommand which is responsible for calling the corresponding command. If the command does not exist or is not active, it is not executed.
+/// To add a new command you must follow the following steps:
+/// 1º : Add the name of the command to the commandsToAdd list in the Unity editor
+/// 2º : Create a class that inherits from ManagedCommand and override the ExecuteCommand method with the desired functionality. Examples are shown of how to do it with and without arguments
+/// 3º : Add the command and its corresponding class in the AddCommand method. Examples are shown of how to do it
+/// 
+/// WARNING 1: Commands with the same name cannot be added
+/// WARNING 2: Commands with a cooldown greater than 0 cannot be executed until the cooldown is over
+/// WARNING 3: Commands can only be executed if the user has the same or greater permission than the command
+/// WARNING 4: Commands can be deactivated and activated at any time by changing the value of enabled
+///  
+#endregion
+
 
 public class ChatManager : MonoBehaviour
 {
@@ -14,19 +53,34 @@ public class ChatManager : MonoBehaviour
         public string name; // The name of the command
         public bool enabled; // Is the command enabled?
         public float timer; // Cooldown timer
-        public TwitchUtils.Permissions permissions; // 0 = everyone, 1 = subscriber, 2 = VIP, 3 = moderator, 4 = broadcaster
+        public Permissions permissions; // 0 = everyone, 1 = subscriber, 2 = VIP, 3 = moderator, 4 = broadcaster
+        
         // We add an empty method to the struct so we can override it later
-        public virtual void ExecuteCommand(TwitchUtils.User user, List<string> commandArguments)
+        public ManagedCommand()
+        {
+            name = "";
+            enabled = true;
+            timer = 0;
+            permissions = 0;
+        }
+
+        public ManagedCommand (string name, bool enabled, float timer, Permissions permissions)
+        {
+            this.name = name;
+            this.enabled = enabled;
+            this.timer = timer;
+            this.permissions = permissions;
+        }
+        
+        public virtual void ExecuteCommand(User user, List<string> commandArguments)
         {
             // We will override this method later
         }
         
     }
-
-    // The user will write down what kind of commands they want to add
-    // Later we need to tell the user what kind of permissions and cooldowns they want to add
+    
     [SerializeField] List<string> commandsToAdd = new List<string>();
-     Dictionary<string, ManagedCommand> commands;
+    Dictionary<string, ManagedCommand> commands;
 
     private void Awake()
     {
@@ -48,8 +102,13 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         // Le damos a los comandos un valor por defecto
-        //We give the commands a default value
+        // We give the commands a default value
         commands = new Dictionary<string, ManagedCommand>();
+        foreach(string command in commandsToAdd)
+        {
+            AddCommand(command);
+        }
+
     }
 
     public void AddCommand(string commandName)
@@ -57,13 +116,25 @@ public class ChatManager : MonoBehaviour
         // If the command doesn't exist, we add it
         if(!commands.ContainsKey(commandName))
         {
-            // We set the managed command values to default
-            ManagedCommand newCommand = new ManagedCommand();
-            newCommand.name = commandName;
-            newCommand.enabled = true;
-            newCommand.timer = 0; // No cooldown
-            newCommand.permissions = 0; // Everybody can use the command
-            commands.Add(commandName, newCommand);
+            switch (commandName)
+            {
+                case "exampleCommand":
+                    commands.Add(commandName, new exampleCommand(commandName, true, 0, Permissions.Everyone));
+                    break;
+
+                case "exampleArgumentsCommand":
+                    commands.Add(commandName, new exampleArgumentsCommand(commandName, true, 0, Permissions.Everyone));
+                    break;
+                default:
+                    Debug.Log("Command not found, check the commands name and its class");
+                    break;
+
+                /* Example of how to add a command
+                case "name of your command":
+                   commands.Add(commandName, new YourCommandClass (commandName, isEnabled?, CoolDownTimer, Permissions));
+                   break;
+                */
+            }
         }
     }
 
@@ -104,7 +175,7 @@ public class ChatManager : MonoBehaviour
     #region Methods called by StreamerBotEvent Manager
     
 
-    private void CallCommand(TwitchUtils.User user, List<string> commandArguments)
+    private void CallCommand(User user, List<string> commandArguments)
     {
         // We check the first element of the command, which is the command itself
         if (commands.ContainsKey(commandArguments[0]) && commands[commandArguments[0]].enabled)
@@ -120,7 +191,7 @@ public class ChatManager : MonoBehaviour
     }
 
 
-    public void ReceiveChatMessage(TwitchUtils.User user, string message)
+    public void ReceiveChatMessage(User user, string message)
     {
         // Comprobamos si el mensaje es un comando, mirando si su primer caracter es un !
         // We check if the message is a command, looking if its first character is a !
@@ -165,15 +236,52 @@ public class ChatManager : MonoBehaviour
 
     // Programa los efectos de tus comandos y mensajes normales aqui!
     // Program the effects of your commands and normal messages here!
-    #region 
+    #region Program your messages and commands here
 
-    void printMessage(TwitchUtils.User user, string message)
+    void printMessage(User user, string message)
     {
-        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-        // You can delete this line and it's completely safe! It simply disconnects the action from the event
-        ExampleManager.instance.AddChatMessage(user,message);
-        
-        Debug.Log(message);
+        ExampleManager.instance.AddChatMessage(user, message);
+    }
+
+    class exampleCommand : ManagedCommand
+    {
+        // Constructor para asignar los valores del comando
+        // Constructor to assign the values of the command
+        public exampleCommand(string name, bool enabled, float timer, Permissions permissions) : base(name, enabled, timer, permissions)
+        {
+        }
+
+        // This void is called when the command is executed in the void CallCommand
+        public override void ExecuteCommand(User user, List<string> commandArguments)
+        {
+            // Aqui puedes programar los efectos de tu comando
+            // Here you can program the effects of your command
+            Debug.Log("This is just a test of the command");
+        }
+    }
+
+    class exampleArgumentsCommand : ManagedCommand
+    {
+        // Constructor para asignar los valores del comando
+        // Constructor to assign the values of the command
+        public exampleArgumentsCommand(string name, bool enabled, float timer, Permissions permissions) : base(name, enabled, timer, permissions)
+        {
+        }
+
+        // This void is called when the command is executed in the void CallCommand
+        public override void ExecuteCommand(User user, List<string> commandArguments)
+        {
+            // Aqui puedes programar los efectos de tu comando
+            // Here you can program the effects of your command
+
+            string arguments = "";
+            foreach (string argument in commandArguments)
+            {
+                arguments += argument + " ";
+            }
+
+            Debug.Log("Command arguments: " + arguments);
+        }
     }
 
     #endregion

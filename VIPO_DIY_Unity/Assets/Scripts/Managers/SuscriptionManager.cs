@@ -1,6 +1,7 @@
 using UnityEngine;
 using Twitch_data;
 using System.Collections.Generic;
+using static Twitch_data.TwitchUtils;
 
 public class SuscriptionManager : MonoBehaviour
 {
@@ -21,56 +22,20 @@ public class SuscriptionManager : MonoBehaviour
         }
     }
 
-
-    // Solo queremos almacenar los ultimos n seguidores.
-    // We only want to store the latest n followers.
-    [SerializeField] bool storeLatestSubscribers = true;
-    [SerializeField] int nLatestSubscribers= 5;
-    private List<string> latestSubscribers = new List<string>();
-
-    private void Start()
-    {
-        latestSubscribers = new List<string>();
-    }
-
     #region Methods called by StreamerBotEvent Manager
 
-    public void SuscriptionEvent(TwitchUtils.User user, TwitchUtils.Subscription subscription)
+    public void SuscriptionEvent(User user)
     {
-        // We receive the name, profile picture, months suscribed and tier of the subscriber
+        // We receive the user who already has the subscription, the name of the receiver, the months suscribed and the tier of the subscription
 
-        assignSuscriptionToUser(user, subscription);
-
-        if (storeLatestSubscribers)
-        {
-            // If the list is full, we remove the oldest follower
-            if (latestSubscribers.Count >= nLatestSubscribers)
-            {
-                latestSubscribers.RemoveAt(0);
-            }
-        }
-
-        Debug.Log(user.UserName + " decided to suscribe to me for " + subscription.SubscribedMonthCount + " months with tier " + subscription.Tier);
+        Debug.Log(user.UserName + " decided to suscribe to me for " + user.subscription.SubscribedMonthCount + " months with tier " + user.subscription.Tier);
     }
 
-    public void SuscriptionGiftEvent(TwitchUtils.User user, TwitchUtils.Subscription subscription)
+    public void SuscriptionGiftEvent(User user, User userGifter)
     {
-        // We receive the name, profile picture, months suscribed and tier of the subscriber
-        assignSuscriptionToUser(user, subscription);
+        // We receive the user who already has the subscription, the name of the receiver, the months suscribed and the tier of the subscription
 
-        // [OPTIONAL]
-        // Guardamos el ultimo suscriptor para que el usuario pueda acceder a ello mas tarde
-        // We store the latest subscriber so the user can access it later
-        if (storeLatestSubscribers)
-        {
-            // Si la lista esta llena, eliminamos el suscriptor mas antiguo
-            // If the list is full, we remove the oldest subscriber
-            if (latestSubscribers.Count >= nLatestSubscribers)
-            {
-                latestSubscribers.RemoveAt(0);
-            }
-        }
-
+        
         // We have to take into account if the gifter is anonymous. If it is, then we don't have a user to access
         //Debug.Log(subscription.Gifter + " decided to gift a suscription to " + receiverName + " for " + monthsSuscribed + " months with tier " + tier);
     }
@@ -79,12 +44,6 @@ public class SuscriptionManager : MonoBehaviour
 
     #region You don't need to touch this
 
-    // Aqui asignamos la suscripcion al usuario para proximas referencias 
-    // Here we assign the suscription to the user for future references
-    void assignSuscriptionToUser(TwitchUtils.User user, TwitchUtils.Subscription subscription)
-    { 
-        user.subscription = subscription;
-    }
 
     #endregion
 }

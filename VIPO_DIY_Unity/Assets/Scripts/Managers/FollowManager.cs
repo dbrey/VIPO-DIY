@@ -23,21 +23,6 @@ public class FollowManager : MonoBehaviour
 {
     public static FollowManager instance;
 
-    // Solo queremos almacenar los ultimos n seguidores.
-    // We only want to store the latest n followers.
-    [SerializeField] bool storeLatestFollowers = true;
-    [SerializeField] int nLatestFollowers = 5;
-    private List<string> latestFollowers = new List<string>();
-
-    #region Get Variables
-    // Si alguien quiere obtener los ultimos seguidores, puede llamar a esta funcion.
-    // If someone wants to get the latest followers, they can call this function.
-    public List<string> GetLatestFollowers()
-    {
-        return latestFollowers;
-    }
-    #endregion
-
     private void Awake()
     {
         // Si no hay ninguna instancia, establecemos esta como la instancia
@@ -57,7 +42,6 @@ public class FollowManager : MonoBehaviour
 
     private void Start()
     {
-        latestFollowers = new List<string>();
     }
 
 
@@ -83,18 +67,6 @@ public class FollowManager : MonoBehaviour
         // You can delete this line and it's completely safe! It simply disconnects the action from the event
         ExampleManager.instance.FollowExample(user);
 
-        // [OPTIONAL]
-        // Guardamos el ultimo seguidor para que el usuario pueda acceder a ello mas tarde
-        // We store the latest follower so the user can access it later
-        if (storeLatestFollowers)
-        {
-            // Si la lista es llena, eliminamos el seguidor mas antiguo
-            // If the list is full, we remove the oldest follower
-            if(latestFollowers.Count >= nLatestFollowers)
-            {
-                latestFollowers.RemoveAt(0);
-            }
-        }
     }
 
     // Programa los efectos de tus notificaciones de Seguidor aqui!

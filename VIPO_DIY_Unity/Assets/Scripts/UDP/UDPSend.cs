@@ -77,10 +77,6 @@ public class UDPSend : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            doAction("TestConnection", "There is a stable connection between Unity and StreamerBot UDP server", 10);
-        }
     }
 
     public void doAction(string name, string textArguments, float numberArguments)

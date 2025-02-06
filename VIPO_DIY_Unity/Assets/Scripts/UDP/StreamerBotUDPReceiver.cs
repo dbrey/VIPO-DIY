@@ -248,12 +248,13 @@ namespace StreamerBotUDP
     [System.Serializable]
     public class StreamerBotEventData
     {
-
         /// <summary>
         /// The type of event. Can be anything you wish but the string passed from StreamerBot
         /// must match exactly with whatever you are doing in Unity.
         /// </summary>
         public string Event;
+
+        #region USER DATA
 
         /// <summary>
         /// The username associated with the event. For example, if the event was a subscription,
@@ -266,6 +267,38 @@ namespace StreamerBotUDP
         /// this would be the profile image of the user who followed.
         /// </summary>
         public string UserProfileImage;
+
+        /// <summary>
+        /// If the user is a VIP
+        /// </summary>
+        public bool isVip;
+
+        /// <summary>
+        /// If the user is a moderator
+        /// </summary>
+        public bool isMod;
+
+        /// <summary>
+        /// If the user is a subscriber
+        /// </summary>
+        public bool isSuscribed;
+
+        /// <summary>
+        /// The number of days the user has been following the channel
+        /// </summary>
+        public int followAgeDays;
+
+        /// <summary>
+        /// How many months the user has been suscribed
+        /// </summary>
+        public int monthsSuscribed;
+
+        /// <summary>
+        /// The current tier of the subscription
+        /// </summary>
+        public int tier;
+
+        #endregion
 
         /// <summary>
         /// A message associated with the event. For example, if you wanted to play TTS from this event,

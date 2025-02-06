@@ -52,6 +52,9 @@ namespace Twitch_data
 
         public struct User
         {
+            // This is a flag given by default to all users. It turns true when we add the user
+            public bool active;
+
             /// The user's username, used to log in to Twitch
             public string UserName;
 
@@ -67,11 +70,21 @@ namespace Twitch_data
 
             public void newUser(string userName, string profileURL, Permissions permissions, Subscription sub)
             {
+                active = true;
                 UserName = userName;
                 profilePictureURL = profileURL;
                 this.permissions = permissions;
                 subscription = sub;
                 // Suscription is null by default
+            }
+
+            public User(bool exists)
+            { 
+                active = exists;
+                UserName = "";
+                profilePictureURL = "";
+                permissions = Permissions.Everyone;
+                subscription = new Subscription();
             }
         }
 
@@ -103,21 +116,40 @@ namespace Twitch_data
             public User Gifter;
 
 
-            public void selectTier(string tier)
+            public void selectTierINT(int tier)
             {
                 switch (tier)
                 {
-                    case "prime":
-                        Tier = SubscriptionTier.Prime;
-                        break;
-                    case "tier 1":
+                    case 1000:
                         Tier = SubscriptionTier.Tier1;
                         break;
-                    case "tier 2":
+                    case 2000:
                         Tier = SubscriptionTier.Tier2;
                         break;
-                    case "tier 3":
+                    case 3000:
                         Tier = SubscriptionTier.Tier3;
+                        break;
+                    default:
+                        Tier = SubscriptionTier.Prime;
+                        break;
+                }
+            }
+
+            public void selectTierSTRING(string tier)
+            {
+                switch (tier)
+                {
+                    case "tier1":
+                        Tier = SubscriptionTier.Tier1;
+                        break;
+                    case "tier2":
+                        Tier = SubscriptionTier.Tier2;
+                        break;
+                    case "tier3":
+                        Tier = SubscriptionTier.Tier3;
+                        break;
+                    case "prime":
+                        Tier = SubscriptionTier.Prime;
                         break;
                 }
             }
@@ -125,7 +157,7 @@ namespace Twitch_data
             public void newSubscription(int subscribedMonthCount, string tier, bool isGift, User gifter)
             {
                 SubscribedMonthCount = subscribedMonthCount;
-                selectTier(tier);
+                selectTierSTRING(tier);
                 IsGift = isGift;
                 Gifter = gifter;
             }
