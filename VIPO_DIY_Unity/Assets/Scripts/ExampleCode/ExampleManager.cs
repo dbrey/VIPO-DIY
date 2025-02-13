@@ -27,6 +27,8 @@ public class ExampleManager : MonoBehaviour
     [Header("Raid event Example")]
     [SerializeField] Transform raidSpawner;
     [SerializeField] GameObject raidCube;
+    [SerializeField] Transform raidToWhoSpawner;
+    [SerializeField] GameObject raidToWhoCube;
 
 
     private void Start()
@@ -83,6 +85,36 @@ public class ExampleManager : MonoBehaviour
             raidCubeAux.GetComponent<AssignRaiderTexture>().assignRaider(userProfile, userName);
 
             yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    public void selectRandomActiveStreamer(string[] streamerList)
+    {
+        // Seleccionamos un streamer aleatorio
+        // We select a random streamer
+        int randomStreamer = Random.Range(0, streamerList.Length);
+
+        // Mandamos un request para conseguir informacion del streamer
+        TwitchManager.instance.getUDPSender().doAction("GetUserInfo", "Request User Info", streamerList[randomStreamer], 0);
+        TwitchManager.instance.whoRequested = TwitchManager.WhoRequested.RaidManager;
+
+    }
+
+    public void showStreamerToRaid(User user)
+    {
+        if (user.active)
+        {
+            Debug.Log("Raiding " + user.UserName);
+
+            var textureRequest = UnityWebRequestTexture.GetTexture(user.profilePictureURL);
+            var asyncOp = textureRequest.SendWebRequest();
+            asyncOp.completed += (op) => {
+                var texture = DownloadHandlerTexture.GetContent(textureRequest);
+
+                GameObject raidToWhoCubeAux = Instantiate(raidToWhoCube, raidToWhoSpawner.position, Quaternion.identity);
+                Sprite spriteAux = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                raidToWhoCubeAux.GetComponent<AssignRaidToCube>().assignStreamerImage(spriteAux,user.UserName);
+            };
         }
     }
 

@@ -357,6 +357,12 @@ MonoBehaviour:
   actions:
   - name: ShoutOut
     id: 0e279e59-d245-47a9-99f7-c8a83e65f30f
+  - name: Request Send Raid
+    id: eed5747e-d1df-454e-b669-9e8db6d3dda1
+  - name: GetUserInfo
+    id: 29dc9760-06b6-4939-8a78-6436b3eee14c
+  - name: Start Raid
+    id: 002d3ec8-653f-4882-a06d-cbf6efe892fb
   port: 4242
 --- !u!1 &49619646
 GameObject:
@@ -931,6 +937,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 539440e0a8205b14ca566686e40ada0a, type: 3}
   m_PrefabInstance: {fileID: 361900290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &369670637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369670638}
+  - component: {fileID: 369670640}
+  - component: {fileID: 369670639}
+  m_Layer: 0
+  m_Name: RaidToWhoSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369670638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369670637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.547, z: 0}
+  m_LocalScale: {x: 3, y: 0.1, z: 3.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747613786}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &369670639
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369670637}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &369670640
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369670637}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &426880919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a10ed5b26bb195448ac80c7b45c7094b, type: 3}
@@ -2178,6 +2270,7 @@ Transform:
   - {fileID: 1366699976150876951}
   - {fileID: 1014898380}
   - {fileID: 1155940643}
+  - {fileID: 369670638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &749547023
@@ -2508,6 +2601,8 @@ MonoBehaviour:
   bitsText: {fileID: 91771821}
   raidSpawner: {fileID: 1155940643}
   raidCube: {fileID: 2098506519410327417, guid: 0ad11d3128225ae45bec7b6d1a15d14d, type: 3}
+  raidToWhoSpawner: {fileID: 369670638}
+  raidToWhoCube: {fileID: 5175455221012299199, guid: 28d7714b6e664644ea7a0a288c63015f, type: 3}
 --- !u!4 &855677282
 Transform:
   m_ObjectHideFlags: 0
@@ -3735,6 +3830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8e46f1c0e6ba46a1e801f48f52bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whoRequested: 0
 --- !u!1 &1283604033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a10ed5b26bb195448ac80c7b45c7094b, type: 3}

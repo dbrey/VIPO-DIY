@@ -10,8 +10,20 @@ public class TwitchManager : MonoBehaviour
     public static TwitchManager instance;
 
     UDPSend udpSender;
+    public UDPSend getUDPSender() { return udpSender; }
 
     Dictionary<string, User> userList;
+
+    public enum WhoRequested
+    {
+        FollowManager,
+        RaidManager,
+        SubscriptionManager,
+        ChatManager,
+        DonationManager,
+        None
+    }
+    public WhoRequested whoRequested;
 
     private void Awake()
     {
@@ -31,15 +43,13 @@ public class TwitchManager : MonoBehaviour
     {
         userList = new Dictionary<string, User>();
         udpSender = transform.parent.GetComponent<UDPSend>();
+        whoRequested = WhoRequested.None;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShoutOutEvent("Rozziesthebard");
-        }
+        
     }
 
     #region User Management
@@ -90,7 +100,7 @@ public class TwitchManager : MonoBehaviour
 
     void ShoutOutEvent(string streamerName)
     { 
-        udpSender.doAction("ShoutOut", streamerName, 0);
+        udpSender.doAction("ShoutOut", "",streamerName, 0);
     }
 
 

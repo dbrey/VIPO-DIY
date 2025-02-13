@@ -79,12 +79,15 @@ public class UDPSend : MonoBehaviour
     {
     }
 
-    public void doAction(string name, string textArguments, float numberArguments)
+    public void doAction(string name, string typeAction, string textArguments, float numberArguments)
     {
         StreamerBotAction action = actionsDict[name];
 
+        bool goodToRquest = true; ;
+
         #region Documentation in Spanish
         // Este es el formato que se debe seguir para mandar un mensaje a Streamerbot
+        // Debemos tener en cuenta el tipo de Accion que queremos hacer ya que puede requerir alterar el formato de los argumentos
         /// "request": "DoAction" -> Indica que se va a hacer una accion" (Esta es la unica que se permite en UDP)
         /// "action" -> Aqui ponemos toda la informacion de la accion que necesitamos
         /// "id" -> El id de la accion que queremos hacer, la cual recogemos de actionsDict
@@ -94,6 +97,7 @@ public class UDPSend : MonoBehaviour
         #endregion
         #region Documentation in English
         // This is the format that must be followed to send a message to Streamerbot
+        // We must take into account the type of Action we want to do since it may require altering the format of the arguments
         /// "request": "DoAction" -> Indicates that an action is going to be done" (This is the only one allowed in UDP)
         /// "action" -> Here we put all the information of the action that we need
         /// "id" -> The id of the action we want to do, which we collect from actionsDict
@@ -102,10 +106,27 @@ public class UDPSend : MonoBehaviour
         /// "numberArgument" -> Numeric argument. In Streamerbot to use this argument it must be passed as %numberArgument%
         #endregion
 
-        jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": """ + action.id + @""" }, 
-        ""args"":{""textArgument"": """ + textArguments + @""" , ""numberArgument"": """ + numberArguments + @"""} }";
+        switch (typeAction)
+        {
+            // Default case
+            case "":
+                jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": """ + action.id + @""" }, 
+                ""args"":{""textArgument"": """ + textArguments + @""" , ""numberArgument"": """ + numberArguments + @"""} }";
+                break;
+            // Case to request user info (We simply change to rawInput)
+            case "Request User Info":
+                jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": """ + action.id + @""" }, 
+                ""args"":{""rawInput"": """ + textArguments + @""" , ""numberArgument"": """ + numberArguments + @"""} }";
+                break;
+            // In case we do not recognize the action type we warn the user and do not send the request
+            default:
+                Debug.LogWarning("The action type is not recognized. Make sure you are using the correct type");
+                goodToRquest = false;
+                break;
+        }
 
-        SendEvent();
+        if(goodToRquest)
+            SendEvent();
     }
 
     void SendEvent()

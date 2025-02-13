@@ -186,7 +186,7 @@ public class ChannelRewardManager : MonoBehaviour
             // Here we have to tell StreamerBot to update the reward cost in Twitch as well
             // For now, this only changes the cost of one specific reward
             // If we want to specify which reward we need to define some "Selection" type in the doAction method
-            StreamerBotEventManager.instance.udpSend.doAction("UpdateChannelReward", "", auxReward.cost);
+            StreamerBotEventManager.instance.udpSend.doAction("UpdateChannelReward","", "", auxReward.cost);
         }
         else
         { 

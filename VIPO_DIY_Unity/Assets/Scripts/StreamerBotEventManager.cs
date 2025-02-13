@@ -40,8 +40,11 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         RegisterEvent("SuscriptionGift", SuscriptionGiftEvent);
         RegisterEvent("ChannelReward", ChannelRewardEvent);
         RegisterEvent("ReceiveRaid", ReceiveRaidEvent);
+        RegisterEvent("SendRaid", SendRaid);
         RegisterEvent("AdsRunning", AdsRunningEvent);
         RegisterEvent("AdsIncoming", AdsIncomingEvent);
+
+        RegisterEvent("GetUser", GetUser);
 
     }
 
@@ -185,8 +188,54 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     }
 
+    private void SendRaid(StreamerBotEventData eventData)
+    {
+        if(eventData.Message == "%streamDisplayNames%")
+        {
+            Debug.LogWarning("There are no active streamers to raid");
+        }
+        else
+            RaidManager.instance.StartRaidEvent(eventData.Message);
+    }
+    #endregion
 
+    #region Auxiliar functions
+    private void GetUser(StreamerBotEventData eventData)
+    {
+        User user = new User();
 
+        user.UserName = eventData.UserName;
+        user.profilePictureURL = eventData.UserProfileImage;
+        user.active = true;
 
+        if (eventData.isMod)
+        {
+            user.permissions = Permissions.Mods;
+        }
+        else if (eventData.isVip)
+        {
+            user.permissions = Permissions.VIPs;
+        }
+        else if (eventData.isSuscribed)
+        {
+            user.permissions = Permissions.Subscribers;
+        }
+        else
+            user.permissions = Permissions.Everyone;
+        
+        switch (TwitchManager.instance.whoRequested)
+        { 
+            case TwitchManager.WhoRequested.FollowManager:
+                break;
+            case TwitchManager.WhoRequested.RaidManager:
+                // This is just an example of how to show the streamer to raid
+                ExampleManager.instance.showStreamerToRaid(user);
+                break;
+            default:
+                Debug.Log("Who requested is not defined");
+                break;
+        }
+
+    }
     #endregion
 }

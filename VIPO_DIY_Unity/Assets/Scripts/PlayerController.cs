@@ -21,18 +21,6 @@ public class PlayerController : MonoBehaviour
 
     private bool canJump = true;
 
-    //// Parametros de botones
-    //[Header("Buttons")]
-    //[SerializeField] KeyCode cleanScreenButton;
-    //[SerializeField] KeyCode reloadSceneButton;
-    //[SerializeField] KeyCode banBoxButton;
-    //[SerializeField] KeyCode showBoxButton;
-    //[SerializeField] KeyCode deleteLienzoButton;
-    //[SerializeField] KeyCode grabButton;
-    //[SerializeField] KeyCode finishButton;
-    //[SerializeField] KeyCode noGamepadKey;
-    //[SerializeField] KeyCode lockCamRot;
-
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -103,6 +91,14 @@ public class PlayerController : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
+
+        // If you want your character to do something specific when it hits an specific object, do it here
+        switch (hit.gameObject.name)
+        {
+            case "RaidToWhoCube(Clone)":
+                hit.gameObject.GetComponent<AssignRaidToCube>().collisionWithPlayer();
+                break;
+        }
 
         // no rigidbody
         if (body == null || body.isKinematic)
