@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 385
     height: 981
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -1019,7 +1019,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Imported
+    - Assets/Scripts/Managers
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1029,16 +1029,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Imported
+  - Assets/Scripts/Managers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 54800000
-    m_LastClickedID: 32852
-    m_ExpandedIDs: 00000000528000005480000056800000588000005a8000005c8000005e80000060800000628000008281000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 194}
+    m_SelectedIDs: 92810000
+    m_LastClickedID: 33170
+    m_ExpandedIDs: 000000005c8000005e80000060800000628000006480000066800000688000006a8000006c8000007281000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000528000005480000056800000588000005a8000005c8000005e8000006080000062800000
+    m_ExpandedIDs: 000000005c8000005e80000060800000628000006480000066800000688000006a8000006c800000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1168,7 +1168,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 120
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 367e0000
+      m_SelectedIDs: 38710000dc640000c67200006a6a00005c6600007078000008790000
       m_LastClickedID: 0
       m_ExpandedIDs: 26fbffff
       m_RenameOverlay:
@@ -1721,9 +1721,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1.6744921, y: 3.319509, z: -3.4219112}
+    m_Target: {x: 0.4869842, y: 5.3416758, z: -4.4100266}
     speed: 2
-    m_Value: {x: 1.6744921, y: 3.319509, z: -3.4219112}
+    m_Value: {x: 0.4869842, y: 5.3416758, z: -4.4100266}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1769,9 +1769,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.21042323, y: -0.1561433, z: 0.03414437, w: 0.9645221}
+    m_Target: {x: 0.019809084, y: 0.014987707, z: -0.0002112819, w: 0.99975497}
     speed: 2
-    m_Value: {x: 0.21040983, y: -0.15613335, z: 0.0341422, w: 0.96446073}
+    m_Value: {x: 0.02130734, y: 0.014986422, z: -0.00023375408, w: 0.9996606}
   m_Size:
     m_Target: 0.8660254
     speed: 2

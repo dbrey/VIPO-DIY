@@ -254,7 +254,7 @@ namespace StreamerBotUDP
         /// </summary>
         public string Event;
 
-        #region USER DATA
+        #region MAIN USER DATA
 
         /// <summary>
         /// The username associated with the event. For example, if the event was a subscription,
@@ -300,6 +300,18 @@ namespace StreamerBotUDP
 
         #endregion
 
+        /// This information may have value if the event is a subscription gift.
+        #region Subscription Gift Data
+
+        /// <summary>
+        /// The username associated with the event. For example, if the event was a subscription,
+        /// this would be the username of the subscriber.
+        /// </summary>
+        public string UserName2;
+        public bool isAnonymous;
+
+        #endregion
+
         /// <summary>
         /// A message associated with the event. For example, if you wanted to play TTS from this event,
         /// this string would contain the message.
@@ -319,8 +331,18 @@ namespace StreamerBotUDP
         public StreamerBotEventData()
         {
             Event = string.Empty;
+            
             UserName = string.Empty;
             UserProfileImage = string.Empty;
+            isVip = false;
+            isMod = false;
+            isSuscribed = false;
+            followAgeDays = 0;
+            monthsSuscribed = 0;
+            tier = 0;
+
+            UserName2 = string.Empty;
+            isAnonymous = false;
             Message = string.Empty;
             Amount = 0;
         }

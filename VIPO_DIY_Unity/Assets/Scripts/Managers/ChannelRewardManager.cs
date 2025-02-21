@@ -14,6 +14,7 @@ using static Twitch_data.TwitchUtils;
 /// ADVERTENCIA 2: Las recompensas con un cooldown mayor que 0 no pueden ser ejecutadas hasta que el cooldown haya terminado
 /// ADVERTENCIA 3: Las recompensas solo pueden ser ejecutadas si el usuario tiene los mismos o mayores permisos que la recompensa
 /// ADVERTENCIA 4: Las recompensas pueden ser desactivadas y activadas en cualquier momento cambiando el valor de enabled
+/// ADVERTENCIA 5: Las recompensas deben añadirse manualmente en StreamerBot para poder modificar algunos de sus valores
 /// 
 #endregion
 
@@ -29,6 +30,7 @@ using static Twitch_data.TwitchUtils;
 /// WARNING 2: Rewards with a cooldown greater than 0 cannot be executed until the cooldown has ended
 /// WARNING 3: Rewards can only be executed if the user has the same or greater permissions than the reward
 /// WARNING 4: Rewards can be disabled and enabled at any time by changing the value of enabled
+/// WARNING 5: Rewards must be added manually in StreamerBot in order to modify some of their values
 #endregion
 
 public class ChannelRewardManager : MonoBehaviour

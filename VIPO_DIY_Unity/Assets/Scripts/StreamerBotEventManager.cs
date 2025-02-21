@@ -132,6 +132,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
         if (!user.active)
         {
+            // Metemos al usuario a la lista y refrescamos el usuario
             // We add the user to the list and refresh the user
             TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
@@ -139,6 +140,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         else
         {
             // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
+            // We get the type of subscription and the time that has been subscribed
             user.permissions = Permissions.Subscribers;
             user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
             user.subscription.selectTierINT(eventData.tier);
@@ -149,8 +151,47 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void SuscriptionGiftEvent(StreamerBotEventData eventData)
     {
-        Debug.Log("Thanks for the sub gift " + eventData.UserName+ " for " + eventData.Message);
-        //SuscriptionManager.instance.SuscriptionGiftEvent(eventData.UserName, eventData.UserProfileImage, eventData.Message, eventData.Message, eventData.Amount, eventData.Message);
+        //Debug.Log("Thanks for the sub gift " + eventData.UserName+ " for " + eventData.Message);
+        User user = new User();
+        TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+        User gifter = new User();
+
+        // Si el usuario no es anonimo, podemos intentar obtener al gifter
+        // If the user is not anonymous, we can try to get the gifter
+        if (!eventData.isAnonymous)
+        {
+            TwitchManager.instance.getUser(eventData.UserName2, ref gifter);
+        }
+       
+
+        if (!user.active)
+        {
+            // Metemos al usuario a la lista y refrescamos el usuario
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addNewUser(eventData);
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+        }
+        else
+        {
+            // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
+            // We get the type of subscription and the time that has been subscribed
+            user.permissions = Permissions.Subscribers;
+            user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
+            user.subscription.selectTierINT(eventData.tier);
+        }
+
+        // Si el gifter no esta activo y no es anonimo
+        // If the gifter is not active and is not anonymous
+        if(!gifter.active && !eventData.isAnonymous)
+        {
+            // Metemos al usuario a la lista y refrescamos el usuario
+            // We add the user to the list and refresh the user
+            TwitchManager.instance.addDefaultUser(eventData.UserName2);
+            TwitchManager.instance.getUser(eventData.UserName2, ref gifter);
+        }
+
+        SuscriptionManager.instance.SuscriptionGiftEvent(user, gifter);
     }
 
     private void ChannelRewardEvent(StreamerBotEventData eventData)
@@ -200,6 +241,9 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
     #endregion
 
     #region Auxiliar functions
+    
+    // Si queremos acceder a la informacion de un usuario, dependiendo del manager que solicito la informacion se haran cosas diferentes
+    // If we want to access to a user information, depending on the manager that requested the information it will do different things
     private void GetUser(StreamerBotEventData eventData)
     {
         User user = new User();

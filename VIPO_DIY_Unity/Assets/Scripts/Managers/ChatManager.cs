@@ -186,6 +186,27 @@ public class ChatManager : MonoBehaviour
                 // We call the command
                 commands[commandArguments[0]].ExecuteCommand(user, commandArguments);
             }
+            else
+                // Si el usuario no tiene los permisos necesarios
+                // If the user doesn't have the necessary permissions
+                Debug.LogWarning("The user " + user.UserName + " doesn't have the permissions to execute the command " + commandArguments[0]);
+        }
+        else if (!commands.ContainsKey(commandArguments[0]))
+        {
+            // Si el comando no existe
+            // If the command doesn't exist
+            Debug.LogWarning("The command " + commandArguments[0] + " is not included");
+        }
+        else if (!commands[commandArguments[0]].enabled)
+        {
+            // Si el comando no esta activo pero tiene un cooldown
+            // If the command is not enabled but has a cooldown
+            if (commands[commandArguments[0]].timer > 0)
+                Debug.LogWarning("The command " + commandArguments[0] + " is on cooldown");
+            // Si el comando no esta activo y no tiene un cooldown
+            // If the command is not enabled and doesn't have a cooldown
+            else if (!commands[commandArguments[0]].enabled)
+                Debug.LogWarning("The command " + commandArguments[0] + " is not enabled");
         }
         
     }

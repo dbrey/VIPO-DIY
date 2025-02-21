@@ -40,10 +40,6 @@ public class FollowManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-    }
-
 
     #region Documentation in Spanish
     // Este evento lo invoca Streamerbot cuando recibe una notificacion de que alguien te ha seguido
@@ -68,18 +64,5 @@ public class FollowManager : MonoBehaviour
         ExampleManager.instance.FollowExample(user);
 
     }
-
-    // Programa los efectos de tus notificaciones de Seguidor aqui!
-    // Program the effects of your Follow notifications here!
-    #region 
-
-    // Esto es un ejemplo de lo que puedes hacer cuando alguien te sigue
-    // This is an example of what you can do when someone follows you
-    void printFollowNotification(TwitchUtils.User user)
-    {
-        Debug.Log(user.UserName + " decided to follow me for some reason");
-    }
-
-    #endregion
 
 }
