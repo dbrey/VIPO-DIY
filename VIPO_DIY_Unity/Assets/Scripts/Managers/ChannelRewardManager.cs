@@ -215,6 +215,7 @@ public class ChannelRewardManager : MonoBehaviour
             // Here you can program the effects of your command
 
             Debug.Log(user.UserName + " redeemed the reward EXAMPLE REWARD with cost :" + cost);
+            ExampleManager.instance.RewardExample();
         }
     }
 

@@ -53,7 +53,9 @@ public class SuscriptionManager : MonoBehaviour
         // Recibimos al usuario que ya tiene la suscripcion, el nombre del receptor, los meses suscritos y el tier de la suscripcion
         // We receive the user who already has the subscription, the name of the receiver, the months suscribed and the tier of the subscription
 
-        Debug.Log(user.UserName + " decided to suscribe to me for " + user.subscription.SubscribedMonthCount + " months with tier " + user.subscription.Tier);
+        // En este caso, solo mostramos el nombre del usuario y su foto de perfil
+        // In this case, we only show the name of the user and its profile picture
+        ExampleManager.instance.SubscriptionExample(user);
     }
 
     public void SuscriptionGiftEvent(User user, User userGifter)
@@ -67,11 +69,14 @@ public class SuscriptionManager : MonoBehaviour
         {
             // Si el usuario es activo, entonces podemos acceder a su informacion ya que el gifter no es anonimo
             // If the user is active, then we can access its information as the gifter is not anonymous
+
+            ExampleManager.instance.SubscriptionGiftExample(user, userGifter.UserName);
         }
         else
-        { 
+        {
             // Si el usuario no es activo, entonces el gifter es anonimo
             // If the user is not active, then the gifter is anonymous
+            ExampleManager.instance.SubscriptionGiftExample(user, "");
         }
     }
 

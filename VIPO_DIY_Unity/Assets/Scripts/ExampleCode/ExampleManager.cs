@@ -4,6 +4,7 @@ using TMPro;
 using static Twitch_data.TwitchUtils;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ExampleManager : MonoBehaviour
 {
@@ -14,12 +15,31 @@ public class ExampleManager : MonoBehaviour
         instance = this;
     }
 
+    [Header("Player Reference")]
+    [SerializeField] GameObject player;
+    public GameObject getPlayer()
+    {
+        return player;
+    }
+
     [Header("Follower event example")]
     [SerializeField] AssignFollower assignFollower;
+
+    [Header("Subscriber event example")]
+    [SerializeField] AssignFollower assignSubscriber;
+    [SerializeField] GameObject gifterSubscription;
+    [SerializeField] TextMeshProUGUI gifterNameText;
+    Vector3 gifterOffset = new Vector3(0, 2f, -6);
 
     [Header("Chat Messages event Example")]
     [SerializeField] TextMeshProUGUI chatText;
     [SerializeField] int chatMessageLimit = 5;
+
+    [Header("Chat Messages event Example")]
+    [SerializeField] GameObject commandObject;
+
+    [Header("Chat Messages event Example")]
+    [SerializeField] GameObject rewardObject;
 
     [Header("Donation event Example")]
     [SerializeField] TextMeshProUGUI bitsText;
@@ -38,7 +58,38 @@ public class ExampleManager : MonoBehaviour
 
     public void FollowExample(User user)
     {
-        assignFollower.AssignFollowerData(user.UserName, user.profilePictureURL);
+        assignFollower.AssignData(user.UserName, user.profilePictureURL);
+    }
+
+    public void SubscriptionExample(User user)
+    {
+        assignSubscriber.AssignData(user.UserName, user.profilePictureURL);
+        gifterNameText.text = "";
+    }
+
+    public void SubscriptionGiftExample(User user, string gifterName)
+    {
+        assignSubscriber.AssignData(user.UserName, user.profilePictureURL);
+
+        //We get the position of the assignSubscriber object and we establish a new position to throw the object using an offset
+        Vector3 newPosition = assignSubscriber.transform.position + gifterOffset;
+        GameObject packageSub = Instantiate(gifterSubscription, newPosition, Quaternion.identity);
+
+        // We calculate the direction to throw the object with a certain force
+        Vector3 dir = (assignSubscriber.transform.position - packageSub.transform.position).normalized;
+
+        packageSub.GetComponent<Rigidbody>().AddForce(dir * 500);
+
+        // If the gifter is not anonymous, we show the name of the gifter
+        if (gifterName != "")
+        {
+            gifterNameText.text = "From " + gifterName;
+        }
+        else
+        {
+            gifterNameText.text = "From Anonymous";
+        }
+
     }
 
     public void AddChatMessage(User user, string message)
@@ -116,6 +167,18 @@ public class ExampleManager : MonoBehaviour
                 raidToWhoCubeAux.GetComponent<AssignRaidToCube>().assignStreamerImage(spriteAux,user.UserName);
             };
         }
+    }
+
+    public void CommandExample()
+    {
+        Vector3 pos = player.transform.position + new Vector3(0, 5, 0);
+        Instantiate(commandObject, pos, Quaternion.identity);
+    }
+
+    public void RewardExample()
+    {
+        Vector3 pos = player.transform.position + new Vector3(0, 5, 0);
+        Instantiate(rewardObject, pos, Quaternion.identity);
     }
 
 }

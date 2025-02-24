@@ -206,9 +206,9 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
             TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
         }
-
+        
         // Be aware that the last argument must me the list of arguments of the reward (That right we do not have it yet)
-        //ChannelRewardManager.instance.RewardEvent(eventData.Message, user, eventData.UserProfileImage, new List<string>());
+        ChannelRewardManager.instance.RewardEvent(eventData.Message, user, new List<string>());
 
     }
 

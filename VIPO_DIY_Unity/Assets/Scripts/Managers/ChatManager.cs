@@ -278,6 +278,7 @@ public class ChatManager : MonoBehaviour
             // Aqui puedes programar los efectos de tu comando
             // Here you can program the effects of your command
             Debug.Log("This is just a test of the command");
+            ExampleManager.instance.CommandExample();
         }
     }
 
@@ -285,9 +286,7 @@ public class ChatManager : MonoBehaviour
     {
         // Constructor para asignar los valores del comando
         // Constructor to assign the values of the command
-        public exampleArgumentsCommand(string name, bool enabled, float timer, Permissions permissions) : base(name, enabled, timer, permissions)
-        {
-        }
+        public exampleArgumentsCommand(string name, bool enabled, float timer, Permissions permissions) : base(name, enabled, timer, permissions) {}
 
         // This void is called when the command is executed in the void CallCommand
         public override void ExecuteCommand(User user, List<string> commandArguments)
