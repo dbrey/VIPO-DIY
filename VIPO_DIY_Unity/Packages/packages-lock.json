@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.endel.nativewebsocket": {
+      "version": "https://github.com/endel/NativeWebSocket.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d8b49b3fee41c09a98141f1f1a5e4db47e14229"
+    },
     "com.github-glitchenzo.nugetforunity": {
       "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
       "depth": 0,
@@ -116,9 +123,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -141,6 +148,15 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jp.keijiro.klak.spout": {
+      "version": "2.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.screencapture": "1.0.0"
+      },
+      "url": "https://registry.npmjs.com"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

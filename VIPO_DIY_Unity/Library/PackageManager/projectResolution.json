@@ -8,6 +8,14 @@
     "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Packages\\packages-lock.json"
   ],
   "outputs": {
+    "com.endel.nativewebsocket@https://github.com/endel/NativeWebSocket.git#upm": {
+      "name": "com.endel.nativewebsocket",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.endel.nativewebsocket",
+      "fingerprint": "1d8b49b3fee41c09a98141f1f1a5e4db47e14229",
+      "editorCompatibility": "2019.1.0a1",
+      "version": "1.1.5",
+      "source": "git"
+    },
     "com.github-glitchenzo.nugetforunity@https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity": {
       "name": "com.github-glitchenzo.nugetforunity",
       "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.github-glitchenzo.nugetforunity",
@@ -93,6 +101,14 @@
       "fingerprint": "1b53f46e931bea668e53f1feb0ac9138170c9455",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.9.5",
+      "source": "registry"
+    },
+    "jp.keijiro.klak.spout@2.0.3": {
+      "name": "jp.keijiro.klak.spout",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\jp.keijiro.klak.spout",
+      "fingerprint": "3be27c34696f974ccd5594eb771a097b770f8b97",
+      "editorCompatibility": "2020.3.1f1",
+      "version": "2.0.3",
       "source": "registry"
     },
     "com.unity.modules.accessibility@1.0.0": {
