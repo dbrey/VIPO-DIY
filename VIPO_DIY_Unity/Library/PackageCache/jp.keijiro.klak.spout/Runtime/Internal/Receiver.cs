@@ -86,11 +86,14 @@ sealed class Receiver : System.IDisposable
         // correct one.
         if (_texture == null && data.texturePointer != IntPtr.Zero)
             _texture = Texture2D.CreateExternalTexture
-              ((int)data.width, (int)data.height, TextureFormat.RGBA32,
-               false, false, data.texturePointer);
+              ((int)data.width, (int)data.height, TextureFormat.BGRA32,
+               false, true, data.texturePointer);
 
-        // Update event for the render thread
-        _event.IssuePluginEvent(EventID.UpdateReceiver);
+         // I fixed the line 88-89 to use the correct texture format
+         // https://github.com/keijiro/KlakSpout/issues/81
+
+         // Update event for the render thread
+         _event.IssuePluginEvent(EventID.UpdateReceiver);
     }
 
     #endregion

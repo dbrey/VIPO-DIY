@@ -71,6 +71,14 @@
       "version": "1.0.0",
       "source": "builtin"
     },
+    "com.unity.render-pipelines.universal@17.0.3": {
+      "name": "com.unity.render-pipelines.universal",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.render-pipelines.universal",
+      "fingerprint": "18ddc9f21c783fcaa6298e2bb6cfcd309eb6ba95",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin"
+    },
     "com.unity.test-framework@1.4.5": {
       "name": "com.unity.test-framework",
       "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.test-framework",
@@ -323,6 +331,30 @@
       "version": "2.0.5",
       "source": "registry"
     },
+    "com.unity.render-pipelines.core@17.0.3": {
+      "name": "com.unity.render-pipelines.core",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.render-pipelines.core",
+      "fingerprint": "668d69e61fc4f03c821b6a3e669d05e3cf380460",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin"
+    },
+    "com.unity.shadergraph@17.0.3": {
+      "name": "com.unity.shadergraph",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.shadergraph",
+      "fingerprint": "9111176982208cf007caa931c3cf2716ceec4632",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin"
+    },
+    "com.unity.render-pipelines.universal-config@17.0.3": {
+      "name": "com.unity.render-pipelines.universal-config",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.render-pipelines.universal-config",
+      "fingerprint": "fa63c96d3e1af317d84d171cd6c0e0658ab159df",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin"
+    },
     "com.unity.editorcoroutines@1.0.0": {
       "name": "com.unity.editorcoroutines",
       "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.editorcoroutines",
@@ -347,12 +379,68 @@
       "version": "1.2.6",
       "source": "registry"
     },
+    "com.unity.searcher@4.9.2": {
+      "name": "com.unity.searcher",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.searcher",
+      "fingerprint": "90d011a70418fd5b0f4b8e86df39444d2af228dd",
+      "editorCompatibility": "2019.1.0a1",
+      "version": "4.9.2",
+      "source": "registry"
+    },
+    "com.unity.burst@1.8.18": {
+      "name": "com.unity.burst",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.burst",
+      "fingerprint": "616862665d8c8ffe643d505aebb5de2ee73b0ab0",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "1.8.18",
+      "source": "registry"
+    },
+    "com.unity.mathematics@1.3.2": {
+      "name": "com.unity.mathematics",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.mathematics",
+      "fingerprint": "8017b507cc74bf0a1dd14b18aa860569f807314d",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "1.3.2",
+      "source": "registry"
+    },
+    "com.unity.collections@2.5.1": {
+      "name": "com.unity.collections",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.collections",
+      "fingerprint": "56bff8827a7ef6d44fcee4f36e558a74da89c1a0",
+      "editorCompatibility": "2022.3.11f1",
+      "version": "2.5.1",
+      "source": "registry"
+    },
+    "com.unity.rendering.light-transport@1.0.1": {
+      "name": "com.unity.rendering.light-transport",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.rendering.light-transport",
+      "fingerprint": "307bc27a498fc9cd409bbd426c85d8dc7f140bc1",
+      "editorCompatibility": "2023.3.0b1",
+      "version": "1.0.1",
+      "source": "builtin"
+    },
     "com.unity.settings-manager@2.0.1": {
       "name": "com.unity.settings-manager",
       "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.settings-manager",
       "fingerprint": "56a930affa1e4462d3595b5c19a1c2a4bf2015d2",
       "editorCompatibility": "2018.4.0a1",
       "version": "2.0.1",
+      "source": "registry"
+    },
+    "com.unity.nuget.mono-cecil@1.11.4": {
+      "name": "com.unity.nuget.mono-cecil",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.nuget.mono-cecil",
+      "fingerprint": "d6f9955a5d5f84d45442ff1ad0fb694cc6e2fd62",
+      "editorCompatibility": "2018.4.0a1",
+      "version": "1.11.4",
+      "source": "registry"
+    },
+    "com.unity.test-framework.performance@3.0.3": {
+      "name": "com.unity.test-framework.performance",
+      "resolvedPath": "C:\\Users\\Usuario\\Desktop\\Proyectos\\VIPO-DIY\\VIPO_DIY_Unity\\Library\\PackageCache\\com.unity.test-framework.performance",
+      "fingerprint": "fb0dc592af8b524f1a06c50d7caf95552f1bcd2f",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "3.0.3",
       "source": "registry"
     }
   }
