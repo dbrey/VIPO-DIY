@@ -53,8 +53,8 @@ public class SuscriptionManager : MonoBehaviour
         // Recibimos al usuario que ya tiene la suscripcion, el nombre del receptor, los meses suscritos y el tier de la suscripcion
         // We receive the user who already has the subscription, the name of the receiver, the months suscribed and the tier of the subscription
 
-        // En este caso, solo mostramos el nombre del usuario y su foto de perfil
-        // In this case, we only show the name of the user and its profile picture
+        // En este caso, solo mostramos el nombre del usuario y su foto de perfil (Puedes borrar la linea y es completamente seguro)
+        // In this case, we only show the name of the user and its profile picture (You can delete the line and it's completely safe)
         ExampleManager.instance.SubscriptionExample(user);
     }
 
@@ -67,23 +67,18 @@ public class SuscriptionManager : MonoBehaviour
         // We have to take into account if the gifter is anonymous. If it is, then we don't have a user to access
         if (userGifter.active)
         {
-            // Si el usuario es activo, entonces podemos acceder a su informacion ya que el gifter no es anonimo
-            // If the user is active, then we can access its information as the gifter is not anonymous
+            // Si el usuario es activo, entonces podemos acceder a su informacion ya que el gifter no es anonimo (Puedes borrar la linea y es completamente seguro)
+            // If the user is active, then we can access its information as the gifter is not anonymous (You can delete the line and it's completely safe)
 
             ExampleManager.instance.SubscriptionGiftExample(user, userGifter.UserName);
         }
         else
         {
-            // Si el usuario no es activo, entonces el gifter es anonimo
-            // If the user is not active, then the gifter is anonymous
+            // Si el usuario no es activo, entonces el gifter es anonimo (Puedes borrar la linea y es completamente seguro)
+            // If the user is not active, then the gifter is anonymous (You can delete the line and it's completely safe)
             ExampleManager.instance.SubscriptionGiftExample(user, "");
         }
     }
-
-    #endregion
-
-    #region You don't need to touch this
-
 
     #endregion
 }

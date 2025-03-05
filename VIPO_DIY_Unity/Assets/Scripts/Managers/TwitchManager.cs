@@ -38,6 +38,9 @@ public class TwitchManager : MonoBehaviour
     UDPSend udpSender;
     public UDPSend getUDPSender() { return udpSender; }
 
+
+    // Lista de usuarios que han interactuado con el canal
+    // List of users that have interacted with the channel
     Dictionary<string, User> userList;
 
     public enum WhoRequested
@@ -53,12 +56,16 @@ public class TwitchManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        // Si no hay ninguna instancia, establecemos esta como la instancia
+        // If there's no instance, we set this as the instance
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
+        // Si ya hay una instancia, destruimos esta
+        // If there's already an instance, we destroy this one
         {
             Destroy(gameObject);
         }
@@ -72,18 +79,24 @@ public class TwitchManager : MonoBehaviour
     }
 
     #region User Management
-    // Interrogation is to return a null value if the user is not found
+
+    // Busca si username esta registrado en la lista de usuarios, si lo esta, user se convierte en el usuario correspondiente
+    // Search if username is registered in the list of users, if it is, user becomes the corresponding user
     public void getUser(string username, ref User user)
     {
         if (userList.ContainsKey(username))
             user = userList[username];
     }
 
+    // Actualiza la informacion de un usuario
+    // Update the information of a user
     public void updateUser(User user)
     {
         userList[user.UserName] = user;
     }
 
+    // Con la informacion de eventData, creamos un nuevo usuario y lo añadimos a la lista de usuarios
+    // With the information of eventData, we create a new user and add it to the list of users
     public void addNewUser(StreamerBotEventData eventData)
     {
         User user = new User();
@@ -92,7 +105,8 @@ public class TwitchManager : MonoBehaviour
         user.profilePictureURL = eventData.UserProfileImage;
         user.subscription = new Subscription();
 
-        // Independientemente del status del usuario, si esta suscrito, le asignamos el tier y el tiempo que lleva suscrito
+        // Independientemente del status del usuario, si esta suscrito, le asignamos el tier y el tiempo que lleva
+        // No matter the status of the user, if it is subscribed, we assign the tier and the time it has
         if (eventData.isSuscribed)
         {
             // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
@@ -104,21 +118,34 @@ public class TwitchManager : MonoBehaviour
             user.subscription.Tier = SubscriptionTier.NotSet;
 
         // Miramos el status del usuario para asignarle los permisos correspondientes
+        // Look at the status of the user to assign the corresponding permissions
         if (eventData.isMod)
             user.permissions = Permissions.Mods;
         else if (eventData.isVip)
             user.permissions = Permissions.VIPs;
-        else if (eventData.followAgeDays > 0 && !eventData.isSuscribed) // Si el usuario no esta suscrito pero sigue al canal
+        // Si el usuario no esta suscrito pero sigue al canal
+        // If the user is not subscribed but follows the channel
+        else if (eventData.followAgeDays > 0 && !eventData.isSuscribed) 
             user.permissions = Permissions.Follower;
-        else if (!eventData.isSuscribed) // Si el usuario no esta suscrito ni sigue al canal
+        // Si el usuario no esta suscrito ni sigue al canal
+        // If the user is not subscribed nor follows the channel
+        else if (!eventData.isSuscribed) 
             user.permissions = Permissions.Everyone;
 
         userList.Add(user.UserName, user);
     }
 
+    // 
     // This method should only be used when the only information we have is the username
-    public void addDefaultUser(string username)
+    public void createDefaultUser(string username, ref User temporalUser)
     {
+        /// Si tenemos el nombre del usuario, podemos pedir la informacion del usuario a Twitch
+        /// Esta funcionalidad no esta implementada todavia
+
+        /// If we got the name of the user, we can request the information of the user to Twitch
+        /// This feature is not implemented yet
+
+        // Aparte del nombre de usuario, toda la informacion se pone por defecto
         // Apart from the userName, all the other information is set to default
         User user = new User();
         user.active = true;
@@ -128,13 +155,12 @@ public class TwitchManager : MonoBehaviour
         user.subscription.Tier = SubscriptionTier.NotSet;
         user.permissions = Permissions.Everyone;
 
-        userList.Add(user.UserName, user);
     }
     #endregion
 
     // Mandamos un request a StreamerBot para realizar la accion "ShoutOut"
     // We request StreamerBot to start the action "ShoutOut"
-    void ShoutOutEvent(string streamerName)
+    public void ShoutOutEvent(string streamerName)
     { 
         udpSender.doAction("ShoutOut", "",streamerName, 0);
     }

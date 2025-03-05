@@ -8,6 +8,18 @@ using UnityEngine;
 using System.Collections.Concurrent;
 #nullable enable
 
+#region Documentacion en Español
+///
+/// No tocar esto. Es el script que se encarga de recibir los eventos de StreamerBot
+///
+#endregion
+
+#region Documentation in English
+///
+/// Do not touch this. This is the script that is in charge of receiving the events from StreamerBot
+/// 
+#endregion
+
 namespace StreamerBotUDP
 {
 

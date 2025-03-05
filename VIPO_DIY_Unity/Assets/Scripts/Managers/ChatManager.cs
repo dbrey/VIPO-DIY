@@ -50,17 +50,16 @@ public class ChatManager : MonoBehaviour
 
     class ManagedCommand
     { 
-        public string name; // The name of the command
-        public bool enabled; // Is the command enabled?
-        public float timer; // Cooldown timer
+        public string name; 
+        public bool enabled;
+        public float cooldown; 
         public Permissions permissions; // 0 = everyone, 1 = subscriber, 2 = VIP, 3 = moderator, 4 = broadcaster
         
-        // We add an empty method to the struct so we can override it later
         public ManagedCommand()
         {
             name = "";
             enabled = true;
-            timer = 0;
+            cooldown = 0;
             permissions = 0;
         }
 
@@ -68,15 +67,17 @@ public class ChatManager : MonoBehaviour
         {
             this.name = name;
             this.enabled = enabled;
-            this.timer = timer;
+            this.cooldown = timer;
             this.permissions = permissions;
         }
         
         public virtual void ExecuteCommand(User user, List<string> commandArguments)
         {
             // We will override this method later
+            // Este metodo se llama cuando se ejecuta el comando en el metodo CallCommand. No hace nada por defecto y se sobreescribe en las clases hijas
+            // This void is called when the command is executed in the void CallCommand. It does nothing by default and is overridden in the child classes
         }
-        
+
     }
     
     [SerializeField] List<string> commandsToAdd = new List<string>();
@@ -159,12 +160,12 @@ public class ChatManager : MonoBehaviour
 
         foreach (KeyValuePair<string, ManagedCommand> entry in commands)
         {
-            if (commands[entry.Key].timer > 0)
+            if (commands[entry.Key].cooldown > 0)
             {
                 ManagedCommand command = commands[entry.Key];
-                command.timer -= Time.deltaTime;
+                command.cooldown -= Time.deltaTime;
                 
-                if (command.timer <= 0)
+                if (command.cooldown <= 0)
                     command.enabled = true;
 
                 commands[entry.Key] = command;
@@ -177,13 +178,14 @@ public class ChatManager : MonoBehaviour
 
     private void CallCommand(User user, List<string> commandArguments)
     {
+        // Comprobamos el primer elemento del comando, que es el comando en si
         // We check the first element of the command, which is the command itself
         if (commands.ContainsKey(commandArguments[0]) && commands[commandArguments[0]].enabled)
         {
+            // Comprobamos si el usuario tiene los permisos iguales o superiores al comando
             // We check if the user has the same or above permissions than the command
             if (user.permissions >= commands[commandArguments[0]].permissions)
             {
-                // We call the command
                 commands[commandArguments[0]].ExecuteCommand(user, commandArguments);
             }
             else
@@ -201,7 +203,7 @@ public class ChatManager : MonoBehaviour
         {
             // Si el comando no esta activo pero tiene un cooldown
             // If the command is not enabled but has a cooldown
-            if (commands[commandArguments[0]].timer > 0)
+            if (commands[commandArguments[0]].cooldown > 0)
                 Debug.LogWarning("The command " + commandArguments[0] + " is on cooldown");
             // Si el comando no esta activo y no tiene un cooldown
             // If the command is not enabled and doesn't have a cooldown
@@ -214,8 +216,6 @@ public class ChatManager : MonoBehaviour
 
     public void ReceiveChatMessage(User user, string message)
     {
-        // Comprobamos si el mensaje es un comando, mirando si su primer caracter es un !
-        // We check if the message is a command, looking if its first character is a !
 
         #region Documentation in Spanish
         /// 
@@ -261,6 +261,8 @@ public class ChatManager : MonoBehaviour
 
     void printMessage(User user, string message)
     {
+        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this line and nothing will break! It simply disconnects the action from the event
         ExampleManager.instance.AddChatMessage(user, message);
     }
 

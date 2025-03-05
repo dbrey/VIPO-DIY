@@ -8,21 +8,28 @@ namespace Twitch_data
     {
         public enum Permissions
         {
+            /// Cuanto mas alto el numero, mas permisos tiene el usuario
+            /// Es posible que los suscriptores tengan otro nivel de permisos dependiendo del tier de la suscripcion
+
             /// The higher the number, the more permissions the user has
             /// Maybe the suscribers have another tier of permissions depending on the tier of the suscription
 
 
             Broadcaster = 5,
 
+            // Deberia ser asignado por el broadcaster en Twitch. Deberia tener acceso a las herramientas de Moderacion
             // Have to be assigned by the broadcaster in Twitch. Should have access to Moderation tools
             Mods = 4,
 
+            // Deberia ser asignado por el broadcaster en Twitch
             // Have to be assigned by the broadcaster in Twitch
             VIPs = 3,
 
+            // Solo puede ser accedido si el viewer tiene una suscripcion
             // This can only be accessed if a viewer has a subscription
             Subscribers = 2,
             
+            // Solo puede ser accedido si el viewer esta siguiendo el canal
             // This can only be accessed if a viewer is following the channel
             Follower = 1,
 
@@ -30,9 +37,6 @@ namespace Twitch_data
         }
         public enum SubscriptionTier
         {
-            /// I suppose this is the order of the tiers simply because in order to be tier 3 
-            /// you have to pay like 25$ meanwhile in order to be tier1 you just need 5$
-
             // The user have to pay 25$ to be tier 3, so it's the highest tier
             Tier3 = 4,
 
@@ -42,9 +46,11 @@ namespace Twitch_data
             // The user have to pay 5$ to be tier 1
             Tier1 = 2,
 
+            // El usuario tiene que tener Amazon Prime para ser Prime (Amazon Prime da una suscripcion gratuita a un canal)
             // The user have to have Amazon Prime to be Prime (Amazon Prime gives the user a free subscription to a channel)
             Prime = 1,
 
+            // El usuario no esta suscrito o hay un error y el tier no esta asignado
             // The user is not subscribed or there is an error and the tier is not set
             NotSet = 0
 
@@ -52,19 +58,21 @@ namespace Twitch_data
 
         public struct User
         {
+            // Esto es una variable dada por defecto a todos los usuarios. Se vuelve true cuando añadimos al usuario
             // This is a flag given by default to all users. It turns true when we add the user
             public bool active;
 
+            /// El nombre de usuario del usuario, usado para iniciar sesion en Twitch
             /// The user's username, used to log in to Twitch
             public string UserName;
 
             public string profilePictureURL;
 
-            public Permissions permissions; // We know what kind of user it is by the permissions
+            // Sabemos que tipo de usuario es por los permisos
+            // We know what kind of user it is by the permissions
+            public Permissions permissions; 
 
-            /// Whether or not the user is lurking in chat
-            //public bool IsLurking;
-
+            /// Detaññes de la suscripcion del usuario. Sera null si el usuario no esta suscrito. Tambien puede ser null incluso si el usuario *esta* suscrito.
             /// Details of the user's subscription. Will be null if the user isn't subscribed. May also be null even if the user *is* subscribed.
             public Subscription subscription;
 
@@ -75,7 +83,6 @@ namespace Twitch_data
                 profilePictureURL = profileURL;
                 this.permissions = permissions;
                 subscription = sub;
-                // Suscription is null by default
             }
 
             public User(bool exists)
@@ -90,7 +97,7 @@ namespace Twitch_data
 
         public class Subscription
         {
-            
+            /// El numero total de meses que el usuario ha estado suscrito al canal
             /// The total number of months the user has been subscribed to the channel
             public int SubscribedMonthCount;
 
@@ -100,17 +107,24 @@ namespace Twitch_data
             /// <remarks>
             /// This is only set if the user subscribed/re-subscribed since the overlay was opened
             /// </remarks>
+            /// STILL IN DEVELOPMENT
             //public int StreakMonths { get; internal set; }
 
             
+            /// El tier al que el usuario se ha suscrito
+            /// Esto siempre deberia estar asignado si el usuario esta suscrito y los datos estan disponibles
             /// The tier the user subscribed at.
             /// This should always be set if the user is subscribed and the data is available
             public SubscriptionTier Tier;
 
+            /// Si la suscripcion es un regalo
+            /// Esto siempre deberia estar asignado si el usuario esta suscrito
             /// Whether the subscription is a gift sub
             /// This should always be set if the user is subscribed
             public bool IsGift;
 
+            /// Un usuario con detalles del gifter
+            /// Esto sera null si esto no es una suscripcion regalada o el regalo fue anonimo
             /// A user with details of the gifter
             /// This will be null if this is not a gift subscription or the gift was anonymous
             public User Gifter;

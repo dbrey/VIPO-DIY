@@ -65,7 +65,8 @@ public class ChannelRewardManager : MonoBehaviour
 
         public virtual void ExecuteReward(User user, List<string> rewardArguments)
         {
-            // We will override this method later
+            // Este metodo se llama cuando se ejecuta la recompensa en el metodo RewardEvent. No hace nada por defecto y se sobreescribe en las clases hijas
+            // This void is called when the reward is executed in the void RewardEvent. It does nothing by default and is overridden in the child classes
         }
     }
     
@@ -154,8 +155,20 @@ public class ChannelRewardManager : MonoBehaviour
 
     void AddReward(string rewardName)
     {
-        // Si la recompensa no existe, la añadimos
-        // If the reward doesn't exist, we add it
+        #region Documentation in Spanish
+        ///
+        /// Si la recompensa no existe, la añadimos
+        /// Cuando añadimos una recompensa, los valores que se le asignan deben ser los mismos que en StreamerBot
+        ///
+        #endregion
+
+        #region Documentation in English
+        ///
+        /// If the reward doesn't exist, we add it
+        /// When we add a reward, the values assigned to it must be the same as in StreamerBot
+        ///
+        #endregion
+
         if (!managedRewards.ContainsKey(rewardName))
         {
             switch (rewardName)
@@ -177,7 +190,9 @@ public class ChannelRewardManager : MonoBehaviour
         }
     }
 
-    void updateCostReward(string rewardToUpdate ,int newCost)
+    // Todavia en desarrollo
+    // Still in development
+    /*void updateCostReward(string rewardToUpdate, int newCost)
     {
         if (managedRewards.ContainsKey(rewardToUpdate))
         {
@@ -188,21 +203,20 @@ public class ChannelRewardManager : MonoBehaviour
             // Here we have to tell StreamerBot to update the reward cost in Twitch as well
             // For now, this only changes the cost of one specific reward
             // If we want to specify which reward we need to define some "Selection" type in the doAction method
-            StreamerBotEventManager.instance.udpSend.doAction("UpdateChannelReward","", "", auxReward.cost);
+            StreamerBotEventManager.instance.udpSend.doAction("UpdateChannelReward", "", "", auxReward.cost);
         }
         else
-        { 
+        {
             Debug.Log("The reward " + rewardToUpdate + " does not exist");
         }
-    }
-
+    }*/
 
     #endregion
 
     #region Program here the methods for the rewards
     class ExampleReward : ManagedReward
     {
-        // Constructor para asignar los valores de la recompensa
+        // Constructora para asignar los valores de la recompensa
         // Constructor to assign the values of the reward
         public ExampleReward(string name, int cost, float coolDown, bool enabled, Permissions permissions) : base(name, cost, coolDown, enabled, permissions)
         {}
@@ -215,6 +229,9 @@ public class ChannelRewardManager : MonoBehaviour
             // Here you can program the effects of your command
 
             Debug.Log(user.UserName + " redeemed the reward EXAMPLE REWARD with cost :" + cost);
+
+            // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
+            // You can delete this line and it's completely safe! It simply disconnects the action from the event
             ExampleManager.instance.RewardExample();
         }
     }

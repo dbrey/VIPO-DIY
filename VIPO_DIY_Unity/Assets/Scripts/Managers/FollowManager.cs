@@ -7,7 +7,7 @@ using Twitch_data;
 ///
 /// Dentro del metodo FollowEvent, Streamerbot te da la informacion del usuario que te ha seguido
 /// Con esa información, puedes hacer lo que quieras
-/// Por ejemplo: Mostrar un mensaje con el nombre del usuario que te ha seguido y su foto de perfil
+/// Por ejemplo: Mostrar un mensaje con el nombre del usuario que te ha seguido y su foto de perfil (Tambien puedes acceder a mas informacion del usuario)
 /// 
 #endregion
 
@@ -15,7 +15,7 @@ using Twitch_data;
 /// 
 /// In the FollowEvent method, Streamerbot gives you the information of the user that has followed you
 /// With information, you can do everything you want
-/// For example: Show a message with the name of the user that has followed you and their profile picture
+/// For example: Show a message with the name of the user that has followed you and their profile picture (You can also access to more information of the user)
 ///  
 #endregion
 
