@@ -127,7 +127,7 @@ public class ChatManager : MonoBehaviour
                     commands.Add(commandName, new exampleArgumentsCommand(commandName, true, 0, Permissions.Everyone));
                     break;
                 default:
-                    Debug.Log("Command not found, check the commands name and its class");
+                    Debug.LogWarning("Command not found, check the commands name and its class");
                     break;
 
                 /* Example of how to add a command
@@ -201,14 +201,13 @@ public class ChatManager : MonoBehaviour
         }
         else if (!commands[commandArguments[0]].enabled)
         {
-            // Si el comando no esta activo pero tiene un cooldown
-            // If the command is not enabled but has a cooldown
+            // Si hay algun tipo de error, lo comunicamos por el editor de Unity
+            // If there's any kind of error, we communicate it through the Unity editor
+
             if (commands[commandArguments[0]].cooldown > 0)
-                Debug.LogWarning("The command " + commandArguments[0] + " is on cooldown");
-            // Si el comando no esta activo y no tiene un cooldown
-            // If the command is not enabled and doesn't have a cooldown
+                Debug.Log("The command " + commandArguments[0] + " is on cooldown. Wait for " + commands[commandArguments[0]].cooldown + " seconds");
             else if (!commands[commandArguments[0]].enabled)
-                Debug.LogWarning("The command " + commandArguments[0] + " is not enabled");
+                Debug.LogWarning("The command " + commandArguments[0] + " is not enabled. You need");
         }
         
     }

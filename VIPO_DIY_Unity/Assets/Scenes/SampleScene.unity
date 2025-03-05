@@ -5077,7 +5077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e310a141bb474468c8980a39ffecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: ws://127.0.0.1:9090/
 --- !u!4 &1739345405
 Transform:
   m_ObjectHideFlags: 0
@@ -7163,6 +7162,10 @@ PrefabInstance:
     - target: {fileID: 3294683489318634829, guid: 494840baf08205749b279e8835ccabb6, type: 3}
       propertyPath: m_Name
       value: StreamerBotManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294683489318634829, guid: 494840baf08205749b279e8835ccabb6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156484030505412226, guid: 494840baf08205749b279e8835ccabb6, type: 3}
       propertyPath: m_LocalPosition.x

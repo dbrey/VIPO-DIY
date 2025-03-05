@@ -109,6 +109,4 @@ public class RaidManager : MonoBehaviour
     {
         TwitchManager.instance.getUDPSender().doAction("Request Send Raid","", "", 0);
     }
-
-
 }

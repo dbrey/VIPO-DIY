@@ -70,7 +70,7 @@ public class UDPSend : MonoBehaviour
             }
             else
             {
-                Debug.Log("You may have a duplicated action with the same name. Make sure that all actions have different names");
+                Debug.LogWarning("You may have a duplicated action with the same name. Make sure that all actions have different names");
             }
         }
     }

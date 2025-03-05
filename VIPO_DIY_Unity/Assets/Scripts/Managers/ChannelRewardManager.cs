@@ -140,13 +140,26 @@ public class ChannelRewardManager : MonoBehaviour
     {
         // Si la recompensa existe, está activa y el usuario tiene los permisos necesarios, ejecutamos el efecto de la recompensa
         // If the reward exists, is enabled and the user has the necessary permissions, we execute the reward effect
-        if (managedRewards.ContainsKey(rewardName) && managedRewards[rewardName].enabled && 
+        if (managedRewards.ContainsKey(rewardName) && managedRewards[rewardName].enabled &&
             userToAssign.permissions >= managedRewards[rewardName].permissions)
         {
             managedRewards[rewardName].ExecuteReward(userToAssign, rewardArguments);
             Debug.Log(userToAssign.UserName + " decided to redeem the reward " + rewardName);
         }
-        
+        else
+        {
+            // Si hay algun tipo de error, lo comunicamos por el editor de Unity
+            // If there's any kind of error, we communicate it through the Unity editor
+
+            if (!managedRewards.ContainsKey(rewardName))
+                Debug.LogWarning("The reward " + rewardName + " does not exist in the managedRewardList");
+            else if (!managedRewards[rewardName].enabled && managedRewards[rewardName].coolDown > 0)
+                Debug.Log("The reward " + rewardName + " is not enabled. Wait for " + managedRewards[rewardName].coolDown + " seconds");
+            else if (!managedRewards[rewardName].enabled && managedRewards[rewardName].coolDown <= 0)
+                Debug.Log("The reward " + rewardName + " is not enabled and the cooldown is 0. Make sure to either add a cooldown or set it to active");
+            else
+                Debug.LogWarning("The user " + userToAssign.UserName + " doesn't have the permissions to execute the reward " + rewardName);
+        } 
     }
 
     #endregion
@@ -178,7 +191,7 @@ public class ChannelRewardManager : MonoBehaviour
                     break;
 
                 default:
-                    Debug.Log("Reward not found, check the reward name and its class");
+                    Debug.LogWarning("Reward not found, check the reward name and its class");
                     break;
 
                     /* Example of how to add a reward

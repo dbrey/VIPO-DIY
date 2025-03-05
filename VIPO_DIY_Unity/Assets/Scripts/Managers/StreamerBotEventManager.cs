@@ -272,7 +272,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         // In case we receive no active streamers or there is no message, we will show a warning
         if(eventData.Message == "%streamDisplayNames%" || eventData.Message == "")
         {
-            Debug.LogWarning("There are no active streamers to raid");
+            Debug.LogWarning("There are no active streamers to raid. If there is, check the SendRaid UDP Broadcast or StreamerBot Group (in Settings)");
         }
         else
             RaidManager.instance.StartRaidEvent(eventData.Message);

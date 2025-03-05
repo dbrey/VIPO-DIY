@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using WebSocketSharp;
+//using WebSocketSharp;
 using UnityEngine;
 
 public class WebsocketStuff : MonoBehaviour
 {
-    public string url;
+    /*public string url;
     WebSocket ws;
     string DataReceived;
 
@@ -27,5 +27,5 @@ public class WebsocketStuff : MonoBehaviour
             ws.Send("Hello");
 
         }
-    }
+    }*/
 }

@@ -1,25 +1,25 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/Usuario/Desktop/Proyectos/VIPO-DIY/VIPO_DIY_Unity/Packages/manifest.json
+    m_FilePath: C:/Users/dbp18/Desktop/VIPO-DIY/VIPO_DIY_Unity/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638764449218997551
-    m_Hash: 2370291927
+      ticks: 638767717503851285
+    m_Hash: 484037052
   m_LockFileStatus:
-    m_FilePath: C:/Users/Usuario/Desktop/Proyectos/VIPO-DIY/VIPO_DIY_Unity/Packages/packages-lock.json
+    m_FilePath: C:/Users/dbp18/Desktop/VIPO-DIY/VIPO_DIY_Unity/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638764449219057522
-    m_Hash: 2076370859
+      ticks: 638767717503856635
+    m_Hash: 2061555016
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
-m_ProjectPath: C:/Users/Usuario/Desktop/Proyectos/VIPO-DIY/VIPO_DIY_Unity/Packages
+m_ProjectPath: C:/Users/dbp18/Desktop/VIPO-DIY/VIPO_DIY_Unity/Packages
 m_EditorVersion: 6000.0.34f1 (5ab2d9ed9190)
 m_ResolvedPackages:
 - packageId: com.endel.nativewebsocket@https://github.com/endel/NativeWebSocket.git#upm
@@ -27,7 +27,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.1.5
   source: 5
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.endel.nativewebsocket
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.endel.nativewebsocket
   assetPath: Packages/com.endel.nativewebsocket
   name: com.endel.nativewebsocket
   displayName: Native WebSockets
@@ -96,7 +96,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 4.1.1
   source: 5
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.github-glitchenzo.nugetforunity
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.github-glitchenzo.nugetforunity
   assetPath: Packages/com.github-glitchenzo.nugetforunity
   name: com.github-glitchenzo.nugetforunity
   displayName: NuGetForUnity
@@ -162,7 +162,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.5
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ai.navigation
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ai.navigation
   assetPath: Packages/com.unity.ai.navigation
   name: com.unity.ai.navigation
   displayName: AI Navigation
@@ -272,7 +272,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.6.0
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.collab-proxy
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.collab-proxy
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Version Control
@@ -462,7 +462,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.2
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.feature.development
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.feature.development
   assetPath: Packages/com.unity.feature.development
   name: com.unity.feature.development
   displayName: Engineering
@@ -563,7 +563,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 3.0.31
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ide.rider
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ide.rider
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -682,7 +682,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.22
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ide.visualstudio
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ide.visualstudio
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -788,7 +788,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.multiplayer.center
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.multiplayer.center
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
@@ -878,7 +878,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 17.0.3
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.universal
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.universal
   assetPath: Packages/com.unity.render-pipelines.universal
   name: com.unity.render-pipelines.universal
   displayName: Universal RP
@@ -895,51 +895,6 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
-    - 7.0.0
-    - 7.0.1
-    - 7.1.1
-    - 7.1.2
-    - 7.1.5
-    - 7.1.6
-    - 7.1.7
-    - 7.1.8
-    - 7.2.0
-    - 7.2.1
-    - 7.3.1
-    - 7.4.1
-    - 7.4.2
-    - 7.4.3
-    - 7.5.1
-    - 7.5.2
-    - 7.5.3
-    - 7.6.0
-    - 7.7.0
-    - 7.7.1
-    - 8.0.1
-    - 8.1.0
-    - 8.2.0
-    - 8.3.1
-    - 9.0.0-preview.14
-    - 9.0.0-preview.35
-    - 9.0.0-preview.55
-    - 9.0.0-preview.72
-    - 10.0.0-preview.26
-    - 10.1.0
-    - 10.2.0
-    - 10.2.1
-    - 10.2.2
-    - 10.3.1
-    - 10.3.2
-    - 10.4.0
-    - 10.5.0
-    - 10.5.1
-    - 10.6.0
-    - 10.7.0
-    - 10.8.0
-    - 10.8.1
-    - 10.9.0
-    - 10.10.0
-    - 10.10.1
     - 17.0.3
     compatible:
     - 17.0.3
@@ -969,12 +924,12 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.collections
     version: 2.5.1
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   - name: com.unity.modules.physics
@@ -1040,7 +995,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.4.5
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.test-framework
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.test-framework
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -1205,7 +1160,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.8.7
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.timeline
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.timeline
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -1390,7 +1345,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ugui
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ugui
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -1482,7 +1437,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.9.5
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.visualscripting
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.visualscripting
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -1597,7 +1552,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.3
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\jp.keijiro.klak.spout
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\jp.keijiro.klak.spout
   assetPath: Packages/jp.keijiro.klak.spout
   name: jp.keijiro.klak.spout
   displayName: KlakSpout
@@ -1681,7 +1636,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.accessibility
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.accessibility
   assetPath: Packages/com.unity.modules.accessibility
   name: com.unity.modules.accessibility
   displayName: Accessibility
@@ -1748,7 +1703,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.ai
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.ai
   assetPath: Packages/com.unity.modules.ai
   name: com.unity.modules.ai
   displayName: AI
@@ -1815,7 +1770,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.androidjni
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.androidjni
   assetPath: Packages/com.unity.modules.androidjni
   name: com.unity.modules.androidjni
   displayName: Android JNI
@@ -1881,7 +1836,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.animation
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.animation
   assetPath: Packages/com.unity.modules.animation
   name: com.unity.modules.animation
   displayName: Animation
@@ -1948,7 +1903,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.assetbundle
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.assetbundle
   assetPath: Packages/com.unity.modules.assetbundle
   name: com.unity.modules.assetbundle
   displayName: Asset Bundle
@@ -2015,7 +1970,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.audio
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.audio
   assetPath: Packages/com.unity.modules.audio
   name: com.unity.modules.audio
   displayName: Audio
@@ -2082,7 +2037,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.cloth
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.cloth
   assetPath: Packages/com.unity.modules.cloth
   name: com.unity.modules.cloth
   displayName: Cloth
@@ -2153,7 +2108,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.director
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.director
   assetPath: Packages/com.unity.modules.director
   name: com.unity.modules.director
   displayName: Director
@@ -2228,7 +2183,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.imageconversion
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.imageconversion
   assetPath: Packages/com.unity.modules.imageconversion
   name: com.unity.modules.imageconversion
   displayName: Image Conversion
@@ -2295,7 +2250,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.imgui
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.imgui
   assetPath: Packages/com.unity.modules.imgui
   name: com.unity.modules.imgui
   displayName: IMGUI
@@ -2362,7 +2317,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.jsonserialize
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.jsonserialize
   assetPath: Packages/com.unity.modules.jsonserialize
   name: com.unity.modules.jsonserialize
   displayName: JSONSerialize
@@ -2429,7 +2384,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.particlesystem
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.particlesystem
   assetPath: Packages/com.unity.modules.particlesystem
   name: com.unity.modules.particlesystem
   displayName: Particle System
@@ -2496,7 +2451,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.physics
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.physics
   assetPath: Packages/com.unity.modules.physics
   name: com.unity.modules.physics
   displayName: Physics
@@ -2563,7 +2518,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.physics2d
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.physics2d
   assetPath: Packages/com.unity.modules.physics2d
   name: com.unity.modules.physics2d
   displayName: Physics 2D
@@ -2630,7 +2585,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.screencapture
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.screencapture
   assetPath: Packages/com.unity.modules.screencapture
   name: com.unity.modules.screencapture
   displayName: Screen Capture
@@ -2701,7 +2656,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.terrain
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.terrain
   assetPath: Packages/com.unity.modules.terrain
   name: com.unity.modules.terrain
   displayName: Terrain
@@ -2768,7 +2723,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.terrainphysics
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.terrainphysics
   assetPath: Packages/com.unity.modules.terrainphysics
   name: com.unity.modules.terrainphysics
   displayName: Terrain Physics
@@ -2843,7 +2798,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.tilemap
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.tilemap
   assetPath: Packages/com.unity.modules.tilemap
   name: com.unity.modules.tilemap
   displayName: Tilemap
@@ -2913,7 +2868,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.ui
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.ui
   assetPath: Packages/com.unity.modules.ui
   name: com.unity.modules.ui
   displayName: UI
@@ -2980,7 +2935,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.uielements
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.uielements
   assetPath: Packages/com.unity.modules.uielements
   name: com.unity.modules.uielements
   displayName: UIElements
@@ -3063,7 +3018,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.umbra
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.umbra
   assetPath: Packages/com.unity.modules.umbra
   name: com.unity.modules.umbra
   displayName: Umbra
@@ -3130,7 +3085,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unityanalytics
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unityanalytics
   assetPath: Packages/com.unity.modules.unityanalytics
   name: com.unity.modules.unityanalytics
   displayName: Unity Analytics
@@ -3204,7 +3159,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequest
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequest
   assetPath: Packages/com.unity.modules.unitywebrequest
   name: com.unity.modules.unitywebrequest
   displayName: Unity Web Request
@@ -3271,7 +3226,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle
   assetPath: Packages/com.unity.modules.unitywebrequestassetbundle
   name: com.unity.modules.unitywebrequestassetbundle
   displayName: Unity Web Request Asset Bundle
@@ -3346,7 +3301,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestaudio
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestaudio
   assetPath: Packages/com.unity.modules.unitywebrequestaudio
   name: com.unity.modules.unitywebrequestaudio
   displayName: Unity Web Request Audio
@@ -3421,7 +3376,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequesttexture
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequesttexture
   assetPath: Packages/com.unity.modules.unitywebrequesttexture
   name: com.unity.modules.unitywebrequesttexture
   displayName: Unity Web Request Texture
@@ -3496,7 +3451,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestwww
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.unitywebrequestwww
   assetPath: Packages/com.unity.modules.unitywebrequestwww
   name: com.unity.modules.unitywebrequestwww
   displayName: Unity Web Request WWW
@@ -3587,7 +3542,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.vehicles
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.vehicles
   assetPath: Packages/com.unity.modules.vehicles
   name: com.unity.modules.vehicles
   displayName: Vehicles
@@ -3658,7 +3613,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.video
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.video
   assetPath: Packages/com.unity.modules.video
   name: com.unity.modules.video
   displayName: Video
@@ -3737,7 +3692,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.vr
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.vr
   assetPath: Packages/com.unity.modules.vr
   name: com.unity.modules.vr
   displayName: VR
@@ -3818,7 +3773,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.wind
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.wind
   assetPath: Packages/com.unity.modules.wind
   name: com.unity.modules.wind
   displayName: Wind
@@ -3885,7 +3840,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.xr
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.xr
   assetPath: Packages/com.unity.modules.xr
   name: com.unity.modules.xr
   displayName: XR
@@ -3964,7 +3919,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.subsystems
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.subsystems
   assetPath: Packages/com.unity.modules.subsystems
   name: com.unity.modules.subsystems
   displayName: Subsystems
@@ -4035,7 +3990,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.hierarchycore
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.modules.hierarchycore
   assetPath: Packages/com.unity.modules.hierarchycore
   name: com.unity.modules.hierarchycore
   displayName: Hierarchy Core
@@ -4102,7 +4057,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.5
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ext.nunit
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.ext.nunit
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
@@ -4181,7 +4136,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.0.3
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.core
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.core
   assetPath: Packages/com.unity.render-pipelines.core
   name: com.unity.render-pipelines.core
   displayName: Core RP Library
@@ -4201,104 +4156,6 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
-    - 0.1.21
-    - 0.1.27
-    - 0.1.28
-    - 1.0.0-beta
-    - 1.0.1-beta
-    - 1.1.1-preview
-    - 1.1.2-preview
-    - 1.1.4-preview
-    - 1.1.5-preview
-    - 1.1.8-preview
-    - 1.1.10-preview
-    - 1.1.11-preview
-    - 2.0.1-preview
-    - 2.0.3-preview
-    - 2.0.4-preview
-    - 2.0.4-preview.1
-    - 2.0.5-preview
-    - 2.0.6-preview
-    - 2.0.7-preview
-    - 2.0.8-preview
-    - 3.0.0-preview
-    - 3.1.0-preview
-    - 3.3.0-preview
-    - 4.0.0-preview
-    - 4.0.1-preview
-    - 4.1.0-preview
-    - 4.2.0-preview
-    - 4.3.0-preview
-    - 4.6.0-preview
-    - 4.8.0-preview
-    - 4.9.0-preview
-    - 4.10.0-preview
-    - 5.0.0-preview
-    - 5.1.0
-    - 5.2.0
-    - 5.2.1
-    - 5.2.2
-    - 5.2.3
-    - 5.3.1
-    - 5.6.1
-    - 5.7.2
-    - 5.8.2
-    - 5.9.0
-    - 5.10.0
-    - 5.13.0
-    - 5.16.1
-    - 6.5.2
-    - 6.5.3
-    - 6.7.1
-    - 6.9.0
-    - 6.9.1
-    - 6.9.2
-    - 7.0.0
-    - 7.0.1
-    - 7.1.1
-    - 7.1.2
-    - 7.1.5
-    - 7.1.6
-    - 7.1.7
-    - 7.1.8
-    - 7.2.0
-    - 7.2.1
-    - 7.3.1
-    - 7.4.1
-    - 7.4.2
-    - 7.4.3
-    - 7.5.1
-    - 7.5.2
-    - 7.5.3
-    - 7.6.0
-    - 7.7.0
-    - 7.7.1
-    - 8.0.1
-    - 8.1.0
-    - 8.2.0
-    - 8.3.1
-    - 9.0.0-preview.13
-    - 9.0.0-preview.35
-    - 9.0.0-preview.38
-    - 9.0.0-preview.60
-    - 9.0.0-preview.77
-    - 10.0.0-preview.30
-    - 10.1.0
-    - 10.2.0
-    - 10.2.1
-    - 10.2.2
-    - 10.3.1
-    - 10.3.2
-    - 10.4.0
-    - 10.5.0
-    - 10.5.1
-    - 10.6.0
-    - 10.7.0
-    - 10.8.0
-    - 10.8.1
-    - 10.9.0
-    - 10.10.0
-    - 10.10.1
     - 17.0.3
     compatible:
     - 17.0.3
@@ -4336,12 +4193,12 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.collections
     version: 2.5.1
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   - name: com.unity.modules.physics
@@ -4395,7 +4252,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.0.3
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.shadergraph
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.shadergraph
   assetPath: Packages/com.unity.shadergraph
   name: com.unity.shadergraph
   displayName: Shader Graph
@@ -4413,103 +4270,6 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
-    - 0.1.8
-    - 0.1.9
-    - 0.1.17
-    - 1.0.0-beta
-    - 1.1.1-preview
-    - 1.1.2-preview
-    - 1.1.3-preview
-    - 1.1.4-preview
-    - 1.1.5-preview
-    - 1.1.6-preview
-    - 1.1.8-preview
-    - 1.1.9-preview
-    - 2.0.1-preview
-    - 2.0.3-preview
-    - 2.0.4-preview
-    - 2.0.4-preview.1
-    - 2.0.5-preview
-    - 2.0.6-preview
-    - 2.0.7-preview
-    - 2.0.8-preview
-    - 3.0.0-preview
-    - 3.1.0-preview
-    - 3.3.0-preview
-    - 4.0.0-preview
-    - 4.0.1-preview
-    - 4.1.0-preview
-    - 4.2.0-preview
-    - 4.3.0-preview
-    - 4.6.0-preview
-    - 4.8.0-preview
-    - 4.9.0-preview
-    - 4.10.0-preview
-    - 5.0.0-preview
-    - 5.1.0
-    - 5.2.0
-    - 5.2.1
-    - 5.2.2
-    - 5.2.3
-    - 5.3.1
-    - 5.6.1
-    - 5.7.2
-    - 5.8.2
-    - 5.9.0
-    - 5.10.0
-    - 5.13.0
-    - 5.16.1
-    - 6.5.2
-    - 6.5.3
-    - 6.7.1
-    - 6.9.0
-    - 6.9.1
-    - 6.9.2
-    - 7.0.0
-    - 7.0.1
-    - 7.1.1
-    - 7.1.2
-    - 7.1.5
-    - 7.1.6
-    - 7.1.7
-    - 7.1.8
-    - 7.2.0
-    - 7.2.1
-    - 7.3.1
-    - 7.4.1
-    - 7.4.2
-    - 7.4.3
-    - 7.5.1
-    - 7.5.2
-    - 7.5.3
-    - 7.6.0
-    - 7.7.0
-    - 7.7.1
-    - 8.0.1
-    - 8.1.0
-    - 8.2.0
-    - 8.3.1
-    - 9.0.0-preview.14
-    - 9.0.0-preview.34
-    - 9.0.0-preview.55
-    - 9.0.0-preview.72
-    - 10.0.0-preview.27
-    - 10.1.0
-    - 10.2.0
-    - 10.2.1
-    - 10.2.2
-    - 10.3.1
-    - 10.3.2
-    - 10.4.0
-    - 10.5.0
-    - 10.5.1
-    - 10.6.0
-    - 10.7.0
-    - 10.8.0
-    - 10.8.1
-    - 10.9.0
-    - 10.10.0
-    - 10.10.1
     - 17.0.3
     compatible:
     - 17.0.3
@@ -4537,12 +4297,12 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.collections
     version: 2.5.1
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   - name: com.unity.modules.physics
@@ -4598,7 +4358,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.0.3
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.universal-config
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.render-pipelines.universal-config
   assetPath: Packages/com.unity.render-pipelines.universal-config
   name: com.unity.render-pipelines.universal-config
   displayName: Universal RP Config
@@ -4637,12 +4397,12 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.collections
     version: 2.5.1
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   - name: com.unity.modules.physics
@@ -4696,7 +4456,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.editorcoroutines
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.editorcoroutines
   assetPath: Packages/com.unity.editorcoroutines
   name: com.unity.editorcoroutines
   displayName: Editor Coroutines
@@ -4773,7 +4533,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.2.3
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.performance.profile-analyzer
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.performance.profile-analyzer
   assetPath: Packages/com.unity.performance.profile-analyzer
   name: com.unity.performance.profile-analyzer
   displayName: Profile Analyzer
@@ -4858,7 +4618,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.2.6
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.testtools.codecoverage
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.testtools.codecoverage
   assetPath: Packages/com.unity.testtools.codecoverage
   name: com.unity.testtools.codecoverage
   displayName: Code Coverage
@@ -4981,7 +4741,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 4.9.2
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.searcher
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.searcher
   assetPath: Packages/com.unity.searcher
   name: com.unity.searcher
   displayName: Searcher
@@ -5050,7 +4810,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.8.18
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.burst
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.burst
   assetPath: Packages/com.unity.burst
   name: com.unity.burst
   displayName: Burst
@@ -5065,144 +4825,10 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
-    - 0.2.4-preview.5
-    - 0.2.4-preview.7
-    - 0.2.4-preview.11
-    - 0.2.4-preview.12
-    - 0.2.4-preview.13
-    - 0.2.4-preview.14
-    - 0.2.4-preview.15
-    - 0.2.4-preview.16
-    - 0.2.4-preview.17
-    - 0.2.4-preview.18
-    - 0.2.4-preview.19
-    - 0.2.4-preview.20
-    - 0.2.4-preview.21
-    - 0.2.4-preview.22
-    - 0.2.4-preview.23
-    - 0.2.4-preview.24
-    - 0.2.4-preview.25
-    - 0.2.4-preview.30
-    - 0.2.4-preview.31
-    - 0.2.4-preview.33
-    - 0.2.4-preview.34
-    - 0.2.4-preview.37
-    - 0.2.4-preview.41
-    - 0.2.4-preview.45
-    - 0.2.4-preview.48
-    - 0.2.4-preview.50
-    - 1.1.0-preview.2
-    - 1.1.0-preview.3
-    - 1.1.0-preview.4
-    - 1.1.1
-    - 1.1.2
-    - 1.1.3-preview.3
-    - 1.2.0-preview.1
-    - 1.2.0-preview.5
-    - 1.2.0-preview.6
-    - 1.2.0-preview.8
-    - 1.2.0-preview.9
-    - 1.2.0-preview.10
-    - 1.2.0-preview.11
-    - 1.2.0-preview.12
-    - 1.2.0
-    - 1.2.1
-    - 1.2.2
-    - 1.2.3
-    - 1.3.0-preview.1
-    - 1.3.0-preview.2
-    - 1.3.0-preview.3
-    - 1.3.0-preview.4
-    - 1.3.0-preview.5
-    - 1.3.0-preview.6
-    - 1.3.0-preview.7
-    - 1.3.0-preview.8
-    - 1.3.0-preview.9
-    - 1.3.0-preview.10
-    - 1.3.0-preview.11
-    - 1.3.0-preview.12
-    - 1.3.0-preview.13
-    - 1.3.0
-    - 1.3.1
-    - 1.3.2
-    - 1.3.3
-    - 1.3.4
-    - 1.3.5
-    - 1.3.6
-    - 1.3.7
-    - 1.3.8
-    - 1.3.9
-    - 1.4.0-pre.1
-    - 1.4.0-preview.1
-    - 1.4.0-preview.2
-    - 1.4.0-preview.3
-    - 1.4.0-preview.4
-    - 1.4.0-preview.5
-    - 1.4.1-pre.1
-    - 1.4.1-pre.2
-    - 1.4.1
-    - 1.4.2
-    - 1.4.3
-    - 1.4.4-preview.1
-    - 1.4.4-preview.2
-    - 1.4.4
-    - 1.4.5
-    - 1.4.6
-    - 1.4.7
-    - 1.4.8
-    - 1.4.9
-    - 1.4.11
-    - 1.5.0-pre.3
-    - 1.5.0-pre.4
-    - 1.5.0-pre.5
-    - 1.5.0
-    - 1.5.1
-    - 1.5.2
-    - 1.5.3
-    - 1.5.4
-    - 1.5.5
-    - 1.5.6-preview.1
-    - 1.5.6
-    - 1.6.0-pre.2
-    - 1.6.0-pre.3
-    - 1.6.0-pre.4
-    - 1.6.0
-    - 1.6.1
-    - 1.6.2
-    - 1.6.3
-    - 1.6.4
-    - 1.6.5
-    - 1.6.6
-    - 1.7.0-pre.1
-    - 1.7.0
-    - 1.7.1
-    - 1.7.2
-    - 1.7.3
-    - 1.7.4
-    - 1.8.0-pre.1
-    - 1.8.0-pre.2
-    - 1.8.0
-    - 1.8.1
-    - 1.8.2
-    - 1.8.3
-    - 1.8.4
-    - 1.8.7
-    - 1.8.8
-    - 1.8.9
-    - 1.8.10
-    - 1.8.11
-    - 1.8.12
-    - 1.8.13
-    - 1.8.14
-    - 1.8.15
-    - 1.8.16
-    - 1.8.17
     - 1.8.18
-    - 1.8.19
     compatible:
     - 1.8.18
-    - 1.8.19
-    recommended: 1.8.19
+    recommended: 1.8.18
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
@@ -5225,9 +4851,9 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638622972693870000
+  datePublishedTicks: 0
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.burst@1.8/manual/index.html
   hasRepository: 1
   repository:
@@ -5270,7 +4896,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.3.2
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.mathematics
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.mathematics
   assetPath: Packages/com.unity.mathematics
   name: com.unity.mathematics
   displayName: Mathematics
@@ -5279,30 +4905,12 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: Unity's C# SIMD math library providing vector types and math functions
     with a shader like syntax.
   errors: []
   versions:
     all:
-    - 0.0.12-preview.2
-    - 0.0.12-preview.5
-    - 0.0.12-preview.8
-    - 0.0.12-preview.10
-    - 0.0.12-preview.11
-    - 0.0.12-preview.13
-    - 0.0.12-preview.17
-    - 0.0.12-preview.19
-    - 0.0.12-preview.20
-    - 1.0.0-preview.1
-    - 1.0.1
-    - 1.1.0-preview.1
-    - 1.1.0
-    - 1.2.1
-    - 1.2.4
-    - 1.2.5
-    - 1.2.6
-    - 1.3.1
     - 1.3.2
     compatible:
     - 1.3.2
@@ -5322,9 +4930,9 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638409134840000000
+  datePublishedTicks: 0
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/manual/index.html
   hasRepository: 1
   repository:
@@ -5359,7 +4967,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.5.1
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.collections
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.collections
   assetPath: Packages/com.unity.collections
   name: com.unity.collections
   displayName: Collections
@@ -5374,91 +4982,18 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
-    - 0.0.9-preview.1
-    - 0.0.9-preview.2
-    - 0.0.9-preview.3
-    - 0.0.9-preview.4
-    - 0.0.9-preview.5
-    - 0.0.9-preview.6
-    - 0.0.9-preview.7
-    - 0.0.9-preview.8
-    - 0.0.9-preview.9
-    - 0.0.9-preview.10
-    - 0.0.9-preview.11
-    - 0.0.9-preview.12
-    - 0.0.9-preview.13
-    - 0.0.9-preview.14
-    - 0.0.9-preview.15
-    - 0.0.9-preview.16
-    - 0.0.9-preview.17
-    - 0.0.9-preview.18
-    - 0.0.9-preview.19
-    - 0.0.9-preview.20
-    - 0.1.0-preview
-    - 0.1.1-preview
-    - 0.2.0-preview.13
-    - 0.3.0-preview.0
-    - 0.4.0-preview.6
-    - 0.5.0-preview.9
-    - 0.5.1-preview.11
-    - 0.5.2-preview.8
-    - 0.6.0-preview.9
-    - 0.7.0-preview.2
-    - 0.7.1-preview.3
-    - 0.8.0-preview.5
-    - 0.9.0-preview.5
-    - 0.9.0-preview.6
-    - 0.11.0-preview.17
-    - 0.12.0-preview.13
-    - 0.14.0-preview.16
-    - 0.15.0-preview.21
-    - 0.17.0-preview.18
-    - 1.0.0-pre.3
-    - 1.0.0-pre.5
-    - 1.0.0-pre.6
-    - 1.1.0
-    - 1.2.3-pre.1
-    - 1.2.3
-    - 1.2.4
-    - 1.3.1
-    - 1.4.0
-    - 1.5.1
-    - 2.1.0-exp.4
-    - 2.1.0-pre.2
-    - 2.1.0-pre.6
-    - 2.1.0-pre.11
-    - 2.1.0-pre.18
-    - 2.1.1
-    - 2.1.4
-    - 2.2.0
-    - 2.2.1
-    - 2.3.0-exp.1
-    - 2.3.0-pre.3
-    - 2.4.0-exp.2
-    - 2.4.0-pre.2
-    - 2.4.0-pre.5
-    - 2.4.0
-    - 2.4.1
-    - 2.4.2
-    - 2.4.3
-    - 2.5.0-exp.1
-    - 2.5.0-pre.2
     - 2.5.1
-    - 2.5.2
-    - 2.5.3
     compatible:
     - 2.5.1
-    - 2.5.2
-    - 2.5.3
-    recommended: 2.5.3
+    recommended: 2.5.1
     deprecated: []
   dependencies:
   - name: com.unity.burst
     version: 1.8.17
-  - name: com.unity.test-framework
-    version: 1.4.5
   - name: com.unity.nuget.mono-cecil
     version: 1.11.4
+  - name: com.unity.test-framework
+    version: 1.4.5
   - name: com.unity.test-framework.performance
     version: 3.0.3
   resolvedDependencies:
@@ -5468,14 +5003,14 @@ m_ResolvedPackages:
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
   - name: com.unity.modules.imgui
     version: 1.0.0
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   keywords:
@@ -5492,9 +5027,9 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638621282722800000
+  datePublishedTicks: 0
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.collections@2.5/manual/index.html
   hasRepository: 1
   repository:
@@ -5529,7 +5064,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.1
   source: 2
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.rendering.light-transport
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.rendering.light-transport
   assetPath: Packages/com.unity.rendering.light-transport
   name: com.unity.rendering.light-transport
   displayName: Unity Light Transport Library
@@ -5565,14 +5100,14 @@ m_ResolvedPackages:
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
+  - name: com.unity.nuget.mono-cecil
+    version: 1.11.4
   - name: com.unity.test-framework
     version: 1.4.5
   - name: com.unity.ext.nunit
     version: 2.0.5
   - name: com.unity.modules.imgui
     version: 1.0.0
-  - name: com.unity.nuget.mono-cecil
-    version: 1.11.4
   - name: com.unity.test-framework.performance
     version: 3.0.3
   - name: com.unity.modules.terrain
@@ -5625,7 +5160,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.1
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.settings-manager
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.settings-manager
   assetPath: Packages/com.unity.settings-manager
   name: com.unity.settings-manager
   displayName: Settings Manager
@@ -5699,7 +5234,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.11.4
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.nuget.mono-cecil
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.nuget.mono-cecil
   assetPath: Packages/com.unity.nuget.mono-cecil
   name: com.unity.nuget.mono-cecil
   displayName: Mono Cecil
@@ -5773,7 +5308,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 3.0.3
   source: 1
-  resolvedPath: C:\Users\Usuario\Desktop\Proyectos\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.test-framework.performance
+  resolvedPath: C:\Users\dbp18\Desktop\VIPO-DIY\VIPO_DIY_Unity\Library\PackageCache\com.unity.test-framework.performance
   assetPath: Packages/com.unity.test-framework.performance
   name: com.unity.test-framework.performance
   displayName: Performance testing API
@@ -5782,62 +5317,12 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: Package that extends Unity Test Framework package. Adds performance
     testing capabilities and collects configuration metadata.
   errors: []
   versions:
     all:
-    - 0.1.27-preview
-    - 0.1.29-preview
-    - 0.1.31-preview
-    - 0.1.33-preview
-    - 0.1.34-preview
-    - 0.1.36-preview
-    - 0.1.37-preview
-    - 0.1.39-preview
-    - 0.1.40-preview
-    - 0.1.41-preview
-    - 0.1.42-preview
-    - 0.1.44-preview
-    - 0.1.45-preview
-    - 0.1.47-preview
-    - 0.1.48-preview
-    - 0.1.49-preview
-    - 0.1.50-preview
-    - 1.0.4-preview
-    - 1.0.6-preview
-    - 1.0.9-preview
-    - 1.1.2-preview
-    - 1.2.0-preview
-    - 1.2.1-preview
-    - 1.2.3-preview
-    - 1.2.5-preview
-    - 1.2.6-preview
-    - 1.3.0-preview
-    - 1.3.1-preview
-    - 1.3.2-preview
-    - 1.3.3-preview
-    - 2.0.1-preview
-    - 2.0.2-preview
-    - 2.0.3-preview
-    - 2.0.6-preview
-    - 2.0.7-preview
-    - 2.0.8-preview
-    - 2.0.9-preview
-    - 2.1.0-preview
-    - 2.2.0-preview
-    - 2.3.1-preview
-    - 2.4.1-preview
-    - 2.5.1-preview
-    - 2.6.0-preview
-    - 2.7.0-preview
-    - 2.8.0-preview
-    - 2.8.1-preview
-    - 3.0.0-pre.1
-    - 3.0.0-pre.2
-    - 3.0.1
-    - 3.0.2
     - 3.0.3
     compatible:
     - 3.0.3
@@ -5870,9 +5355,9 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638301960470000000
+  datePublishedTicks: 0
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.test-framework.performance@3.0/manual/index.html
   hasRepository: 1
   repository:
