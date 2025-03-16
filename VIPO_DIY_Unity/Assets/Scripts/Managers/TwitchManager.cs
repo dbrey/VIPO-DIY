@@ -82,10 +82,19 @@ public class TwitchManager : MonoBehaviour
 
     // Busca si username esta registrado en la lista de usuarios, si lo esta, user se convierte en el usuario correspondiente
     // Search if username is registered in the list of users, if it is, user becomes the corresponding user
-    public void getUser(string username, ref User user)
+    public bool getUser(string username, ref User user)
     {
         if (userList.ContainsKey(username))
+        {
             user = userList[username];
+            return true;
+        }
+        else
+        { 
+            user = new User();
+            return false;
+        }
+        
     }
 
     // Actualiza la informacion de un usuario

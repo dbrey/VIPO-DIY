@@ -443,7 +443,7 @@
 "Assets/Scripts/Managers/FollowManager.cs"
 "Assets/Scripts/Managers/RaidManager.cs"
 "Assets/Scripts/Managers/StreamerBotEventManager.cs"
-"Assets/Scripts/Managers/SuscriptionManager.cs"
+"Assets/Scripts/Managers/SubscriptionManager.cs"
 "Assets/Scripts/Managers/TwitchManager.cs"
 "Assets/Scripts/OtherScripts/PlayerController.cs"
 "Assets/Scripts/OtherScripts/RotateObject.cs"

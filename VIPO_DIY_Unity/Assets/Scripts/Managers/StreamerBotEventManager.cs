@@ -175,7 +175,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
             TwitchManager.instance.updateUser(user);
         }
 
-        SuscriptionManager.instance.SuscriptionEvent(user);
+        SubscriptionManager.instance.SubscriptionEvent(user);
     }
 
     private void SuscriptionGiftEvent(StreamerBotEventData eventData)
@@ -220,7 +220,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
             TwitchManager.instance.createDefaultUser(eventData.UserName2, ref gifter);
         }
 
-        SuscriptionManager.instance.SuscriptionGiftEvent(user, gifter);
+        SubscriptionManager.instance.SubscriptionGiftEvent(user, gifter);
     }
 
     private void ChannelRewardEvent(StreamerBotEventData eventData)
@@ -316,10 +316,16 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         { 
             case TwitchManager.WhoRequested.FollowManager:
                 break;
+            case TwitchManager.WhoRequested.SubscriptionManager:
+                // Llamamos al evento de suscripcion de gifter pero con la informacion del gifter
+                // We call the subscription event of gifter but with the information of the gifter
+                SubscriptionManager.instance.SubscriptionGiftEventWithGifterInfo(user);
+                break;
             case TwitchManager.WhoRequested.RaidManager:
-                // Este es solo un ejemplo que muestra el streamer al que hacer raid (Eliminar esta linea es seguro)
-                // This is just an example that show the streamer to raid (Deleting this line is secure)
-                ExampleManager.instance.showStreamerToRaid(user);
+                // Este es solo un ejemplo que muestra el streamer al que hacer raid (Eliminar estas lineas es seguro)
+                // This is just an example that show the streamer to raid (Deleting these lines is safe)
+                if(ExampleManager.instance != null)
+                    ExampleManager.instance.showStreamerToRaid(user);
                 break;
             default:
                 Debug.Log("Who requested is not defined");

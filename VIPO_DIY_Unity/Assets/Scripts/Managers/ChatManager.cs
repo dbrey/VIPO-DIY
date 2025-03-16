@@ -260,9 +260,10 @@ public class ChatManager : MonoBehaviour
 
     void printMessage(User user, string message)
     {
-        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-        // You can delete this line and nothing will break! It simply disconnects the action from the event
-        ExampleManager.instance.AddChatMessage(user, message);
+        // Puedes borrar estas lineas y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this lines and nothing will break! It simply disconnects the action from the event
+        if (ExampleManager.instance != null)
+            ExampleManager.instance.AddChatMessage(user, message);
     }
 
     class exampleCommand : ManagedCommand
@@ -279,7 +280,11 @@ public class ChatManager : MonoBehaviour
             // Aqui puedes programar los efectos de tu comando
             // Here you can program the effects of your command
             Debug.Log("This is just a test of the command");
-            ExampleManager.instance.CommandExample();
+
+            // Puedes borrar estas lineas y es completamente seguro! Simplemente desconecta la accion del evento
+            // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+            if (ExampleManager.instance != null)
+                ExampleManager.instance.CommandExample();
         }
     }
 

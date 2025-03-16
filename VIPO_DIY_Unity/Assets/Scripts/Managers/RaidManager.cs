@@ -56,9 +56,10 @@ public class RaidManager : MonoBehaviour
 
     public void ReceiveRaidEvent(User raidUser, int NViewers)
     {
-        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-        // You can delete this line and it's completely safe! It simply disconnects the action from the event
-        ExampleManager.instance.RaidExample(raidUser, NViewers);
+        // Puedes borrar esta lineas y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+        if (ExampleManager.instance != null)
+            ExampleManager.instance.RaidExample(raidUser, NViewers);
 
         Debug.Log("Raid received from " + raidUser.UserName + " with : " + NViewers);
     }
@@ -99,9 +100,10 @@ public class RaidManager : MonoBehaviour
         // En este ejemplo seleccionamos un streamer aleatorio, recogemos informacion sobre el streamer y luego iniciamos la raid
         // In this example we select a random streamer, retrieve information about the streamer and then later start the raid
 
-        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-        // You can delete this line and it's completely safe! It simply disconnects the action from the event
-        ExampleManager.instance.selectRandomActiveStreamer(streamers);
+        // Puedes borrar esta lineas y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+        if (ExampleManager.instance != null)
+            ExampleManager.instance.selectRandomActiveStreamer(streamers);
 
     }
 

@@ -72,7 +72,7 @@ namespace Twitch_data
             // We know what kind of user it is by the permissions
             public Permissions permissions; 
 
-            /// Detaññes de la suscripcion del usuario. Sera null si el usuario no esta suscrito. Tambien puede ser null incluso si el usuario *esta* suscrito.
+            /// Detalles de la suscripcion del usuario. Sera null si el usuario no esta suscrito. Tambien puede ser null incluso si el usuario *esta* suscrito.
             /// Details of the user's subscription. Will be null if the user isn't subscribed. May also be null even if the user *is* subscribed.
             public Subscription subscription;
 

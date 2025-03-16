@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Twitch_data;
+using static Twitch_data.TwitchUtils;
 
 #region Como usar
 ///
@@ -57,11 +58,12 @@ public class FollowManager : MonoBehaviour
     /// ADVISE : If you want to access to the profile picture of the user, you can use the URL to download the picture and have it as a Texture2D
     ///
     #endregion
-    public void FollowEvent(TwitchUtils.User user)
+    public void FollowEvent(User user)
     {
-        // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-        // You can delete this line and it's completely safe! It simply disconnects the action from the event
-        ExampleManager.instance.FollowExample(user);
+        // Puedes borrar estas lineas y es completamente seguro! Simplemente desconecta la accion del evento
+        // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+        if (ExampleManager.instance != null)
+            ExampleManager.instance.FollowExample(user);
 
     }
 

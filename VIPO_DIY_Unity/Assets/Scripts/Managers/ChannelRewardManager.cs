@@ -243,9 +243,10 @@ public class ChannelRewardManager : MonoBehaviour
 
             Debug.Log(user.UserName + " redeemed the reward EXAMPLE REWARD with cost :" + cost);
 
-            // Puedes borrar esta linea y es completamente seguro! Simplemente desconecta la accion del evento
-            // You can delete this line and it's completely safe! It simply disconnects the action from the event
-            ExampleManager.instance.RewardExample();
+            // Puedes borrar estas lineas y es completamente seguro! Simplemente desconecta la accion del evento
+            // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+            if (ExampleManager.instance != null)
+                ExampleManager.instance.RewardExample();
         }
     }
 
