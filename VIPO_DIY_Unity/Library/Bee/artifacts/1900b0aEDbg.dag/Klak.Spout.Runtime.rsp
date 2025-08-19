@@ -129,6 +129,7 @@
 -define:KLAK_SPOUT_HAS_SRP
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Scripts/Plugins/websocket-sharp.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEngine/UnityEditor.AccessibilityModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEngine/UnityEditor.AdaptivePerformanceModule.dll"
@@ -371,6 +372,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:"Library/PackageCache/com.github-glitchenzo.nugetforunity/Editor/PluginAPI/NuGetForUnity.PluginAPI.dll"
 -r:"Library/PackageCache/com.unity.collab-proxy/Lib/Editor/log4netPlastic.dll"
