@@ -12,12 +12,28 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using UnityEditor.PackageManager;
+using System.Buffers.Text;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
 
 
 public class WebsocketStuff : MonoBehaviour
 {
+    [System.Serializable]
+    public class Events
+    {
+        public List<string> Twitch;
+        public List<string> General;
+    }
+
+    [System.Serializable]
+    public class SubscribeRequest
+    {
+        public string request = "Subscribe";
+        public string id = "unity-client-subscribe";
+        public Events events;
+    }
+
     public string serverAddress = "ws://localhost:8080"; // The address of your WebSocket server
-    public string authToken = "nottoken"; // Your authentication token
 
     private WebSocket ws;
 
@@ -76,27 +92,11 @@ public class WebsocketStuff : MonoBehaviour
         ws.OnOpen += (sender, e) =>
         {
             Debug.Log("WebSocket Connected!");
-
-            // In order to work, after connecting we need to authenticate with the server. Else, any other event we send from Streamerbot
-            // won't be even received in Unity. To do that, we need to send a request (most likely with a token, but not entirely sure) for
-            // Streamerbot to authenticate us. This probably can be done by sending a JSON object with the request type and the authentication token.
-
-
-
-            // We prepare the authentication request
-            var authRequest = new
-            {
-                request = "Authenticate",
-                id = Guid.NewGuid().ToString(), // Do we even need an ID?
-                authentication = "nottoken"
-            };
-
-            // Serialize the object to a JSON string
-            string jsonRequest = JsonUtility.ToJson(authRequest);
-
-            // Send the JSON string to the server
-            ws.Send(jsonRequest);
-            Debug.Log("Sent authentication request.");
+            // Aparentemente hay que suscribirse a los eventos que queremos recibir. Pero como los nuestros son especificos, tenemos que hacerlo custom
+            // Mensaje enviado a Bard: In Unity, using Streamerbot and WebsocketSharp, I already have the connection established between Unity and Streamerbot but I want to suscribe to certain events. How do I do it?
+            // Segundo mensaje: If the action in Streamerbot is called "FollowWebsocket", how does it change everything?
+            // Algunos eventos reaccionarian a Seguir y parecidos por lo que a lo mejor no necesito suscribirme a acciones sino mas bien eventos como Follow en vez de FollowWebsocket
+            SendSubscribeRequest();
         };
 
         // This works and can read events from streamerbot
@@ -136,6 +136,24 @@ public class WebsocketStuff : MonoBehaviour
         };
 
         ws.Connect();
+    }
+
+    private void SendSubscribeRequest()
+    {
+        SubscribeRequest subscription = new SubscribeRequest();
+        subscription.events = new Events();
+
+        // Define the events you want to subscribe to
+        subscription.events.Twitch = new List<string> { "ChatMessage", "Follow" };
+        subscription.events.General = new List<string> { "Custom" };
+
+        // Convert the C# object to a JSON string
+        string jsonRequest = JsonUtility.ToJson(subscription);
+
+        // Send the JSON string to the server
+        ws.Send(jsonRequest);
+
+        Debug.Log("Sent subscription request: " + jsonRequest);
     }
 
     // Basic check for JSON validity (you might want a more robust one)
