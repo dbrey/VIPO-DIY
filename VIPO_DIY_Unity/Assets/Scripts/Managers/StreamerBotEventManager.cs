@@ -45,7 +45,8 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         }
     }
 
-    
+    /// Registramos los nombres de los eventos y sus acciones correspondientes para escuchar desde StreamerBot
+    /// El nombre del evento debe coincidir exactamente con la variable "Event" en el UDP Payload en Streamerbot
     /// Registers event names and corresponding actions to listen for from StreamerBot.
     /// The name of the event must exactly match the "Event" variable in the UDP Payload in Streamerbot.
     protected override void InitialiseStreamerBotEvents()
@@ -59,8 +60,6 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         RegisterEvent("ChannelReward", ChannelRewardEvent);
         RegisterEvent("ReceiveRaid", ReceiveRaidEvent);
         RegisterEvent("SendRaid", SendRaid);
-        RegisterEvent("AdsRunning", AdsRunningEvent);
-        RegisterEvent("AdsIncoming", AdsIncomingEvent);
 
         RegisterEvent("GetUser", GetUser);
 
@@ -70,179 +69,219 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
 
     private void TestConnection(StreamerBotEventData eventData)
     {
-        
         Debug.Log("Event Received");
     }
 
     private void FollowEvent(StreamerBotEventData eventData)
     {
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario ya existe en la lista
-        // The user already exists in the list
-        if (user.active)
+        if (TwitchManager.instance != null)
         {
-            // Con esto evitamos que los suscriptores pierdan sus permisos al seguir el canal
-            // With this we avoid that subscribers lose their permissions when following the channel
-            if(user.permissions < Permissions.Follower)
+            TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            // El usuario ya existe en la lista
+            // The user already exists in the list
+            if (user.active)
             {
-                user.permissions = Permissions.Follower;
+                // Con esto evitamos que los suscriptores pierdan sus permisos al seguir el canal
+                // With this we avoid that subscribers lose their permissions when following the channel
+                if (user.permissions < Permissions.Follower)
+                {
+                    user.permissions = Permissions.Follower;
+                }
+                TwitchManager.instance.updateUser(user);
             }
-            TwitchManager.instance.updateUser(user);
+            else
+            {
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+
+            FollowManager.instance.FollowEvent(user);
         }
         else
         {
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
-            TwitchManager.instance.getUser(eventData.UserName, ref user);
+            Debug.LogError("There's no TwitchManager!");
         }
 
-        FollowManager.instance.FollowEvent(user);
+
+
+
     }
 
     private void BitsEvent(StreamerBotEventData eventData)
     {
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario no existe en la lista
-        // The user does not exists in the list
-        if (!user.active)
+        if (TwitchManager.instance != null)
         {
-            // Metemos al usuario a la lista y actualizamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            // El usuario no existe en la lista
+            // The user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y actualizamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+
+            DonationManager.instance.ReceiveBitsEvent(user, eventData.Amount);
+
+            Debug.Log(eventData.UserName + " sent " + eventData.Amount + " bits! Thank so much");
         }
-
-        DonationManager.instance.ReceiveBitsEvent(user,eventData.Amount);
-
-        Debug.Log(eventData.UserName + " sent " + eventData.Amount + " bits! Thank so much");
+        else
+        { 
+            Debug.LogError("There's no TwitchManager!");
+        }
+        
     }
     
     private void ChatMessageEvent(StreamerBotEventData eventData)
     {
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario no existe en la lista
-        // If the user does not exists in the list
-        if (!user.active)
+        if (TwitchManager.instance != null)
         {
-            // Metemos al usuario a la lista y actualizamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            // El usuario no existe en la lista
+            // If the user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y actualizamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+
+            ChatManager.instance.ReceiveChatMessage(user, eventData.Message);
         }
-
-        ChatManager.instance.ReceiveChatMessage(user, eventData.Message);
-    }
-
-    private void AdsRunningEvent(StreamerBotEventData eventData)
-    {
-        // Aun en desarrollo
-       // Still on development
-    }
-
-    private void AdsIncomingEvent(StreamerBotEventData eventData)
-    {
-        // Aun en desarrollo
-        // Still on development
+        else
+        {
+            Debug.LogError("There's no TwitchManager!");
+        }
     }
 
     private void SuscriptionEvent(StreamerBotEventData eventData)
     {
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario no existe en la lista
-        // The user does not exists in the list
-        if (!user.active)
+        if (TwitchManager.instance != null)
         {
-            // Metemos al usuario a la lista y actualizamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            // El usuario no existe en la lista
+            // The user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y actualizamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+            else
+            {
+                // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
+                // We get the type of subscription and the time that has been subscribed
+                user.permissions = Permissions.Subscribers;
+                user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
+                user.subscription.selectTierINT(eventData.tier);
+                TwitchManager.instance.updateUser(user);
+            }
+
+            SubscriptionManager.instance.SubscriptionEvent(user);
         }
         else
-        {
-            // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
-            // We get the type of subscription and the time that has been subscribed
-            user.permissions = Permissions.Subscribers;
-            user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
-            user.subscription.selectTierINT(eventData.tier);
-            TwitchManager.instance.updateUser(user);
+        { 
+            Debug.LogError("There's no TwitchManager!");
         }
-
-        SubscriptionManager.instance.SubscriptionEvent(user);
     }
 
     private void SuscriptionGiftEvent(StreamerBotEventData eventData)
     {
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
-
-        User gifter = new User();
-
-        // Si el usuario no es anonimo, podemos intentar obtener al gifter
-        // If the user is not anonymous, we can try to get the gifter
-        if (!eventData.isAnonymous)
+        if (TwitchManager.instance != null)
         {
-            TwitchManager.instance.getUser(eventData.UserName2, ref gifter);
-        }
-
-        // El usuario no existe en la lista
-        // The user does not exists in the list
-        if (!user.active)
-        {
-            // Metemos al usuario a la lista y refrescamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            User gifter = new User();
+
+            // Si el usuario no es anonimo, podemos intentar obtener al gifter
+            // If the user is not anonymous, we can try to get the gifter
+            if (!eventData.isAnonymous)
+            {
+                TwitchManager.instance.getUser(eventData.UserName2, ref gifter);
+            }
+
+            // El usuario no existe en la lista
+            // The user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y refrescamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+            else
+            {
+                // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
+                // We get the type of subscription and the time that has been subscribed
+                user.permissions = Permissions.Subscribers;
+                user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
+                user.subscription.selectTierINT(eventData.tier);
+                TwitchManager.instance.updateUser(user);
+            }
+
+            // Si el gifter no esta activo y no es anonimo
+            // If the gifter is not active and is not anonymous
+            if (!gifter.active && !eventData.isAnonymous)
+            {
+                // Metemos al usuario a la lista y refrescamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.createDefaultUser(eventData.UserName2, ref gifter);
+            }
+
+            SubscriptionManager.instance.SubscriptionGiftEvent(user, gifter);
         }
         else
         {
-            // Agarramos el tipo de suscripcion y el tiempo que lleva suscrito
-            // We get the type of subscription and the time that has been subscribed
-            user.permissions = Permissions.Subscribers;
-            user.subscription.SubscribedMonthCount = eventData.monthsSuscribed;
-            user.subscription.selectTierINT(eventData.tier);
-            TwitchManager.instance.updateUser(user);
+            Debug.LogError("There's no TwitchManager!");
         }
 
-        // Si el gifter no esta activo y no es anonimo
-        // If the gifter is not active and is not anonymous
-        if(!gifter.active && !eventData.isAnonymous)
-        {
-            // Metemos al usuario a la lista y refrescamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.createDefaultUser(eventData.UserName2, ref gifter);
-        }
-
-        SubscriptionManager.instance.SubscriptionGiftEvent(user, gifter);
+        
     }
 
     private void ChannelRewardEvent(StreamerBotEventData eventData)
     {
 
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario no existe en la lista
-        // The user does not exists in the list
-        if (!user.active)
+        if (TwitchManager.instance != null)
         {
-            // Metemos al usuario a la lista y actualizamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
-        }
-        
-        // Tener en cuenta que el ultimo argumento debe ser la lista de argumentos de la recompensa (Todavia no esta disponible)
-        // Be aware that the last argument must me the list of arguments of the reward (Still not available)
-        ChannelRewardManager.instance.RewardEvent(eventData.Message, user, new List<string>());
 
+            // El usuario no existe en la lista
+            // The user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y actualizamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+
+            // Tener en cuenta que el ultimo argumento debe ser la lista de argumentos de la recompensa (Todavia no esta disponible)
+            // Be aware that the last argument must me the list of arguments of the reward (Still not available)
+            ChannelRewardManager.instance.RewardEvent(eventData.Message, user, new List<string>());
+        }
+        else
+        {
+            Debug.LogError("There's no TwitchManager!");
+        }
     }
 
     private void ReceiveRaidEvent(StreamerBotEventData eventData)
@@ -250,20 +289,27 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         // Comprobamos si el usuario ya esta en la lista
         // We check if the user is already in the list
         User user = new User();
-        TwitchManager.instance.getUser(eventData.UserName, ref user);
 
-        // El usuario no existe en la lista
-        // The user does not exists in the list
-        if (!user.active)
+        if (TwitchManager.instance != null)
         {
-            // Metemos al usuario a la lista y actualizamos el usuario
-            // We add the user to the list and refresh the user
-            TwitchManager.instance.addNewUser(eventData);
             TwitchManager.instance.getUser(eventData.UserName, ref user);
+
+            // El usuario no existe en la lista
+            // The user does not exists in the list
+            if (!user.active)
+            {
+                // Metemos al usuario a la lista y actualizamos el usuario
+                // We add the user to the list and refresh the user
+                TwitchManager.instance.addNewUser(eventData);
+                TwitchManager.instance.getUser(eventData.UserName, ref user);
+            }
+
+            RaidManager.instance.ReceiveRaidEvent(user, eventData.Amount);
         }
-
-        RaidManager.instance.ReceiveRaidEvent(user, eventData.Amount);
-
+        else
+        {
+            Debug.LogError("There's no TwitchManager!");
+        }
     }
 
     private void SendRaid(StreamerBotEventData eventData)
@@ -287,51 +333,57 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
     {
         User user = new User();
 
-        user.UserName = eventData.UserName;
-        user.profilePictureURL = eventData.UserProfileImage;
-        
-        // Asignar suscripcion usuario
-        // Asignar dias Seguidos de Follow
+        if (TwitchManager.instance != null)
+        {
+            user.UserName = eventData.UserName;
+            user.profilePictureURL = eventData.UserProfileImage;
 
-        user.active = true;
+            // Asignar suscripcion usuario
+            // Asignar dias Seguidos de Follow
 
-        if (eventData.isMod)
-        {
-            user.permissions = Permissions.Mods;
-        }
-        else if (eventData.isVip)
-        {
-            user.permissions = Permissions.VIPs;
-        }
-        else if (eventData.isSuscribed)
-        {
-            user.permissions = Permissions.Subscribers;
+            user.active = true;
+
+            if (eventData.isMod)
+            {
+                user.permissions = Permissions.Mods;
+            }
+            else if (eventData.isVip)
+            {
+                user.permissions = Permissions.VIPs;
+            }
+            else if (eventData.isSuscribed)
+            {
+                user.permissions = Permissions.Subscribers;
+            }
+            else
+                user.permissions = Permissions.Everyone;
+
+            // Dependiendo de quien solicito la informacion, se haran cosas diferentes
+            // Depending on who requested the information, it will do different things
+            switch (TwitchManager.instance.whoRequested)
+            {
+                case TwitchManager.WhoRequested.FollowManager:
+                    break;
+                case TwitchManager.WhoRequested.SubscriptionManager:
+                    // Llamamos al evento de suscripcion de gifter pero con la informacion del gifter
+                    // We call the subscription event of gifter but with the information of the gifter
+                    SubscriptionManager.instance.SubscriptionGiftEventWithGifterInfo(user);
+                    break;
+                case TwitchManager.WhoRequested.RaidManager:
+                    // Este es solo un ejemplo que muestra el streamer al que hacer raid (Eliminar estas lineas es seguro)
+                    // This is just an example that show the streamer to raid (Deleting these lines is safe)
+                    if (ExampleManager.instance != null)
+                        ExampleManager.instance.showStreamerToRaid(user);
+                    break;
+                default:
+                    Debug.Log("Who requested is not defined");
+                    break;
+            }
         }
         else
-            user.permissions = Permissions.Everyone;
-        
-        // Dependiendo de quien solicito la informacion, se haran cosas diferentes
-        // Depending on who requested the information, it will do different things
-        switch (TwitchManager.instance.whoRequested)
-        { 
-            case TwitchManager.WhoRequested.FollowManager:
-                break;
-            case TwitchManager.WhoRequested.SubscriptionManager:
-                // Llamamos al evento de suscripcion de gifter pero con la informacion del gifter
-                // We call the subscription event of gifter but with the information of the gifter
-                SubscriptionManager.instance.SubscriptionGiftEventWithGifterInfo(user);
-                break;
-            case TwitchManager.WhoRequested.RaidManager:
-                // Este es solo un ejemplo que muestra el streamer al que hacer raid (Eliminar estas lineas es seguro)
-                // This is just an example that show the streamer to raid (Deleting these lines is safe)
-                if(ExampleManager.instance != null)
-                    ExampleManager.instance.showStreamerToRaid(user);
-                break;
-            default:
-                Debug.Log("Who requested is not defined");
-                break;
+        {
+            Debug.LogError("There's no TwitchManager!");
         }
-
     }
     #endregion
 }

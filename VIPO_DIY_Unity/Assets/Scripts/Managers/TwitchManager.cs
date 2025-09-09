@@ -164,6 +164,10 @@ public class TwitchManager : MonoBehaviour
         user.subscription.Tier = SubscriptionTier.NotSet;
         user.permissions = Permissions.Everyone;
 
+        // Asignamos el usuario al temporal, pero no lo añadimos a la lista
+        // We assign the user to the temporal one, but we don't add it to the list
+        temporalUser = user;
+
     }
     #endregion
 

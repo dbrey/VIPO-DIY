@@ -71,15 +71,18 @@ public class ExampleManager : MonoBehaviour
     {
         assignSubscriber.AssignData(user.UserName, user.profilePictureURL);
 
-        //We get the position of the assignSubscriber object and we establish a new position to throw the object using an offset
+        // Conseguimos la posicion del objeto con assignSubscriber y establecemos una nueva posicion para lanzar el objeto usando un offset
+        // We get the position of the assignSubscriber object and we establish a new position to throw the object using an offset
         Vector3 newPosition = assignSubscriber.transform.position + gifterOffset;
         GameObject packageSub = Instantiate(gifterSubscription, newPosition, Quaternion.identity);
 
+        // Calculamos la direccion a lanzar el objeto con una cierta fuerza
         // We calculate the direction to throw the object with a certain force
         Vector3 dir = (assignSubscriber.transform.position - packageSub.transform.position).normalized;
 
         packageSub.GetComponent<Rigidbody>().AddForce(dir * 500);
 
+        // Si el gifter no es anonimo, mostramos su nombre
         // If the gifter is not anonymous, we show the name of the gifter
         if (gifterName != "")
         {
@@ -146,8 +149,16 @@ public class ExampleManager : MonoBehaviour
         int randomStreamer = Random.Range(0, streamerList.Length);
 
         // Mandamos un request para conseguir informacion del streamer
-        TwitchManager.instance.getUDPSender().doAction("GetUserInfo", "Request User Info", streamerList[randomStreamer], 0);
-        TwitchManager.instance.whoRequested = TwitchManager.WhoRequested.RaidManager;
+        if (TwitchManager.instance != null)
+        {
+            TwitchManager.instance.getUDPSender().doAction("GetUserInfo", "Request User Info", streamerList[randomStreamer], 0);
+            TwitchManager.instance.whoRequested = TwitchManager.WhoRequested.RaidManager;
+        }
+        else
+        {
+            Debug.LogWarning("There's no TwitchManager in the scene. Add a TwitchManager to solve this");
+        }
+
 
     }
 
@@ -159,13 +170,18 @@ public class ExampleManager : MonoBehaviour
 
             var textureRequest = UnityWebRequestTexture.GetTexture(user.profilePictureURL);
             var asyncOp = textureRequest.SendWebRequest();
-            asyncOp.completed += (op) => {
+            asyncOp.completed += (op) =>
+            {
                 var texture = DownloadHandlerTexture.GetContent(textureRequest);
 
                 GameObject raidToWhoCubeAux = Instantiate(raidToWhoCube, raidToWhoSpawner.position, Quaternion.identity);
                 Sprite spriteAux = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-                raidToWhoCubeAux.GetComponent<AssignRaidToCube>().assignStreamerImage(spriteAux,user.UserName);
+                raidToWhoCubeAux.GetComponent<AssignRaidToCube>().assignStreamerImage(spriteAux, user.UserName);
             };
+        }
+        else
+        {
+            Debug.LogWarning("This user has not been registed");
         }
     }
 

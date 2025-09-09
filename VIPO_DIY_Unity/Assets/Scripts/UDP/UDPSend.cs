@@ -108,12 +108,14 @@ public class UDPSend : MonoBehaviour
 
         switch (typeAction)
         {
+            // Caso por defecto
             // Default case
             case "":
                 jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": """ + action.id + @""" }, 
                 ""args"":{""textArgument"": """ + textArguments + @""" , ""numberArgument"": """ + numberArguments + @"""} }";
                 break;
-            // Case to request user info (We simply change to rawInput)
+            // Caso para solicitar informacion del usuario (Simplemente cambiamos de textArgument a rawInput)
+            // Case to request user info (We simply change from textArgument to rawInput)
             case "Request User Info":
                 jsonString = @"{ ""request"": ""DoAction"", ""action"": { ""id"": """ + action.id + @""" }, 
                 ""args"":{""rawInput"": """ + textArguments + @""" , ""numberArgument"": """ + numberArguments + @"""} }";

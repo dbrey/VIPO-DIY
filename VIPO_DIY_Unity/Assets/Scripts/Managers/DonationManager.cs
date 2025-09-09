@@ -33,11 +33,12 @@ public class DonationManager : MonoBehaviour
         // You can delete this lines and it's completely safe! It simply disconnects the action from the event
         if (ExampleManager.instance != null)
             ExampleManager.instance.BitsDonationExample(bits);
+        else
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in ReceiveBitsEvent of DonationManager");
+
         Debug.Log("Received " + bits + " bits");
     }
 
-    // Sin funcionalidad por el momento
-    // No functionality yet
     public void ReceiveDonationEvent(User user, float amount)
     {
         // Existen varias plataformas conectadas a Streamerbot como Patreon, Ko-fi, Shopify... Se puede crear un evento por cada tipo pero

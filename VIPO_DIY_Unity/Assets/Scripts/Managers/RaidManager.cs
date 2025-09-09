@@ -60,6 +60,10 @@ public class RaidManager : MonoBehaviour
         // You can delete this lines and it's completely safe! It simply disconnects the action from the event
         if (ExampleManager.instance != null)
             ExampleManager.instance.RaidExample(raidUser, NViewers);
+        else
+        {
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in ReceiveRaidEvent of RaidManager");
+        }
 
         Debug.Log("Raid received from " + raidUser.UserName + " with : " + NViewers);
     }
@@ -104,6 +108,9 @@ public class RaidManager : MonoBehaviour
         // You can delete this lines and it's completely safe! It simply disconnects the action from the event
         if (ExampleManager.instance != null)
             ExampleManager.instance.selectRandomActiveStreamer(streamers);
+        else
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in StartRaidEvent of RaidManager");
+
 
     }
 

@@ -64,6 +64,10 @@ public class FollowManager : MonoBehaviour
         // You can delete this lines and it's completely safe! It simply disconnects the action from the event
         if (ExampleManager.instance != null)
             ExampleManager.instance.FollowExample(user);
+        else
+        {
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in FollowEvent of FollowManager");
+        }
 
     }
 

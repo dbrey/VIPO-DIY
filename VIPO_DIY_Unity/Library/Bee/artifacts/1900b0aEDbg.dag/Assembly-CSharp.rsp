@@ -128,7 +128,7 @@
 -define:TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"Assets/Scripts/Plugins/websocket-sharp.dll"
+-r:"Assets/websocket-sharp.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEngine/UnityEditor.AccessibilityModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEngine/UnityEditor.AdaptivePerformanceModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Managed/UnityEngine/UnityEditor.BuildProfileModule.dll"
@@ -430,6 +430,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VisualStudio.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/websocket-sharp.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.34f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
@@ -446,13 +447,13 @@
 "Assets/Scripts/Managers/StreamerBotEventManager.cs"
 "Assets/Scripts/Managers/SubscriptionManager.cs"
 "Assets/Scripts/Managers/TwitchManager.cs"
-"Assets/Scripts/OtherScripts/PlayerController.cs"
-"Assets/Scripts/OtherScripts/RotateObject.cs"
-"Assets/Scripts/StreamerBotEventManagerWebsocket.cs"
+"Assets/Scripts/Other Scripts/PlayerController.cs"
+"Assets/Scripts/Other Scripts/RotateObject.cs"
 "Assets/Scripts/TwitchUtils.cs"
 "Assets/Scripts/UDP/StreamerBotUDPReceiver.cs"
 "Assets/Scripts/UDP/UDPSend.cs"
-"Assets/Scripts/WebsocketStuff.cs"
+"Assets/Scripts/Websockets_WIP/StreamerBotEventManagerWebsocket.cs"
+"Assets/Scripts/Websockets_WIP/WebsocketStuff.cs"
 -langversion:9.0
 /deterministic
 /optimize-

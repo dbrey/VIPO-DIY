@@ -37,12 +37,18 @@ namespace Twitch_data
         }
         public enum SubscriptionTier
         {
+            // El valor de las suscripciones, puede cambiar en el futuro
+            // The value of the subscriptions may change in the future
+
+            // El usuario tiene que pagar 25$ para ser nivel 3, el cual es el nivel maximo
             // The user have to pay 25$ to be tier 3, so it's the highest tier
             Tier3 = 4,
 
+            // El usuario tiene que pagar 10$ para ser nivel 2
             // The user have to pay 10$ to be tier 2
             Tier2 = 3,
 
+            // El usuario tiene que pagar 5$ para ser nivel 1
             // The user have to pay 5$ to be tier 1
             Tier1 = 2,
 
@@ -100,16 +106,6 @@ namespace Twitch_data
             /// El numero total de meses que el usuario ha estado suscrito al canal
             /// The total number of months the user has been subscribed to the channel
             public int SubscribedMonthCount;
-
-            /// <summary>
-            /// The number of concurrent months in the user has been subscribed in their current streak
-            /// </summary>
-            /// <remarks>
-            /// This is only set if the user subscribed/re-subscribed since the overlay was opened
-            /// </remarks>
-            /// STILL IN DEVELOPMENT
-            //public int StreakMonths { get; internal set; }
-
             
             /// El tier al que el usuario se ha suscrito
             /// Esto siempre deberia estar asignado si el usuario esta suscrito y los datos estan disponibles
@@ -128,7 +124,6 @@ namespace Twitch_data
             /// A user with details of the gifter
             /// This will be null if this is not a gift subscription or the gift was anonymous
             public User Gifter;
-
 
             public void selectTierINT(int tier)
             {

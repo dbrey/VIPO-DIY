@@ -54,6 +54,8 @@ public class ChannelRewardManager : MonoBehaviour
             permissions = Permissions.Everyone;
         }
 
+        // Constructora
+        // Constructor
         public ManagedReward(string name, int cost, float coolDown, bool enabled, Permissions permissions)
         {
             this.name = name;
@@ -201,28 +203,11 @@ public class ChannelRewardManager : MonoBehaviour
                     */
             }
         }
-    }
-
-    // Todavia en desarrollo
-    // Still in development
-    /*void updateCostReward(string rewardToUpdate, int newCost)
-    {
-        if (managedRewards.ContainsKey(rewardToUpdate))
-        {
-            ManagedReward auxReward = managedRewards[rewardToUpdate];
-            auxReward.cost = newCost;
-            managedRewards[rewardToUpdate] = auxReward;
-
-            // Here we have to tell StreamerBot to update the reward cost in Twitch as well
-            // For now, this only changes the cost of one specific reward
-            // If we want to specify which reward we need to define some "Selection" type in the doAction method
-            StreamerBotEventManager.instance.udpSend.doAction("UpdateChannelReward", "", "", auxReward.cost);
-        }
         else
         {
-            Debug.Log("The reward " + rewardToUpdate + " does not exist");
+            Debug.LogWarning("The Reward " + rewardName + " already exists");
         }
-    }*/
+    }
 
     #endregion
 
@@ -247,6 +232,8 @@ public class ChannelRewardManager : MonoBehaviour
             // You can delete this lines and it's completely safe! It simply disconnects the action from the event
             if (ExampleManager.instance != null)
                 ExampleManager.instance.RewardExample();
+            else
+                Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in ExecuteReward of ChannelRewardManager");
         }
     }
 
@@ -255,8 +242,7 @@ public class ChannelRewardManager : MonoBehaviour
         // Constructor para asignar los valores de la recompensa
         // Constructor to assign the values of the reward
         public exampleArgumentsReward(string name, int cost, float coolDown, bool enabled, Permissions permissions) : base(name, cost, coolDown, enabled, permissions)
-        {
-        }
+        {}
 
         // Este metodo se llama cuando se ejecuta la recompensa en el metodo RewardEvent
         // This void is called when the reward is executed in the void RewardEvent

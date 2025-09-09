@@ -91,17 +91,18 @@ namespace StreamerBotUDP
 
         #endregion
 
-        /// <summary>
+        /// Inicializamos el hilo receptor UDP y las listas de delegados.
         /// Initialises the UDP receiver thread and delegate lists.
-        /// </summary>
         private void Init()
         {
 
             Debug.Log($"Attempting to initialise StreamerBot UDP Receiver: 127.0.0.1:{_port}");
 
-            // Belts and braces error check to make sure we haven't already started the thread.
+            // Nos aseguramos de que no hemos empezado ya el hilo.
+            // We make sure we haven't already started the thread.
             if (_receiveThread == null)
             {
+                // Preparamos el hilo y lo iniciamos
                 // Setup the thread and start it running.
                 _cancellationTokenSource = new();
                 CancellationToken token = _cancellationTokenSource.Token;
@@ -120,12 +121,11 @@ namespace StreamerBotUDP
         }
 
 
-        /// <summary>
+        /// Comprobamos si tenemos un hilo o cliente en marcha y los abortamos/cerramos.
         /// Checks to see if we have a thread or client running and aborts/closes them.
-        /// </summary>
         private void CloseConnection()
         {
-
+            // Nos aseguramos de que el receptor no sea nulo
             // Make sure the receiver thread is not null.
             if (_receiveThread != null)
             {
@@ -134,25 +134,26 @@ namespace StreamerBotUDP
                 _cancellationTokenSource = null;
             }
 
+            // Establecemos el hilo a nulo para que pueda ser reiniciado si es necesario.
             // Set receiver thread to null so it can be reinitialised if needed.
             _receiveThread = null;
             _client?.Close();
 
         }
 
-        /// <summary>
+        /// Cerramos la conexion actual (si hay una) e inicializamos una nueva.
         /// Closes the current connection (if there is one) and initialises a new one.
-        /// </summary>
         public void Reset()
         {
             CloseConnection();
             Init();
         }
 
-        /// <summary>
+        /// Llamamos a Init al final, esta funcion esta pensada para guardar los registros
+        /// de los eventos de StreamerBot y sus acciones asociadas.
+
         /// Called at the end of Init(), this function is intended to house the registration
         /// of StreamerBot events and their associated action.
-        /// </summary>
         protected virtual void InitialiseStreamerBotEvents()
         {
 
@@ -161,10 +162,11 @@ namespace StreamerBotUDP
 
         }
 
-        /// <summary>
-        /// Runs continuously checking for information from UDP port. Designed to run on a separate thread.
+        /// Chequea connstantemente la informacion del puerto UDP. Diseñado para correr en un hilo separado.
+        /// NO LLAMAR DESDE EL HILO PRINCIPAL!
+
+        /// Checks continously for information from UDP port. Designed to run on a separate thread.
         /// DO NOT CALL FROM MAIN THREAD!
-        /// </summary>
         private void ReceiveData(CancellationToken token)
         {
 
@@ -172,23 +174,30 @@ namespace StreamerBotUDP
 
             using (_client = new UdpClient(_port))
             {
+                // Iniciamos el bucle del receptor UDP.
                 // Begin UDP Receiver loop.
                 while (!token.IsCancellationRequested)
                 {
+                    // Intentamos recibir datos JSON y empaquetarlos en una clase StreamerBotEventData. Si tiene exito,
+                    // enviamos los datos resultantes a TryEvent para que se usen.
 
                     // Try to receive JSON data and packaged into a StreamerBotEventData class. If successful,
                     // send the resulting data to TryEvent to be used.
                     try
                     {
                         Debug.Log("Waiting for UDP data...");
+
+                        // Conseguimos la informacion JSON del mensaje UDP.
                         // Get the JSON information from the UDP message.
                         IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                         byte[] data = _client.Receive(ref anyIP);
                         string receivedData = Encoding.UTF8.GetString(data);
 
+                        // Serializamos los datos JSON en una clase StreamerBotEventData.
                         // Serialize the JSON data into a StreamerBotEventData class.
                         StreamerBotEventData newEvent = JsonUtility.FromJson<StreamerBotEventData>(receivedData);
 
+                        // Añadimos el nuevo evento a nuestra cola de eventos para ser procesados en el hilo principal.
                         // Add the new event to our events queue to be processed on the main thread.
                         if (newEvent != null)
                         {
@@ -211,10 +220,11 @@ namespace StreamerBotUDP
 
         private void Update()
         {
-
+            // Nos aseguramos que la cola de eventos no sea nula.
             // Make sure the events queue is not null.
             if (_events == null) return;
 
+            // Enviamos cualquier evento que haya sido puesto en cola para ser procesado.
             // Send any events that have been queued up to be processed.
             while (_events.TryDequeue(out StreamerBotEventData? newEvent))
             {
@@ -226,10 +236,19 @@ namespace StreamerBotUDP
 
         }
 
+        #region Spanish Documentation
+        // Estas funciones se ejecutan automaticamente cuando el GameObject padre es activado/desactivado o si
+        // la aplicacion se cierra. Llamar a Init() y CloseConnection() desde aqui asegura que si tu
+        // objeto StreamerBotManager es desactivado/activado, tiene el mismo comportamiento que resetear
+        // la conexion UDP/hilo receptor.
+        #endregion
+        #region English Documentation
         // These functions run automatically when the parent GameObject is enabled/disabled or the
         // application quits. Calling Init() and CloseConnection() from here ensures that if your
         // StreamerBotManager object is disabled/activated, it has the same behaviour as resetting
         // the UDP connection/receiver thread.
+        #endregion
+
         #region Automatic Initialisation/Connection Closing
 
         private void OnEnable()
@@ -251,95 +270,100 @@ namespace StreamerBotUDP
 
     }
 
-    /// <summary>
+
+    #region Spanish Documentation
+    /// Contiene los datos pasados desde StreamerBot. Los datos pueden incluir cualquiera o todos los campos
+    /// de esta clase. Por ejemplo, enviar un evento de Bit Cheer incluiria el Evento, Usuario, y
+    /// Cantidad (y posiblemente Mensaje), mientras que enviar un evento de pausa publicitaria solo necesitaria un Evento
+    #endregion
+    #region English Documentation
     /// Contains the data passed in from StreamerBot. The data can include any or all of the fields
     /// in this class. For example, sending a Bit Cheer event would include the Event, User, and
-    /// Amount (and possibly Message), whereas sending an ad-break event would only need an
-    /// Event.
-    /// </summary>
+    /// Amount (and possibly Message), whereas sending an ad-break event would only need an Event
+    #endregion
+
     [System.Serializable]
     public class StreamerBotEventData
     {
-        /// <summary>
+        /// El tipo de evento. Puede ser cualquier cosa que desees pero la cadena pasada desde StreamerBot
+        /// debe coincidir exactamente con lo que estas haciendo en Unity.
+
         /// The type of event. Can be anything you wish but the string passed from StreamerBot
         /// must match exactly with whatever you are doing in Unity.
-        /// </summary>
         public string Event;
 
         #region MAIN USER DATA
 
-        /// <summary>
+        /// El usuario debe estar asociado con el evento. Por ejemplo, si el evento fue una suscripcion,
+        /// este seria el nombre del suscriptor
+
         /// The username associated with the event. For example, if the event was a subscription,
         /// this would be the username of the subscriber.
-        /// </summary>
         public string UserName;
 
-        /// <summary>
+        /// La imagen de perfil del usuario asociado con el evento. Por ejemplo, si el evento fue un follow,
+        /// este seria la imagen de perfil del usuario que siguio.
+
         /// The profile image of the user associated with the event. For example, if the event was a follow,
         /// this would be the profile image of the user who followed.
-        /// </summary>
         public string UserProfileImage;
 
-        /// <summary>
+        /// Si el usuario es un VIP
         /// If the user is a VIP
-        /// </summary>
         public bool isVip;
 
-        /// <summary>
+        /// Si el usuario es un moderador
         /// If the user is a moderator
-        /// </summary>
         public bool isMod;
 
-        /// <summary>
+        /// Si el usuario es suscriptor
         /// If the user is a subscriber
-        /// </summary>
         public bool isSuscribed;
 
-        /// <summary>
+        /// El numero de dias que el usuario ha estado siguiendo el canal
         /// The number of days the user has been following the channel
-        /// </summary>
         public int followAgeDays;
 
-        /// <summary>
+        /// Cuantos meses el usuario ha estado suscrito
         /// How many months the user has been suscribed
-        /// </summary>
         public int monthsSuscribed;
 
-        /// <summary>
+        /// El nivel actual de la suscripcion
         /// The current tier of the subscription
-        /// </summary>
         public int tier;
 
         #endregion
 
+        /// Esta informacion puede tener valor si el evento es un regalo de suscripcion.
         /// This information may have value if the event is a subscription gift.
         #region Subscription Gift Data
 
-        /// <summary>
+        /// El usuario asociado al evento. Por ejemplo, si el evento fue un regalo de suscripcion,
+        /// este seria el nombre del suscriptor
+
         /// The username associated with the event. For example, if the event was a subscription,
         /// this would be the username of the subscriber.
-        /// </summary>
         public string UserName2;
         public bool isAnonymous;
 
         #endregion
 
-        /// <summary>
-        /// A message associated with the event. For example, if you wanted to play TTS from this event,
+        /// Un mensaje asociado al evento. Por ejemplo, si quisieras mostrar un mensage desde este evento,
+        /// esta cadena contendria el mensaje.
+
+        /// A message associated with the event. For example, if you wanted to show a message from this event,
         /// this string would contain the message.
-        /// </summary>
         public string Message;
 
-        /// <summary>
-        /// A numerical amount associated with this event. For example, the number of bits cheered or subs
-        /// gifted.
-        /// </summary>
+        /// Una cantidad numerica asociada con este evento. Por ejemplo, el numero de bits enviados o suscripciones regalados.
+        /// A numerical amount associated with this event. For example, the number of bits cheered or subscriptions gifted.
         public int Amount;
 
-        /// <summary>
+        /// El constructor establece los valores por defecto para cada campo, que es lo que valdra si
+        /// la carga de UDP desde StreamerBot no contiene un campo en particular.
+
         /// The constructor establishes the default values for each field, which is what the value will be if
         /// the UDP payload from StreamerBot does not contain a particular field.
-        /// </summary>
         public StreamerBotEventData()
         {
             Event = string.Empty;

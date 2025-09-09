@@ -10,7 +10,8 @@ public class AssignFollower : MonoBehaviour
 
     public void AssignData(string Name, string sprite)
     {
-
+        // Enviamos una solicitud usando una URL para recibir una textura y descargarla
+        // We send a request using a URL to get a texture and download it
         var textureRequest = UnityWebRequestTexture.GetTexture(sprite);
         var asyncOp = textureRequest.SendWebRequest();
         asyncOp.completed += (op) => {
@@ -19,6 +20,5 @@ public class AssignFollower : MonoBehaviour
             text.text = Name;
             image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         };
-
     }
 }

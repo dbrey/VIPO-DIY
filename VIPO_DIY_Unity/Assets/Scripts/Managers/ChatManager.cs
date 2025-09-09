@@ -137,6 +137,10 @@ public class ChatManager : MonoBehaviour
                 */
             }
         }
+        else
+        {
+            Debug.LogWarning("The Command " + commandName + "already exists");
+        }
     }
 
     void Update()
@@ -264,6 +268,9 @@ public class ChatManager : MonoBehaviour
         // You can delete this lines and nothing will break! It simply disconnects the action from the event
         if (ExampleManager.instance != null)
             ExampleManager.instance.AddChatMessage(user, message);
+        else
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in printMessage of ChatManager");
+
     }
 
     class exampleCommand : ManagedCommand
@@ -285,6 +292,9 @@ public class ChatManager : MonoBehaviour
             // You can delete this lines and it's completely safe! It simply disconnects the action from the event
             if (ExampleManager.instance != null)
                 ExampleManager.instance.CommandExample();
+            else
+                Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in ExecuteCommand of ChatManager");
+
         }
     }
 

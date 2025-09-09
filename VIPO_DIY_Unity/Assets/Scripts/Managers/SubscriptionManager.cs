@@ -59,6 +59,9 @@ public class SubscriptionManager : MonoBehaviour
         // In this case, we only show the name of the user and its profile picture (You can delete the line and it's completely safe)
         if (ExampleManager.instance != null)
             ExampleManager.instance.SubscriptionExample(user);
+        else
+            Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in SubscriptionEvent of SubscriptionManager");
+
     }
 
     public void SubscriptionGiftEvent(User user, User userGifter)
@@ -74,6 +77,11 @@ public class SubscriptionManager : MonoBehaviour
             // If the user is active, then we can access its information as the gifter is not anonymous (You can delete the line and it's completely safe)
 
             string gifterUsername = userGifter.UserName;
+            if (TwitchManager.instance == null)
+            {
+                Debug.LogWarning("There's no TwitchManager, add one in the scene");
+            }
+
             if (TwitchManager.instance.getUser(gifterUsername, ref userGifter))
             {
                 // El usuario ya estaba en la lista de usuarios, por lo que podemos acceder a su informacion
@@ -81,7 +89,10 @@ public class SubscriptionManager : MonoBehaviour
 
                 if (ExampleManager.instance != null)
                     ExampleManager.instance.SubscriptionGiftExample(user, userGifter.UserName);
-                
+                else
+                {
+                    Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in SubscriptionGiftEvent (known user) of SubscriptionManager");
+                }
             }
             else
             {
@@ -90,7 +101,6 @@ public class SubscriptionManager : MonoBehaviour
                 saveUserToGift = user;
                 requestGifterUser(gifterUsername);
             }
-                
         }
         else
         {
@@ -98,6 +108,9 @@ public class SubscriptionManager : MonoBehaviour
             // If the user is not active, then the gifter is anonymous (You can delete the lines and it's completely safe)
             if (ExampleManager.instance != null)
                 ExampleManager.instance.SubscriptionGiftExample(user, "");
+            else
+                Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in SubscriptionGiftEvent (user anonymous) of SubscriptionManager");
+
         }
     }
 
