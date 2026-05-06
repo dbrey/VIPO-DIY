@@ -105,10 +105,6 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
         {
             Debug.LogError("There's no TwitchManager!");
         }
-
-
-
-
     }
 
     private void BitsEvent(StreamerBotEventData eventData)
@@ -159,6 +155,7 @@ public class StreamerBotEventManager : StreamerBotUDPReceiver
             }
 
             ChatManager.instance.ReceiveChatMessage(user, eventData.Message);
+            Debug.Log("Usuario: " + eventData.UserName + "\n" + "Mensaje: " + eventData.Message);
         }
         else
         {
