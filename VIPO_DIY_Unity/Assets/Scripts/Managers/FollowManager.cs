@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Twitch_data;
 using static Twitch_data.TwitchUtils;
 
 #region Como usar

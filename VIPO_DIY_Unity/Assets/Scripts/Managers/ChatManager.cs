@@ -1,11 +1,6 @@
-using Palmmedia.ReportGenerator.Core;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Twitch_data;
 using static Twitch_data.TwitchUtils;
-using Unity.VisualScripting;
 
 #region Como usar
 ///
@@ -317,6 +312,15 @@ public class ChatManager : MonoBehaviour
             }
 
             Debug.Log("Command arguments: " + arguments);
+
+            // Puedes borrar estas lineas y es completamente seguro! Simplemente desconecta la accion del evento
+            // You can delete this lines and it's completely safe! It simply disconnects the action from the event
+            int aux = int.Parse(commandArguments[1]);
+
+            if (ExampleManager.instance != null)
+                ExampleManager.instance.CommandArgumentExample(aux);
+            else
+                Debug.LogWarning("There's no ExampleManager. Either add an ExampleManager or get rid of this part of the code in ExecuteCommand of ChatManager");
         }
     }
 

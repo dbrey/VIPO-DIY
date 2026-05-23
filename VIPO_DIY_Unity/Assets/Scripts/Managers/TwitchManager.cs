@@ -1,7 +1,5 @@
 using StreamerBotUDP;
 using System.Collections.Generic;
-using Twitch_data;
-using Unity.VisualScripting;
 using UnityEngine;
 using static Twitch_data.TwitchUtils;
 

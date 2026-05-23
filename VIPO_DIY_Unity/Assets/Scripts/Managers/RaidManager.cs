@@ -1,6 +1,4 @@
-using StreamerBotUDP;
 using UnityEngine;
-using UnityEngine.Networking;
 using static Twitch_data.TwitchUtils;
 
 #region Como usar

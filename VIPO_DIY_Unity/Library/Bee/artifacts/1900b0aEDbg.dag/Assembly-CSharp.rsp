@@ -438,6 +438,8 @@
 "Assets/Scripts/ExampleCode/AssignRaidToCube.cs"
 "Assets/Scripts/ExampleCode/DestroyAfterSeconds.cs"
 "Assets/Scripts/ExampleCode/ExampleManager.cs"
+"Assets/Scripts/ExampleCode/Explosion.cs"
+"Assets/Scripts/ExampleCode/Launch.cs"
 "Assets/Scripts/Managers/ChannelRewardManager.cs"
 "Assets/Scripts/Managers/ChatManager.cs"
 "Assets/Scripts/Managers/DonationManager.cs"
@@ -451,8 +453,6 @@
 "Assets/Scripts/TwitchUtils.cs"
 "Assets/Scripts/UDP/StreamerBotUDPReceiver.cs"
 "Assets/Scripts/UDP/UDPSend.cs"
-"Assets/Scripts/Websockets_WIP/StreamerBotEventManagerWebsocket.cs"
-"Assets/Scripts/Websockets_WIP/WebsocketStuff.cs"
 -langversion:9.0
 /deterministic
 /optimize-

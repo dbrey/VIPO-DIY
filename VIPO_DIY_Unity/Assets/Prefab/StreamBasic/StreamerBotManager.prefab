@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandsToAdd:
   - exampleCommand
+  - exampleArgumentsCommand
 --- !u!1 &2210591352651623703
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _port: 5068
-  udpSend: {fileID: 7317321990910855249}
 --- !u!114 &7317321990910855249
 MonoBehaviour:
   m_ObjectHideFlags: 0

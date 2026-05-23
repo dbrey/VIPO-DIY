@@ -1,10 +1,8 @@
 using UnityEngine;
-using Twitch_data;
 using TMPro;
 using static Twitch_data.TwitchUtils;
 using System.Collections;
 using UnityEngine.Networking;
-using UnityEngine.UI;
 
 public class ExampleManager : MonoBehaviour
 {
@@ -15,8 +13,9 @@ public class ExampleManager : MonoBehaviour
         instance = this;
     }
 
-    [Header("Player Reference")]
+    [Header("Player & Camera Reference")]
     [SerializeField] GameObject player;
+    [SerializeField] GameObject cam;
     public GameObject getPlayer()
     {
         return player;
@@ -37,6 +36,7 @@ public class ExampleManager : MonoBehaviour
 
     [Header("Chat Messages event Example")]
     [SerializeField] GameObject commandObject;
+    [SerializeField] GameObject commandArgumentObject;
 
     [Header("Chat Messages event Example")]
     [SerializeField] GameObject rewardObject;
@@ -191,10 +191,29 @@ public class ExampleManager : MonoBehaviour
         Instantiate(commandObject, pos, Quaternion.identity);
     }
 
+    public void CommandArgumentExample(int nLaunch)
+    { 
+        StartCoroutine(CommandArgumentExampleCoroutine(nLaunch));
+    }
+
+    IEnumerator CommandArgumentExampleCoroutine(int nLaunch)
+    {
+        for (int i = 0; i < nLaunch; i++)
+        {
+            GameObject coin = Instantiate(commandArgumentObject, cam.transform.position , Quaternion.identity);
+            Vector3 pos = player.transform.position + new Vector3(0, 1, 0);
+            coin.GetComponent<Launch>().LaunchObject(pos);
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+
+
     public void RewardExample()
     {
-        Vector3 pos = player.transform.position + new Vector3(0, 5, 0);
-        Instantiate(rewardObject, pos, Quaternion.identity);
+        GameObject bomb = Instantiate(rewardObject, cam.transform.position, Quaternion.identity);
+        Vector3 pos = player.transform.position + new Vector3(0, 1, 0);
+        bomb.GetComponent<Launch>().LaunchObject(pos);
     }
 
 }
