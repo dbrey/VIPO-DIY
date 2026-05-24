@@ -23,7 +23,7 @@ Currently, VIPO DIY can register Chat Messages, Commands, Twitch Rewards, Bits, 
 
 Installing Streamer.bot and Spout
 ----------------
-To install the project it is necessary to have Streamer.bot which you can dowload on its [website](https://streamer.bot). It's also necessary to download the plugin of Spout for OBS Studio in this [website](https://knowledge.offworld.live/en/articles/5059810-spout-plugin-for-obs-studio) following the instructions.
+To install the project it is necessary to have Streamer.bot which you can dowload on its [website](https://streamer.bot). It's also necessary to download the plugin of Spout for OBS Studio in this [website](https://knowledge.offworld.live/en/articles/5059810-spout-plugin-for-obs-studio) following the instructions. Once Streamer.bot is downloaded, you need to log in with your Twitch account in order to receive the channel events.
 
 HOW TO IMPORT ACTIONS AND DO TESTING?
 ----------------
@@ -47,7 +47,7 @@ In the section **"UDP Server"** leave the port to 4242 or make sure that the por
 
 How to import the Streamers group for raids?
 ----------------
-In Streamer.bot, in the section of **Settings** in **"Groups"**, a group called **"Streamers"** must be created and right clicked on it to select **"Import from File"** to import a file and select the file **"Streamers Group"** in the folder **"StreamerBot Stuff"**. To add more users, write the exact name of the user on Twitch in the frame **"Add Multiple Twitch Users to Group"** and select Add Users.
+In Streamer.bot, in the section of **Settings** in **"Groups"**, a group called **"Streamers"** must be created and right clicked on it to select **"Import from File"** to import a file and select the file **"Streamers Group"** in the folder **"StreamerBot Stuff"**. To add more users, write the exact name of the user on Twitch in the frame **"Add Multiple Twitch Users to Group"** and select Add Users. 
 
 ![Group of streamers in Streamer.bot](ImagesReadMe/GrupoStreamers.png)
 

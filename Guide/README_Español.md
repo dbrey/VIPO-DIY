@@ -26,7 +26,7 @@ Instalación e importar aplicaciones de terceros
 
 Instalar Streamer.bot y Spout
 ----------------
-Para instalar el proyecto es necesario tener Streamer.bot que podras descargar en su [página](https://streamer.bot). También es necesario descargar el plugin de Spout para OBS Studio en esta [página](https://knowledge.offworld.live/en/articles/5059810-spout-plugin-for-obs-studio) siguiendo las instrucciones.
+Para instalar el proyecto es necesario tener Streamer.bot que podras descargar en su [página](https://streamer.bot). También es necesario descargar el plugin de Spout para OBS Studio en esta [página](https://knowledge.offworld.live/en/articles/5059810-spout-plugin-for-obs-studio) siguiendo las instrucciones. Una vez descargado Streamer.bot, hay que iniciar sesión con la cuenta de Twitch para poder recibir los eventos del canal.
 
 ¿COMO IMPORTAR ACCIONES Y REALIZAR PRUEBAS?
 ----------------
